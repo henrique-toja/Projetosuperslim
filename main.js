@@ -16,17 +16,20 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 
-    // Load the initial content from 'home.html' on page load
+    // Carrega o conteúdo inicial da página home.html ao carregar o site
     const contentFile = 'home.html';
-    loadContent(contentFile); // Simplified to use the loadContent function
+    loadContent(contentFile);
 
-    // Select all buttons that have a data-page attribute
+    // Seleciona todos os botões com o atributo data-page
     const buttons = document.querySelectorAll('.btn-know[data-page], .btn-next[data-page]');
+    console.log('Botões encontrados:', buttons); // Log dos botões encontrados
+
     buttons.forEach(button => {
         button.addEventListener('click', function (event) {
-            event.preventDefault(); // Prevent the default button behavior
-            const page = button.getAttribute('data-page'); // Get the page to load
-            loadContent(page); // Load the content for the selected page
+            event.preventDefault(); // Impede o comportamento padrão do botão
+            const page = button.getAttribute('data-page'); // Obtém a página a ser carregada
+            console.log('Botão clicado, carregando página:', page); // Log da página a ser carregada
+            loadContent(page); // Carrega o conteúdo da página selecionada
         });
     });
 });
