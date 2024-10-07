@@ -34,11 +34,12 @@ body {
     scroll-behavior: smooth;
 }
 
-/* Cabeçalho */
+/* Estilo do cabeçalho */
 header {
     position: relative;
-    height: 300px;
-    background: url('assets/header.jpg') center/cover no-repeat;
+    height: 300px; /* Defina a altura do cabeçalho conforme necessário */
+    background: url('assets/header.jpg') no-repeat center center;
+    background-size: cover;
 }
 
 header::before {
@@ -48,7 +49,7 @@ header::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.2); /* Overlay branco */
+    background: rgba(255, 255, 255, 0.2); /* Cor branca com 20% de opacidade */
     z-index: 1; /* Camada acima da imagem */
 }
 
