@@ -101,6 +101,21 @@ article p {
     color: var(--color-purple);
 }
 
+/* Estilo de texto seções*/
+
+section h3 {
+    font-size: var(--font-size-h3);
+    color: var(--color-green);
+    font-family: var(--font-family-h3);
+    font-weight: bold;
+}
+
+section p {
+    font-size: var(--font-size-body);
+    color: var(--color-purple);
+}
+
+
 /* Rodapé */
 footer {
     text-align: center;
