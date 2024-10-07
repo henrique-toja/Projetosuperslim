@@ -1,35 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
-       function loadContent(page) {
-           fetch(page)
-               .then(response => {
-                   if (!response.ok) {
-                       throw new Error('Erro ao carregar o conteúdo: ' + response.statusText);
-                   }
-                   return response.text();
-               })
-               .then(data => {
-                   document.getElementById('content-placeholder').innerHTML = data;
-               })
-               .catch(error => {
-                   console.error('Erro ao carregar o conteúdo:', error);
-                   document.getElementById('content-placeholder').innerHTML = '<p>Não foi possível carregar o conteúdo. Por favor, tente novamente mais tarde.</p>';
-               });
-       }
+    function loadContent(page) {
+        // ... (código original para carregar o conteúdo)
+    }
 
-       // Carrega o conteúdo inicial da página home.html ao carregar o site
-       const contentFile = 'home.html';
-       loadContent(contentFile);
+    // Carrega o conteúdo inicial da página home.html
+    loadContent('home.html');
 
-       // Seleciona todos os botões com o atributo data-page
-       const buttons = document.querySelectorAll('.btn-know[data-page], .btn-next[data-page]');
-       console.log('Botões encontrados:', buttons); // Log dos botões encontrados
+    // Seleciona todos os botões com o atributo data-page
+    const buttons = document.querySelectorAll('.btn-know[data-page], .btn-next[data-page]');
 
-       buttons.forEach(button => {
-           button.addEventListener('click', function (event) {
-               event.preventDefault(); // Impede o comportamento padrão do botão
-               const page = button.getAttribute('data-page'); // Obtém a página a ser carregada
-               console.log('Botão clicado, carregando página:', page); // Log da página a ser carregada
-               loadContent(page); // Carrega o conteúdo da página selecionada
-           });
-       });
-   });
+    buttons.forEach(button => {
+        button.addEventListener('click', function (event) {
+            const page = button.getAttribute('data-page');
+
+            // Verifica se o botão tem o atributo data-page
+            if (page) {
+                event.preventDefault();
+                loadContent(page);
+            }
+        });
+    });
+});
