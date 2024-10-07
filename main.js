@@ -37,19 +37,19 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     // Seleciona os botões de navegação
-    const btnKnow = document.querySelector('.btn-know[href="slim"]');
-    const btnNext = document.querySelector('.btn-next[href="login"]');
+    const btn-know = document.querySelector('.btn-know[href="slim"]');
+    const btn-next = document.querySelector('.btn-next[href="login"]');
 
     // Adiciona eventos de clique para carregar o conteúdo dinamicamente ao clicar nos botões
-    if (btnKnow) {
-        btnKnow.addEventListener('click', function (event) {
+    if (btn-know) {
+        btn-know.addEventListener('click', function (event) {
             event.preventDefault();  // Impede o comportamento padrão do link
             loadContent('slim.html'); // Carrega o conteúdo da página slim.html
         });
     }
 
-    if (btnNext) {
-        btnNext.addEventListener('click', function (event) {
+    if (btn-next) {
+        btn-next.addEventListener('click', function (event) {
             event.preventDefault();  // Impede o comportamento padrão do link
             loadContent('login.html'); // Carrega o conteúdo da página login.html
         });
