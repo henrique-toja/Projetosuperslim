@@ -52,14 +52,8 @@ header::before {
     z-index: 1; /* Camada acima da imagem */
 }
 
-/* Seção de introdução padrão */
-.index {
-    text-align: center;
-    margin: 20px 0;
-}
-
-/* Estilo de artigos */
-article {
+/* Seção padrão */
+section {
     margin: 20px 0;
     padding: 20px;
     border-radius: 10px;
@@ -69,8 +63,33 @@ article {
     text-align: center;
 }
 
-article:hover {
+section:hover {
     transform: translateY(-10px);
+}
+
+/* Seção informativa */
+.info {
+    background: #fff;
+    padding: 30px;
+    text-align: left; /* Texto alinhado à esquerda */
+    line-height: 1.8;
+    box-shadow: none; /* Remove a sombra */
+}
+
+.info h3 {
+    font-size: var(--font-size-h3);
+    color: var(--color-purple); /* Roxo para títulos */
+}
+
+section.info p {
+    color: var(--color-green); /* Verde para textos */
+}
+
+/* Estilo de artigos */
+article {
+    padding: 20px;
+    background: var(--color-white);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 article h3 {
@@ -179,7 +198,7 @@ button:hover, .btn:hover {
     margin-right: 10px;
 }
 
-/* Centralizar conteúdo da index */
-section.index {
+/* Centralizar conteúdo geral */
+section {
     flex: 1; /* Permite ocupar o espaço disponível */
 }
