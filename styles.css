@@ -210,3 +210,22 @@ button:hover, button:focus {
 .index article p {
     font-size: 20px; /* Altere este valor conforme necessário */
 }
+
+/* Garante que o footer fique colado no final da página */
+html, body {
+    height: 100%; /* Garante que o body e o html ocupem 100% da altura */
+}
+
+body {
+    display: flex; /* Utiliza flexbox para organizar os elementos */
+    flex-direction: column; /* Coloca os elementos do body em coluna */
+    justify-content: space-between; /* Garante que header, section e footer se distribuam corretamente */
+}
+
+section.index {
+    flex: 1; /* Permite que o section ocupe o espaço restante */
+}
+
+footer {
+    margin-top: auto; /* Posiciona o footer automaticamente no final */
+}
