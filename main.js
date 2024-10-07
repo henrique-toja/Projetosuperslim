@@ -1,6 +1,4 @@
-// main.js
 document.addEventListener("DOMContentLoaded", function () {
-    // Função para carregar o conteúdo de uma página solicitada e inserir na div content-placeholder
     function loadContent(page) {
         fetch(page)
             .then(response => {
@@ -10,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 return response.text();
             })
             .then(data => {
-                // Substitui o conteúdo da div content-placeholder pelo conteúdo carregado
                 document.getElementById('content-placeholder').innerHTML = data;
             })
             .catch(error => {
@@ -19,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 
-    // Carrega o conteúdo inicial da página home.html ao carregar o site
     const contentFile = 'home.html';
     fetch(contentFile)
         .then(response => {
@@ -36,22 +32,12 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById('content-placeholder').innerHTML = '<p>Não foi possível carregar o conteúdo inicial. Por favor, tente novamente mais tarde.</p>';
         });
 
-    // Seleciona os botões de navegação
-    const btnKnow = document.querySelector('.btn-know[href="slim"]');
-    const btnNext = document.querySelector('.btn-next[href="login"]');
-
-    // Adiciona eventos de clique para carregar o conteúdo dinamicamente ao clicar nos botões
-    if (btnKnow) {
-        btnKnow.addEventListener('click', function (event) {
-            event.preventDefault();  // Impede o comportamento padrão do link
-            loadContent('slim.html'); // Carrega o conteúdo da página slim.html
+    const buttons = document.querySelectorAll('.btn-know[data-page], .btn-next[data-page]');
+    buttons.forEach(button => {
+        button.addEventListener('click', function (event) {
+            event.preventDefault();
+            const page = button.getAttribute('data-page');
+            loadContent(page);
         });
-    }
-
-    if (btnNext) {
-        btnNext.addEventListener('click', function (event) {
-            event.preventDefault();  // Impede o comportamento padrão do link
-            loadContent('login.html'); // Carrega o conteúdo da página login.html
-        });
-    }
+    });
 });
