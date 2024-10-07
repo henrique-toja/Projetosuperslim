@@ -133,7 +133,6 @@ footer nav ul li a {
     text-decoration: none;
 }
 
-
 /* Estilos de botões */
 button {
     display: inline-flex;
@@ -184,22 +183,74 @@ button:hover {
 .btn-auth {
     display: flex;
     align-items: center;
-    padding: 10px 20px;
+    justify-content: center;
+    padding: 12px 24px;
     background: var(--color-white);
     border: 1px solid #ccc;
     border-radius: 5px;
     cursor: pointer;
     color: #000;
     text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 100%; /* Para ocupar o espaço completo */
+}
+
+.btn-auth:hover {
+    background-color: #e6e6e6; /* Cor ao passar o mouse */
+    transform: scale(1.02);
+}
+
+.btn-auth .btn-icon {
+    display: flex;
+    align-items: center;
+    margin-right: 12px; /* Espaçamento entre ícone e texto */
+}
+
+.btn-auth .btn-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.btn-auth span {
+    font-family: Arial, sans-serif;
+}
+
+/* Centralizar conteúdo geral */
+section {
+    flex: 1; /* Permite ocupar o espaço disponível */
+}
+
+/* Estilo do container dos botões de autenticação */
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Estilo específico dos botões de autenticação */
+.btn-auth button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background-color: #0070c9; /* Cor padrão do botão */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 100%; /* Para ocupar o espaço completo */
+}
+
+.btn-auth button:hover {
+    background-color: #005ea7; /* Cor ao passar o mouse */
+    transform: scale(1.02);
 }
 
 .btn-auth img {
     width: 24px;
     height: 24px;
     margin-right: 10px;
-}
-
-/* Centralizar conteúdo geral */
-section {
-    flex: 1; /* Permite ocupar o espaço disponível */
 }
