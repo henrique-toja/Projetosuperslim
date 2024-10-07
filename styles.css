@@ -81,7 +81,7 @@ section:hover {
     color: var(--color-purple); /* Roxo para títulos */
 }
 
-section.info p {
+.info p {
     color: var(--color-green); /* Verde para textos */
 }
 
@@ -133,8 +133,9 @@ footer nav ul li a {
     text-decoration: none;
 }
 
-/* Botões padrão */
-button, .btn {
+
+/* Estilos de botões */
+button {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -149,7 +150,7 @@ button, .btn {
     font-family: var(--font-family-button);
 }
 
-button:hover, .btn:hover {
+button:hover {
     transform: scale(1.05); /* Animação de aumento */
 }
 
