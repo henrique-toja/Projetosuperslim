@@ -1,26 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Função para carregar conteúdo HTML e adicionar animação
     function loadHTMLContent(page) {
-        // Seleciona o content-placeholder
         const content = document.getElementById('content-placeholder');
-
-        // Aplica a classe fade-out para iniciar a transição de desaparecimento
         content.classList.add('fade-out');
 
-        // Espera a transição terminar antes de carregar o novo conteúdo
         setTimeout(() => {
-            fetch(page)  // Busca o arquivo HTML
+            fetch(page)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Erro ao carregar o conteúdo: ' + response.statusText);
                     }
-                    return response.text();  // Converte o conteúdo para texto
+                    return response.text();
                 })
                 .then(data => {
-                    // Insere o conteúdo HTML no content-placeholder
                     content.innerHTML = data;
-
-                    // Remove a classe fade-out e adiciona fade-in para a nova transição
                     content.classList.remove('fade-out');
                     content.classList.add('fade-in');
 
@@ -31,12 +24,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     console.error('Erro ao carregar o conteúdo:', error);
                     content.innerHTML = '<p>Não foi possível carregar o conteúdo. Por favor, tente novamente mais tarde.</p>';
                 });
-        }, 500); // Tempo da animação fade-out (0.5s)
+        }, 500);
     }
 
     // Aplica eventos aos botões e links carregados dinamicamente
     function applyButtonEvents() {
-        // Seleciona todos os botões e links com o atributo data-page ou href dentro do content-placeholder
         const buttonsAndLinks = document.querySelectorAll(
             '#content-placeholder .btn-know[data-page], ' +
             '#content-placeholder .btn-next[data-page], ' +
@@ -45,14 +37,18 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         buttonsAndLinks.forEach(element => {
-            element.addEventListener('click', function (event) {
-                const page = element.getAttribute('data-page') || element.getAttribute('href'); // Pega o atributo data-page ou href
-                if (page) {
-                    event.preventDefault();
-                    loadHTMLContent(page);  // Carrega o novo conteúdo HTML com animação
-                }
-            });
+            // Remove eventos anteriores, se necessário (opcional)
+            element.removeEventListener('click', handleClick);
+            element.addEventListener('click', handleClick);
         });
+    }
+
+    function handleClick(event) {
+        const page = this.getAttribute('data-page') || this.getAttribute('href');
+        if (page) {
+            event.preventDefault();
+            loadHTMLContent(page);
+        }
     }
 
     // Carrega o conteúdo inicial da página home.html
