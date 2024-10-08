@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     content.classList.remove('fade-out');
                     content.classList.add('fade-in');
 
-                    // Reaplica os eventos aos botões carregados dinamicamente
+                    // Reaplica os eventos aos botões e links carregados dinamicamente
                     applyButtonEvents();
                 })
                 .catch(error => {
@@ -34,13 +34,21 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 500); // Tempo da animação fade-out (0.5s)
     }
 
-    // Aplica eventos aos botões carregados dinamicamente
+    // Aplica eventos aos botões e links carregados dinamicamente
     function applyButtonEvents() {
-        // Seleciona todos os botões com o atributo data-page dentro do content-placeholder
-        const buttons = document.querySelectorAll('#content-placeholder .btn-know[data-page], #content-placeholder .btn-next[data-page], #content-placeholder .btn-auth[data-page]');
-        buttons.forEach(button => {
-            button.addEventListener('click', function (event) {
-                const page = button.getAttribute('data-page');
+        // Seleciona todos os botões e links com o atributo data-page ou href dentro do content-placeholder
+        const buttonsAndLinks = document.querySelectorAll(
+            '#content-placeholder .btn-know[data-page], ' +
+            '#content-placeholder .btn-next[data-page], ' +
+            '#content-placeholder .btn-auth[data-page], ' +
+            '#content-placeholder a[href="FAQ.html"], ' +
+            '#content-placeholder a[href="politica-de-privacidade.html"], ' +
+            '#content-placeholder a[href="termos-de-uso.html"]'
+        );
+
+        buttonsAndLinks.forEach(element => {
+            element.addEventListener('click', function (event) {
+                const page = element.getAttribute('data-page') || element.getAttribute('href'); // Pega o atributo data-page ou href
                 if (page) {
                     event.preventDefault();
                     loadHTMLContent(page);  // Carrega o novo conteúdo HTML com animação
@@ -48,7 +56,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
-
 
     // Carrega o conteúdo inicial da página home.html
     loadHTMLContent('home.html');
