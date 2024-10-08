@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Aplica eventos aos botões carregados dinamicamente
     function applyButtonEvents() {
         // Seleciona todos os botões com o atributo data-page dentro do content-placeholder
-        const buttons = document.querySelectorAll('#content-placeholder .btn-know[data-page], #content-placeholder .btn-next[data-page]');
+        const buttons = document.querySelectorAll('#content-placeholder .btn-know[data-page], #content-placeholder .btn-next[data-page], #content-placeholder .btn-auth[data-page]');
         buttons.forEach(button => {
             button.addEventListener('click', function (event) {
                 const page = button.getAttribute('data-page');
