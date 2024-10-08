@@ -52,3 +52,19 @@ document.addEventListener("DOMContentLoaded", function () {
     // Carrega o conteúdo inicial da página home.html
     loadHTMLContent('home.html');
 });
+
+// Carregar footer no content-placeholder ao carregar a página
+    const footerContent = `
+        <footer>
+            <p>Projeto Super Slim © 2024 - Todos os direitos reservados</p>
+            <nav>
+                <ul>
+                    <li><a href="faq">FAQ</a></li>
+                    <li><a href="politica-de-privacidade">Política de Privacidade</a></li>
+                    <li><a href="termos-de-uso">Termos de Uso</a></li>
+                </ul>
+            </nav>
+        </footer>
+    `;
+    document.getElementById('content-placeholder').innerHTML += footerContent;
+});
