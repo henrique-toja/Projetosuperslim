@@ -48,20 +48,21 @@ document.addEventListener("DOMContentLoaded", function () {
     // Aplica eventos aos botões e links carregados dinamicamente
     function applyButtonEvents() {
         const buttonsAndLinks = document.querySelectorAll(
-            '#content-placeholder .btn-know[data-page], ' +
-            '#content-placeholder .btn-next[data-page], ' +
-            '#content-placeholder .btn-auth[data-page], ' +
-            '#content-placeholder a[href="faq"], ' +
-            '#content-placeholder a[href="politica-de-privacidade"], ' +
-            '#content-placeholder a[href="termos-de-uso."]'
-        );
+    '#content-placeholder .btn-know[data-page], ' +
+    '#content-placeholder .btn-next[data-page], ' +
+    '#content-placeholder .btn-auth[data-page], ' +
+    '#content-placeholder a[data-page]'
+);
 
-        buttonsAndLinks.forEach(element => {
-            element.addEventListener('click', function (event) {
-                const page = element.getAttribute('data-page') || element.getAttribute('href');
-                if (page) {
-                    event.preventDefault();
-                    loadHTMLContent(page);
+buttonsAndLinks.forEach(link => {
+    link.addEventListener('click', function (event) {
+        event.preventDefault(); // Impede a navegação padrão
+        const page = link.getAttribute('data-page');
+        loadHTMLContent(page); // Carrega o novo conteúdo
+    });
+});
+
+
                 }
             });
         });
