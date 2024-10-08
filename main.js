@@ -49,6 +49,16 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+// Adiciona eventos aos links de FAQ, Política de Privacidade e Termos de Uso
+        const links = document.querySelectorAll('a[href="FAQ.html"], a[href="politica-de-privacidade.html"], a[href="termos-de-uso.html"]');
+        links.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                loadHTMLContent(link.getAttribute('href'));  // Carrega o novo conteúdo HTML com animação
+            });
+        });
+    }
+
     // Carrega o conteúdo inicial da página home.html
     loadHTMLContent('home.html');
 });
