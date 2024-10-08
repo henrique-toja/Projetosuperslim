@@ -41,9 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
             '#content-placeholder .btn-know[data-page], ' +
             '#content-placeholder .btn-next[data-page], ' +
             '#content-placeholder .btn-auth[data-page], ' +
-            '#content-placeholder a[href="FAQ.html"], ' +
-            '#content-placeholder a[href="politica-de-privacidade.html"], ' +
-            '#content-placeholder a[href="termos-de-uso.html"]'
+            '#content-placeholder a[data-page]'
         );
 
         buttonsAndLinks.forEach(element => {
