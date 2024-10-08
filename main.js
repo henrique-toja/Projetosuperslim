@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
             '#content-placeholder .btn-know[data-page], ' +
             '#content-placeholder .btn-next[data-page], ' +
             '#content-placeholder .btn-auth[data-page], ' +
-            '#content-placeholder a[data-page]'
+            'a[data-page]'
         );
 
         buttonsAndLinks.forEach(element => {
