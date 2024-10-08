@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.appendChild(script);
     }
 
-    loadContent('home.js');
+    loadContent('home.html');
 
     const buttons = document.querySelectorAll('.btn-know[data-page], .btn-next[data-page]');
     buttons.forEach(button => {
