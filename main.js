@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 addMessageToChat(userMessage, "user");
 
                 // Envia a mensagem para a API
-                fetch('http://10.1.0.141:5000', {  // Altere para o URL do seu backend
+                fetch('http://10.1.0.141:5000/chat', {  // Altere para o URL do seu backend
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
