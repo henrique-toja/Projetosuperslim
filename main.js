@@ -19,6 +19,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     // Reaplica os eventos aos botões e links carregados dinamicamente
                     applyButtonEvents();
+
+                    // Reaplica os eventos do chat carregados dinamicamente
+                    applyChatEvents();
                 })
                 .catch(error => {
                     console.error('Erro ao carregar o conteúdo:', error);
@@ -49,6 +52,50 @@ document.addEventListener("DOMContentLoaded", function () {
             event.preventDefault();
             loadHTMLContent(page);
         }
+    }
+
+    // Função para aplicar eventos do chat
+    function applyChatEvents() {
+        const chatForm = document.getElementById("chat-form");
+        if (chatForm) {
+            chatForm.addEventListener("submit", function(event) {
+                event.preventDefault(); // Impede o redirecionamento
+
+                const chatInput = document.getElementById("chat-input");
+                const userMessage = chatInput.value;
+                chatInput.value = ""; // Limpa o campo de entrada
+
+                // Adiciona a mensagem do usuário ao chat
+                addMessageToChat(userMessage, "user");
+
+                // Envia a mensagem para a API
+                fetch('http://10.1.0.141:5000/chat', {  // Altere para o URL do seu backend
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: userMessage })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const botResponse = data.response;
+                    addMessageToChat(botResponse, "bot");
+                })
+                .catch(error => {
+                    console.error('Erro ao enviar mensagem:', error);
+                    addMessageToChat("Desculpe, não consegui responder. Tente novamente mais tarde.", "bot");
+                });
+            });
+        }
+    }
+
+    function addMessageToChat(message, sender) {
+        const chatContainer = document.getElementById("chat-container");
+        const messageDiv = document.createElement("div");
+        messageDiv.classList.add("message", sender);
+        messageDiv.textContent = message;
+        chatContainer.appendChild(messageDiv);
+        chatContainer.scrollTop = chatContainer.scrollHeight; // Rola para o final do chat
     }
 
     // Carrega o conteúdo inicial da página home.html
