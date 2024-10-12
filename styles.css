@@ -276,3 +276,56 @@ section {
             opacity: 1;
             transition: opacity 0.5s ease-in;
         }
+
+/* Estilos para o chat */
+#chat-container {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background: var(--color-white);
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.message {
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 70%;
+}
+
+.user {
+    background-color: #dcf8c6;
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.bot {
+    background-color: #f1f0f0;
+    align-self: flex-start;
+}
+
+#chat-form {
+    display: flex;
+}
+
+#chat-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--color-purple);
+    color: var(--color-white);
+    cursor: pointer;
+}
+button:hover {
+    background-color: var(--color-green);
+}
