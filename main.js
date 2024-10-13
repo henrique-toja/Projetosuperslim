@@ -54,23 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Função para obter o token do backend
-    function getToken() {
-        return fetch('/get_token')  // Endpoint para obter o token
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Erro ao obter token: ' + response.statusText);
-                }
-                return response.json();
-            })
-            .then(data => {
-                localStorage.setItem("SLIM_IA_TOKEN", data.token); // Armazena o token no localStorage
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    }
-
     // Função para aplicar eventos do chat
     function applyChatEvents() {
         const chatForm = document.getElementById("chat-form");
@@ -119,7 +102,12 @@ document.addEventListener("DOMContentLoaded", function () {
         chatContainer.scrollTop = chatContainer.scrollHeight; // Rola para o final do chat
     }
 
-    // Carrega o conteúdo inicial da página home.html e obtém o token
+    // Função para armazenar o token fixo diretamente no localStorage
+    function storeFixedToken() {
+        localStorage.setItem("SLIM_IA_TOKEN", "seu_token_ficticio_aqui"); // Insere o token diretamente
+    }
+
+    // Carrega o conteúdo inicial da página home.html e armazena o token fixo
     loadHTMLContent('home.html');
-    getToken(); // Obtém o token e armazena no localStorage
+    storeFixedToken(); // Armazena o token diretamente
 });
