@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Função para carregar conteúdo HTML e adicionar animação
+    // Function to load HTML content and add animation
     function loadHTMLContent(page) {
         const content = document.getElementById('content-placeholder');
         content.classList.add('fade-out');
@@ -17,9 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     content.classList.remove('fade-out');
                     content.classList.add('fade-in');
 
-                    // Reaplica os eventos aos botões e links carregados dinamicamente
+                    // Reapply events to dynamically loaded buttons and links
                     applyButtonEvents();
-                    applyChatEvents(); // Garante que os eventos do chat sejam aplicados após o carregamento do conteúdo
+                    applyChatEvents(); // Ensure chat events are applied after content load
                 })
                 .catch(error => {
                     console.error('Erro ao carregar o conteúdo:', error);
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 500);
     }
 
-    // Aplica eventos aos botões e links carregados dinamicamente
+    // Apply events to dynamically loaded buttons and links
     function applyButtonEvents() {
         const buttonsAndLinks = document.querySelectorAll(
             '#content-placeholder .btn-know[data-page], ' +
@@ -51,18 +51,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Função para aplicar eventos do chat
+    // Apply chat events
     function applyChatEvents() {
         const chatForm = document.getElementById("chat-form");
         if (chatForm) {
             chatForm.addEventListener("submit", async function (event) {
-                event.preventDefault(); // Impede o redirecionamento
+                event.preventDefault(); // Prevents redirection
 
                 const chatInput = document.getElementById("chat-input");
                 const userMessage = chatInput.value;
-                chatInput.value = ""; // Limpa o campo de entrada
+                chatInput.value = ""; // Clear input field
 
-                // Adiciona a mensagem do usuário ao chat
+                // Add user message to chat
                 addMessageToChat(userMessage, "user");
 
                 try {
@@ -76,24 +76,26 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Chama o backend para obter a resposta da IA
+    // Call backend to get AI response
     async function getOpenAIResponse(userMessage) {
-        const endpoint = '/api/chat'; // URL do seu backend que irá lidar com a chamada para a API da IA
+        const endpoint = 'https://models.inference.ai.azure.com';
+        const modelName = 'gpt-4o-mini';
+        const token = process.env["GITHUB_TOKEN"];
 
-        const response = await fetch(endpoint, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ userMessage }) // Envia a mensagem do usuário
+        const client = new OpenAI({ baseURL: endpoint, apiKey: token });
+
+        const response = await client.chat.completions.create({
+            messages: [
+                { role:"system", content: "Você é um assistente útil." },
+                { role:"user", content: userMessage }
+            ],
+            temperature: 1.0,
+            top_p: 1.0,
+            max_tokens: 1000,
+            model: modelName
         });
 
-        if (!response.ok) {
-            throw new Error(`Erro na API: ${response.statusText}`);
-        }
-
-        const data = await response.json();
-        return data.response; // Retorna a resposta do backend
+        return response.choices[0].message.content;
     }
 
     function addMessageToChat(message, sender) {
@@ -102,9 +104,9 @@ document.addEventListener("DOMContentLoaded", function () {
         messageDiv.classList.add("message", sender);
         messageDiv.textContent = message;
         chatContainer.appendChild(messageDiv);
-        chatContainer.scrollTop = chatContainer.scrollHeight; // Rola para o final do chat
+        chatContainer.scrollTop = chatContainer.scrollHeight; // Scroll to the bottom of the chat
     }
 
-    // Carrega o conteúdo inicial da página home.html
+    // Load initial page content
     loadHTMLContent('home.html');
 });
