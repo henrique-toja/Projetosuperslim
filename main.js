@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     // Reaplica os eventos aos botões e links carregados dinamicamente
                     applyButtonEvents();
-                    applyChatEvents();
+                    applyChatEvents(); // Garante que os eventos do chat sejam aplicados após o carregamento do conteúdo
                 })
                 .catch(error => {
                     console.error('Erro ao carregar o conteúdo:', error);
@@ -76,38 +76,24 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // Chama o backend para obter a resposta da IA
     async function getOpenAIResponse(userMessage) {
-        const apiKey = "API_GITHUB_TOKEN"; // O token será carregado dos secrets do GitHub
-        const endpoint = "https://models.inference.ai.azure.com/v1/chat/completions";
-        const modelName = "gpt-4o-mini";
-
-        const headers = {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${apiKey}`
-        };
-
-        const body = JSON.stringify({
-            model: modelName,
-            messages: [
-                { role: "system", content: "You are a helpful assistant." },
-                { role: "user", content: userMessage }
-            ],
-            max_tokens: 1000,
-            temperature: 1.0
-        });
+        const endpoint = '/api/chat'; // URL do seu backend que irá lidar com a chamada para a API da IA
 
         const response = await fetch(endpoint, {
             method: 'POST',
-            headers: headers,
-            body: body
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ userMessage }) // Envia a mensagem do usuário
         });
 
         if (!response.ok) {
-            throw new Error(`Erro na API OpenAI: ${response.statusText}`);
+            throw new Error(`Erro na API: ${response.statusText}`);
         }
 
         const data = await response.json();
-        return data.choices[0].message.content; // Retorna a resposta da OpenAI
+        return data.response; // Retorna a resposta do backend
     }
 
     function addMessageToChat(message, sender) {
