@@ -54,6 +54,23 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // Função para obter o token do backend
+    function getToken() {
+        return fetch('/get_token')  // Endpoint para obter o token
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao obter token: ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => {
+                localStorage.setItem("SLIM_IA_TOKEN", data.token); // Armazena o token no localStorage
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }
+
     // Função para aplicar eventos do chat
     function applyChatEvents() {
         const chatForm = document.getElementById("chat-form");
@@ -68,11 +85,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Adiciona a mensagem do usuário ao chat
                 addMessageToChat(userMessage, "user");
 
+                // Obtém o token do localStorage
+                const token = localStorage.getItem("SLIM_IA_TOKEN");
+
                 // Envia a mensagem para a API
-                fetch('http://10.1.0.141:5000/chat', {  // Altere para o URL do seu backend
+                fetch('/chat', {  // URL relativo
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`  // Use o token armazenado
                     },
                     body: JSON.stringify({ message: userMessage })
                 })
@@ -98,6 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
         chatContainer.scrollTop = chatContainer.scrollHeight; // Rola para o final do chat
     }
 
-    // Carrega o conteúdo inicial da página home.html
+    // Carrega o conteúdo inicial da página home.html e obtém o token
     loadHTMLContent('home.html');
+    getToken(); // Obtém o token e armazena no localStorage
 });
