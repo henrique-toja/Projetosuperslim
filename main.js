@@ -19,8 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     // Reaplica os eventos aos botões e links carregados dinamicamente
                     applyButtonEvents();
-
-                    // Reaplica os eventos do chat carregados dinamicamente
                     applyChatEvents();
                 })
                 .catch(error => {
@@ -40,7 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         buttonsAndLinks.forEach(element => {
-            // Remove eventos anteriores, se necessário (opcional)
             element.removeEventListener('click', handleClick);
             element.addEventListener('click', handleClick);
         });
@@ -58,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function applyChatEvents() {
         const chatForm = document.getElementById("chat-form");
         if (chatForm) {
-            chatForm.addEventListener("submit", function(event) {
+            chatForm.addEventListener("submit", async function (event) {
                 event.preventDefault(); // Impede o redirecionamento
 
                 const chatInput = document.getElementById("chat-input");
@@ -68,29 +65,49 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Adiciona a mensagem do usuário ao chat
                 addMessageToChat(userMessage, "user");
 
-                // Obtém o token do localStorage
-                const token = localStorage.getItem("SLIM_IA_TOKEN");
-
-                // Envia a mensagem para a API
-                fetch('/chat', {  // URL relativo
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`  // Use o token armazenado
-                    },
-                    body: JSON.stringify({ message: userMessage })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    const botResponse = data.response;
+                try {
+                    const botResponse = await getOpenAIResponse(userMessage);
                     addMessageToChat(botResponse, "bot");
-                })
-                .catch(error => {
+                } catch (error) {
                     console.error('Erro ao enviar mensagem:', error);
                     addMessageToChat("Desculpe, não consegui responder. Tente novamente mais tarde.", "bot");
-                });
+                }
             });
         }
+    }
+
+    async function getOpenAIResponse(userMessage) {
+        const apiKey = "API_GITHUB_TOKEN"; // O token será carregado dos secrets do GitHub
+        const endpoint = "https://models.inference.ai.azure.com/v1/chat/completions";
+        const modelName = "gpt-4o-mini";
+
+        const headers = {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${apiKey}`
+        };
+
+        const body = JSON.stringify({
+            model: modelName,
+            messages: [
+                { role: "system", content: "You are a helpful assistant." },
+                { role: "user", content: userMessage }
+            ],
+            max_tokens: 1000,
+            temperature: 1.0
+        });
+
+        const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: headers,
+            body: body
+        });
+
+        if (!response.ok) {
+            throw new Error(`Erro na API OpenAI: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        return data.choices[0].message.content; // Retorna a resposta da OpenAI
     }
 
     function addMessageToChat(message, sender) {
@@ -102,12 +119,6 @@ document.addEventListener("DOMContentLoaded", function () {
         chatContainer.scrollTop = chatContainer.scrollHeight; // Rola para o final do chat
     }
 
-    // Função para armazenar o token fixo diretamente no localStorage
-    function storeFixedToken() {
-        localStorage.setItem("SLIM_IA_TOKEN", "seu_token_ficticio_aqui"); // Insere o token diretamente
-    }
-
-    // Carrega o conteúdo inicial da página home.html e armazena o token fixo
+    // Carrega o conteúdo inicial da página home.html
     loadHTMLContent('home.html');
-    storeFixedToken(); // Armazena o token diretamente
 });
