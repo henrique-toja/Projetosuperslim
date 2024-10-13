@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 import os
-import requests
 from dotenv import load_dotenv
+from openai import OpenAI
 
 # Carregar variáveis de ambiente do .env
 load_dotenv()
@@ -14,29 +14,26 @@ def chat():
     user_message = request.json.get('userMessage')
 
     api_key = os.getenv("API_GITHUB_TOKEN")  # Carrega o token do ambiente
-    endpoint = "https://models.inference.ai.azure.com/v1/chat/completions"
+    endpoint = "https://models.inference.ai.azure.com"
     model_name = "gpt-4o-mini"
 
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": f"Bearer {api_key}"
-    }
-
-    body = {
-        "model": model_name,
-        "messages": [
-            {"role": "system", "content": "You are a helpful assistant."},
-            {"role": "user", "content": user_message}
-        ],
-        "max_tokens": 1000,
-        "temperature": 1.0
-    }
+    client = OpenAI(
+        base_url=endpoint,
+        api_key=api_key,
+    )
 
     try:
-        response = requests.post(endpoint, headers=headers, json=body)
-        response.raise_for_status()  # Lança um erro para respostas de erro
-        data = response.json()
-        return jsonify({"response": data['choices'][0]['message']['content']})  # Envia a resposta de volta para o frontend
+        response = client.chat.completions.create(
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": user_message},
+            ],
+            temperature=1.0,
+            max_tokens=1000,
+            model=model_name
+        )
+
+        return jsonify({"response": response.choices[0].message.content})  # Envia a resposta de volta para o frontend
     except Exception as e:
         print(f'Erro ao processar a requisição: {e}')
         return jsonify({"error": "Erro interno ao processar a requisição."}), 500
