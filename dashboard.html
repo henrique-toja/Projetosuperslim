@@ -1,15 +1,27 @@
 <section>
-   
-     <h3>Plataforma em Desenvolvimento</h3>
-            <h3>Aguarde o Lançamento!</h3>
-            <p> </p>
-            <img src="assets/desenvolvimento.png" alt="Plataforma em Desenvolvimento" class="development-image" style="width: 100%; max-width: 600px; height: auto;">
-            <p> </p>
-            <p>A plataforma está em fase de desenvolvimento, sendo construida da melhor forma possível para proporcionar a melhor experiência às participantes, aguarde o lançamento! 🔥 </p>
+    <h3 id="greeting-message"></h3>
+    <p></p>
+    <img src="assets/desenvolvimento.png" alt="Plataforma em Desenvolvimento" class="development-image" style="width: 100%; max-width: 600px; height: auto;">
+    <p></p>
+    <p id="development-message"></p>
 </section>
 
-
 <div class="btn-container">
-
     <button class="btn-know" data-page="home.html">Voltar ao início</button>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const greetingMessage = document.getElementById('greeting-message');
+        const developmentMessage = document.getElementById('development-message');
+
+        // Verifica se o usuário está logado
+        if (localStorage.getItem('authToken') !== null) {
+            greetingMessage.textContent = "Olá, seja bem-vinda ao Projeto Super Slim!";
+            developmentMessage.textContent = "";
+        } else {
+            greetingMessage.textContent = "Plataforma em Desenvolvimento";
+            developmentMessage.textContent = "A plataforma está em fase de desenvolvimento, sendo construída da melhor forma possível para proporcionar a melhor experiência às participantes. Aguarde o lançamento! 🔥";
+        }
+    });
+</script>
