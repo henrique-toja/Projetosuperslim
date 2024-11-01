@@ -1,16 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Load initial page content based on authentication status
-    const authToken = localStorage.getItem('authToken');
-    const initialPage = authToken ? 'home' : 'login'; // Usando 'home' ou 'login' sem .html
-    loadHTMLContent(initialPage);
+    // Carrega a página inicial sem extensão
+    loadHTMLContent('home'); // Você pode definir uma página padrão aqui
 
-    // Function to load HTML content and add animation
+    // Função para carregar o conteúdo HTML e adicionar animação
     function loadHTMLContent(page) {
         const content = document.getElementById('content-placeholder');
         content.classList.add('fade-out');
 
         setTimeout(() => {
-            fetch(page + '.html') // Adiciona .html para a requisição
+            fetch(page + '.html') // Carrega a página com a extensão .html
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Erro ao carregar o conteúdo: ' + response.statusText);
@@ -22,10 +20,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     content.classList.remove('fade-out');
                     content.classList.add('fade-in');
 
-                    // Atualiza a URL sem a extensão .html
-                    history.pushState({ page: page }, '', page);
+                    // Atualiza a URL do navegador
+                    history.pushState({ page: page }, '', page); // Atualiza a URL sem .html
 
-                    // Reapply events to dynamically loaded buttons and links
+                    // Reaplica eventos aos botões e links carregados dinamicamente
                     applyButtonEvents();
                 })
                 .catch(error => {
@@ -35,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 500);
     }
 
-    // Apply events to dynamically loaded buttons and links
+    // Aplica eventos aos botões e links carregados dinamicamente
     function applyButtonEvents() {
         const buttonsAndLinks = document.querySelectorAll(
             '#content-placeholder .btn-know[data-page], ' +
@@ -58,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Handle browser navigation (back and forward)
+    // Gerencia a navegação do navegador (voltar e avançar)
     window.onpopstate = function(event) {
         if (event.state) {
             loadHTMLContent(event.state.page);
