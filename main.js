@@ -1,14 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Load initial page content
-    loadHTMLContent('home');
-
     // Function to load HTML content and add animation
     function loadHTMLContent(page) {
         const content = document.getElementById('content-placeholder');
         content.classList.add('fade-out');
 
         setTimeout(() => {
-            fetch(page + '.html') // Adiciona .html para a requisição
+            fetch(page)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Erro ao carregar o conteúdo: ' + response.statusText);
@@ -19,9 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     content.innerHTML = data;
                     content.classList.remove('fade-out');
                     content.classList.add('fade-in');
-
-                    // Atualiza a URL sem a extensão .html
-                    history.pushState({ page: page }, '', page);
 
                     // Reapply events to dynamically loaded buttons and links
                     applyButtonEvents();
@@ -56,10 +50,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Handle browser navigation (back and forward)
-    window.onpopstate = function(event) {
-        if (event.state) {
-            loadHTMLContent(event.state.page);
-        }
-    };
+    // Load initial page content
+    loadHTMLContent('home.html');
 });
