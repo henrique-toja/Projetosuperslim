@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Load initial page content based on authentication status
-    const authToken = localStorage.getItem('authToken');
-    const initialPage = authToken ? 'home' : 'login'; // Usando 'home' ou 'login' sem .html
-    loadHTMLContent(initialPage);
+    // Load the home page content initially
+    loadHTMLContent('home');
 
     // Function to load HTML content and add animation
     function loadHTMLContent(page) {
@@ -64,4 +62,6 @@ document.addEventListener("DOMContentLoaded", function () {
             loadHTMLContent(event.state.page);
         }
     };
+
+    // A partir do momento que a página inicial é sempre 'home', você pode iniciar diretamente por ela.
 });
