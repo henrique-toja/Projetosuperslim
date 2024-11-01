@@ -1,11 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Load initial page content based on authentication status
+    const authToken = localStorage.getItem('authToken');
+    const initialPage = authToken ? 'home' : 'login'; // Usando 'home' ou 'login' sem .html
+    loadHTMLContent(initialPage);
+
     // Function to load HTML content and add animation
     function loadHTMLContent(page) {
         const content = document.getElementById('content-placeholder');
         content.classList.add('fade-out');
 
         setTimeout(() => {
-            fetch(page)
+            fetch(page + '.html') // Adiciona .html para a requisição
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Erro ao carregar o conteúdo: ' + response.statusText);
@@ -16,6 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     content.innerHTML = data;
                     content.classList.remove('fade-out');
                     content.classList.add('fade-in');
+
+                    // Atualiza a URL sem a extensão .html
+                    history.pushState({ page: page }, '', page);
 
                     // Reapply events to dynamically loaded buttons and links
                     applyButtonEvents();
@@ -50,6 +58,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Load initial page content
-    loadHTMLContent('home.html');
+    // Handle browser navigation (back and forward)
+    window.onpopstate = function(event) {
+        if (event.state) {
+            loadHTMLContent(event.state.page);
+        }
+    };
 });
