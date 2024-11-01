@@ -1,32 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const content = document.getElementById('content-placeholder');
-
-    // Função de verificação de login
-    function isLoggedIn() {
-        // Exemplo: Verifica se existe um token de autenticação no localStorage
-        return localStorage.getItem('authToken') !== null;
-    }
-
-    // Função para carregar o conteúdo correto dependendo do status de login
-    function loadContentBasedOnAuth() {
-        const page = isLoggedIn() ? 'index-app.html' : 'index.html';
-        loadHTMLContent(page);
-    }
-
-    // Função para carregar conteúdo HTML com animação
+    // Function to load HTML content and add animation
     function loadHTMLContent(page) {
+        const content = document.getElementById('content-placeholder');
         content.classList.add('fade-out');
 
         setTimeout(() => {
             fetch(page)
                 .then(response => {
-                    if (!response.ok) throw new Error('Erro ao carregar o conteúdo: ' + response.statusText);
+                    if (!response.ok) {
+                        throw new Error('Erro ao carregar o conteúdo: ' + response.statusText);
+                    }
                     return response.text();
                 })
                 .then(data => {
                     content.innerHTML = data;
                     content.classList.remove('fade-out');
                     content.classList.add('fade-in');
+
+                    // Reapply events to dynamically loaded buttons and links
                     applyButtonEvents();
                 })
                 .catch(error => {
@@ -36,22 +27,21 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 500);
     }
 
-    // Aplica eventos aos botões e links dinamicamente carregados
+    // Apply events to dynamically loaded buttons and links
     function applyButtonEvents() {
-        const elements = document.querySelectorAll(
+        const buttonsAndLinks = document.querySelectorAll(
             '#content-placeholder .btn-know[data-page], ' +
             '#content-placeholder .btn-next[data-page], ' +
             '#content-placeholder .btn-auth[data-page], ' +
             'a[data-page]'
         );
 
-        elements.forEach(element => {
+        buttonsAndLinks.forEach(element => {
             element.removeEventListener('click', handleClick);
             element.addEventListener('click', handleClick);
         });
     }
 
-    // Função de clique para carregar página
     function handleClick(event) {
         const page = this.getAttribute('data-page') || this.getAttribute('href');
         if (page) {
@@ -60,6 +50,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Carregar conteúdo baseado no status de login ao iniciar
-    loadContentBasedOnAuth();
+    // Load initial page content
+    loadHTMLContent('home.html');
 });
