@@ -121,7 +121,7 @@ footer {
     padding: 20px;
     background: var(--color-purple) url('assets/footer.jpg') no-repeat center;
     background-size: cover; /* Ajusta a imagem para cobrir todo o footer */
-    color: var(--color-purple);
+    color: #000000; /* Altere a cor do texto para preto */
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
     margin-top: auto; /* Posiciona no final */
 }
@@ -141,7 +141,7 @@ footer nav ul li {
 }
 
 footer nav ul li a {
-    color: var(--color-white);
+    color: #000000; /* Altere a cor dos links para preto */
     text-decoration: none;
 }
 
