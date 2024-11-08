@@ -119,11 +119,24 @@ section p {
 footer {
     text-align: center;
     padding: 20px;
+    position: relative;
     background: var(--color-purple) url('assets/footer.jpg') no-repeat center;
     background-size: cover; /* Ajusta a imagem para cobrir todo o footer */
-    color: #000000; /* Altere a cor do texto para preto */
+    color: var(--color-purple); /* Cor roxa para o texto */
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
     margin-top: auto; /* Posiciona no final */
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.6); /* Fundo branco com 60% de opacidade */
+    backdrop-filter: blur(8px); /* Aplica o desfoque na imagem de fundo */
+    z-index: -1; /* Coloca o fundo desfocado abaixo do conteúdo */
 }
 
 footer p {
@@ -141,7 +154,7 @@ footer nav ul li {
 }
 
 footer nav ul li a {
-    color: #000000; /* Altere a cor dos links para preto */
+    color: var(--color-purple); /* Cor roxa para os links */
     text-decoration: none;
 }
 
