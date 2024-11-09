@@ -122,7 +122,7 @@ footer {
     position: relative;
     background: var(--color-purple) url('assets/footer.jpg') no-repeat center;
     background-size: cover; /* Ajusta a imagem para cobrir todo o footer */
-    color: var(--color-green); /* Cor verde para o texto */
+    color: #000000; /* Cor preta para o texto */
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
     margin-top: auto; /* Posiciona no final */
 }
