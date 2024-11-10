@@ -12,11 +12,22 @@
     --font-family-button: 'Roboto', 'Segoe UI', sans-serif;                     /* Fonte padrão para botões */
 }
 
-/* Estilos globais */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
 }
 
 body {
@@ -48,6 +59,53 @@ header::before {
     height: 100%;
     background: rgba(255, 255, 255, 0.2); /* Cor branca com 20% de opacidade */
     z-index: 1; /* Camada acima da imagem */
+}
+
+
+
+/* Rodapé */
+footer {
+    text-align: center; /* Centraliza o texto */
+    padding: 20px; /* Adiciona espaçamento interno */
+    position: relative; /* Define posição relativa para elementos filhos */
+    background: var(--color-white) url('assets/footer.jpg') no-repeat center; /* Define a cor de fundo e imagem */
+    background-size: cover; /* Ajusta a imagem para cobrir todo o footer */
+    color: var(--color-black); /* Cor preta para o texto */
+    font-family: var(--font-family-body); /* Fonte do corpo */
+    font-weight: normal; /* Remove qualquer negrito */
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Sombra para o rodapé */
+    margin-top: auto; /* Posiciona no final */
+}
+
+footer::before {
+    content: ""; /* Cria um elemento vazio antes do rodapé */
+    position: absolute; /* Posiciona o elemento antes do conteúdo */
+    top: 0; /* Define a posição no topo */
+    left: 0; /* Alinha à esquerda */
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+}
+
+footer p {
+    margin: 0; /* Remove a margem */
+    font-weight: normal; /* Remove qualquer negrito do parágrafo */
+}
+
+footer nav ul {
+    list-style: none; /* Remove marcadores da lista */
+    padding: 0; /* Remove o preenchimento */
+}
+
+footer nav ul li {
+    display: inline; /* Exibe os itens em linha */
+    margin: 0 10px; /* Adiciona espaço entre os itens */
+}
+
+footer nav ul li a {
+    color: var(--color-black); /* Cor preta para os links */
+    font-family: var(--font-family-body); /* Fonte do corpo para os links */
+    text-decoration: underline; /* Sublinha o texto */
+    font-weight: normal; /* Remove qualquer negrito dos links */
 }
 
 /* Seção padrão */
@@ -99,51 +157,6 @@ section p {
     font-family: var(--font-family-body);
 }
 
-/* Rodapé */
-footer {
-    text-align: center; /* Centraliza o texto */
-    padding: 20px; /* Adiciona espaçamento interno */
-    position: relative; /* Define posição relativa para elementos filhos */
-    background: var(--color-white) url('assets/footer.jpg') no-repeat center; /* Define a cor de fundo e imagem */
-    background-size: cover; /* Ajusta a imagem para cobrir todo o footer */
-    color: var(--color-black); /* Cor preta para o texto */
-    font-family: var(--font-family-body); /* Fonte do corpo */
-    font-weight: normal; /* Remove qualquer negrito */
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Sombra para o rodapé */
-    margin-top: auto; /* Posiciona no final */
-}
-
-footer::before {
-    content: ""; /* Cria um elemento vazio antes do rodapé */
-    position: absolute; /* Posiciona o elemento antes do conteúdo */
-    top: 0; /* Define a posição no topo */
-    left: 0; /* Alinha à esquerda */
-    width: 100%; /* Largura total */
-    height: 100%; /* Altura total */
-}
-
-footer p {
-    margin: 0; /* Remove a margem */
-    font-weight: normal; /* Remove qualquer negrito do parágrafo */
-}
-
-footer nav ul {
-    list-style: none; /* Remove marcadores da lista */
-    padding: 0; /* Remove o preenchimento */
-}
-
-footer nav ul li {
-    display: inline; /* Exibe os itens em linha */
-    margin: 0 10px; /* Adiciona espaço entre os itens */
-}
-
-footer nav ul li a {
-    color: var(--color-black); /* Cor preta para os links */
-    font-family: var(--font-family-body); /* Fonte do corpo para os links */
-    text-decoration: underline; /* Sublinha o texto */
-    font-weight: normal; /* Remove qualquer negrito dos links */
-}
-
 /* Estilos de botões */
 button {
     display: inline-flex;
@@ -188,90 +201,4 @@ button:hover {
     gap: 10px;
     flex-direction: column;
     padding: 20px 0;
-}
-
-/* Estilo de botões de autenticação */
-.btn-auth {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 24px;
-    background: var(--color-white);
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    cursor: pointer;
-    color: #000;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-    width: 100%; /* Para ocupar o espaço completo */
-}
-
-.btn-auth:hover {
-    background-color: #e6e6e6; /* Cor ao passar o mouse */
-    transform: scale(1.02);
-}
-
-.btn-auth .btn-icon {
-    display: flex;
-    align-items: center;
-    margin-right: 12px; /* Espaçamento entre ícone e texto */
-}
-
-.btn-auth .btn-icon svg {
-    width: 24px;
-    height: 24px;
-}
-
-.btn-auth span {
-    font-family: Arial, sans-serif;
-}
-
-/* Centralizar conteúdo geral */
-section {
-    flex: 1; /* Permite ocupar o espaço disponível */
-}
-
-/* Estilo do container dos botões de autenticação */
-.btn-container {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
-}
-
-/* Estilo específico dos botões de autenticação */
-.btn-auth button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 24px;
-    background-color: #0070c9; /* Cor padrão do botão */
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    width: 100%; /* Para ocupar o espaço completo */
-}
-
-.btn-auth button:hover {
-    background-color: #005ea7; /* Cor ao passar o mouse */
-    transform: scale(1.02);
-}
-
-.btn-auth img {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-}
-
-.fade-out {
-    opacity: 0;
-    transition: opacity 0.5s ease-out;
-}
-
-.fade-in {
-    opacity: 1;
-    transition: opacity 0.5s ease-in;
 }
