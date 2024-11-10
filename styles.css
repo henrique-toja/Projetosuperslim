@@ -80,34 +80,65 @@ footer {
     font-weight: normal; /* Remove o negrito */
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
     margin-top: auto; /* Posiciona o rodapé ao final da página */
+    display: flex; /* Flexbox para alinhar os itens dentro do rodapé */
+    flex-direction: column; /* Organiza os itens na vertical */
+    justify-content: center; /* Centraliza os itens verticalmente */
+    align-items: center; /* Alinha os itens horizontalmente */
 }
 
-/* Listagem do menu de links no rodapé */
-footer nav ul {
-    list-style: none; /* Remove as marcações da lista */
-    padding: 0; /* Remove o padding */
-    margin: 0; /* Remove a margem */
-    display: flex; /* Flexbox para alinhar os itens em linha */
-    justify-content: center; /* Centraliza os itens horizontalmente */
+/* Estilos do texto no rodapé */
+footer h3 {
+    margin-bottom: 10px; /* Espaço abaixo do título */
+    font-size: var(--font-size-body); /* Tamanho da fonte para o título */
 }
 
-/* Estilos dos itens de navegação no rodapé */
-footer nav ul li {
-    margin: 0 10px; /* Espaçamento horizontal entre itens */
+/* Container de links */
+footer .btn-container {
+    display: flex; /* Flexbox para alinhar os botões */
+    flex-direction: column; /* Alinha os links na vertical */
+    gap: 10px; /* Espaço entre os links */
+    align-items: center; /* Centraliza os links */
 }
 
-/* Estilos específicos para links dentro do rodapé */
+/* Estilos dos links */
 footer a {
     color: var(--color-black); /* Cor preta para os links */
     font-family: var(--font-family-body); /* Fonte do corpo */
     text-decoration: underline; /* Links sublinhados */
     font-weight: normal; /* Texto não em negrito */
+    font-size: var(--font-size-body); /* Tamanho do texto para os links */
 }
 
 /* Efeito de hover nos links */
 footer a:hover {
     text-decoration: none; /* Remove o sublinhado no hover */
     color: var(--color-purple); /* Altera a cor do texto no hover */
+}
+
+/* Ajuste da lista de links (caso queira adicionar mais links no futuro) */
+footer nav ul {
+    list-style: none; /* Remove as marcações da lista */
+    padding: 0; /* Remove o padding */
+    margin: 0; /* Remove a margem */
+    display: flex; /* Flexbox para alinhar os itens em linha */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    gap: 20px; /* Espaço entre os links */
+}
+
+/* Estilos dos itens de navegação */
+footer nav ul li {
+    margin: 0; /* Remove o espaçamento horizontal extra */
+}
+
+/* Estilos do rodapé no mobile (se necessário) */
+@media (max-width: 768px) {
+    footer {
+        text-align: center;
+        padding: 20px;
+    }
+    footer .btn-container {
+        flex-direction: column; /* Alinha os links verticalmente em telas pequenas */
+    }
 }
 
 /* Estilo padrão de seções */
