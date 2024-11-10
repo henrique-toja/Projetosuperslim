@@ -167,13 +167,19 @@ a:hover {
 
 /* Rodapé */
 footer {
-    text-align: center;
-    background: var(--color-white) url('assets/footer.jpg') no-repeat center;
-    background-size: cover; /* Garante que a imagem cubra todo o footer */
+    background-image: url('assets/footer.jpg'); /* Imagem de fundo */
+    background-size: cover; /* Cobre toda a área do footer */
+    position: fixed; /* Fixa no final da viewport */
+    bottom: 0; /* Alinha ao final */
+    width: 100%; /* Ocupa toda a largura da viewport */
+    z-index: 1000; /* Prioridade no empilhamento */
+    padding: 1rem 0; /* Espaçamento vertical */
+    display: flex; /* Layout flexível */
+    justify-content: center; /* Centraliza o conteúdo */
+    gap: 1rem;
     color: var(--color-black);
     font-family: var(--font-family-body);
     font-weight: normal;
-    margin-top: auto;
 }
 
 footer h3 {
