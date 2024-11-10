@@ -76,11 +76,11 @@ section:hover {
 
 .info h3 {
     font-size: var(--font-size-h3);
-    color: var(--color-purple); /* verde para títulos */
+    color: var(--color-purple); /* verde para títulos informativos */
 }
 
 .info p {
-    color: var(--color-black); /* Roxo para textos */
+    color: var(--color-black); /* Preto para textos informativos */
 }
 
 
