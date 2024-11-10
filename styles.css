@@ -95,8 +95,8 @@ footer h3 {
 /* Container de links */
 footer .btn-container {
     display: flex; /* Flexbox para alinhar os botões */
-    flex-direction: column; /* Alinha os links na vertical */
-    gap: 10px; /* Espaço entre os links */
+    flex-direction: row; /* Alinha os links na horizontal */
+    gap: 6px; /* Espaço entre os links */
     align-items: center; /* Centraliza os links */
 }
 
@@ -115,21 +115,6 @@ footer a:hover {
     color: var(--color-purple); /* Altera a cor do texto no hover */
 }
 
-/* Ajuste da lista de links (caso queira adicionar mais links no futuro) */
-footer nav ul {
-    list-style: none; /* Remove as marcações da lista */
-    padding: 0; /* Remove o padding */
-    margin: 0; /* Remove a margem */
-    display: flex; /* Flexbox para alinhar os itens em linha */
-    justify-content: center; /* Centraliza os itens horizontalmente */
-    gap: 20px; /* Espaço entre os links */
-}
-
-/* Estilos dos itens de navegação */
-footer nav ul li {
-    margin: 0; /* Remove o espaçamento horizontal extra */
-}
-
 /* Estilos do rodapé no mobile (se necessário) */
 @media (max-width: 768px) {
     footer {
@@ -137,7 +122,7 @@ footer nav ul li {
         padding: 20px;
     }
     footer .btn-container {
-        flex-direction: column; /* Alinha os links verticalmente em telas pequenas */
+        flex-direction: row; /* Alinha os links horizontalmente em telas pequenas */
     }
 }
 
