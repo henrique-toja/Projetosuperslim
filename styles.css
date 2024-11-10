@@ -1,53 +1,54 @@
 /* Definições de variáveis globais */
 :root {
-    --color-purple: #820ad1; /* Roxo */
-    --color-green: #6aa84f;  /* Verde suavizado */
+    --color-purple: #820ad1; /* Cor roxa para elementos principais */
+    --color-green: #6aa84f;  /* Cor verde suavizada para contraste */
     --color-white: #ffffff; /* Cor branca */
     --color-black: #000000; /* Cor preta */
     --font-size-body: 18px;  /* Tamanho padrão do corpo do texto */
     --font-size-button: 18px; /* Tamanho da fonte dos botões */
-    --font-size-h3: 24px;    /* Tamanho da fonte dos h3 */
-    --font-family-body: 'Open Sans', 'Noto Sans', 'Helvetica Neue', sans-serif; /* Fonte padrão do corpo do texto */
+    --font-size-h3: 24px;    /* Tamanho da fonte para títulos h3 */
+    --font-family-body: 'Open Sans', 'Noto Sans', 'Helvetica Neue', sans-serif; /* Fonte padrão do corpo */
     --font-family-h3: 'Playfair Display', 'Georgia', serif;                     /* Fonte padrão para h3 */
     --font-family-button: 'Roboto', 'Segoe UI', sans-serif;                     /* Fonte padrão para botões */
 }
 
-
+/* Reset geral para remover margem e padding de todos os elementos e ajustar o box-sizing */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
+/* Estilos para animação de fade-in e fade-out */
 .fade-out {
     opacity: 0;
-    transition: opacity 0.5s ease-out;
+    transition: opacity 0.5s ease-out; /* Transição suave ao esconder */
 }
 
 .fade-in {
     opacity: 1;
-    transition: opacity 0.5s ease-in;
+    transition: opacity 0.5s ease-in; /* Transição suave ao mostrar */
 }
 
+/* Estilos globais do corpo */
 body {
-    font-family: var(--font-family-body); /* Fonte padrão */
-    background-color: #f1f3f4; /* Tom mais claro */
-    color: var(--color-green); /* Cor padrão para o texto */
-    font-size: var(--font-size-body); /* Tamanho padrão da fonte */
-    line-height: 1.6;
-    scroll-behavior: smooth;
-    background-image: url('./assets/background.jpg'); /* Caminho para a imagem de fundo */
-    background-size: cover; /* Faz a imagem cobrir todo o fundo */
-    background-position: center; /* Centraliza a imagem */
+    font-family: var(--font-family-body); /* Fonte definida para o corpo */
+    background-color: #f1f3f4; /* Cor de fundo clara */
+    color: var(--color-green); /* Cor do texto principal */
+    font-size: var(--font-size-body); /* Tamanho do texto */
+    line-height: 1.6; /* Altura das linhas para melhor legibilidade */
+    scroll-behavior: smooth; /* Transição suave ao rolar a página */
+    background-image: url('./assets/background.jpg'); /* Imagem de fundo */
+    background-size: cover; /* Imagem cobre todo o fundo */
+    background-position: center; /* Imagem centralizada */
 }
 
 /* Estilo do cabeçalho */
 header {
     position: relative;
-    height: 300px; /* Defina a altura do cabeçalho conforme necessário */
-    background: url('assets/header.jpg') no-repeat center center;
-    background-size: cover;
+    height: 300px; /* Altura personalizada do cabeçalho */
+    background: url('assets/header.jpg') no-repeat center center; /* Imagem de fundo do cabeçalho */
+    background-size: cover; /* Imagem cobre o cabeçalho */
 }
 
 header::before {
@@ -57,148 +58,144 @@ header::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.2); /* Cor branca com 20% de opacidade */
-    z-index: 1; /* Camada acima da imagem */
+    background: rgba(255, 255, 255, 0.2); /* Sobreposição branca com transparência */
+    z-index: 1; /* Posicionamento acima da imagem de fundo */
 }
 
-
-
-/* Rodapé */
+/* Estilos do rodapé */
 footer {
-    text-align: center; /* Centraliza o texto */
-    padding: 20px; /* Adiciona espaçamento interno */
-    position: relative; /* Define posição relativa para elementos filhos */
-    background: var(--color-white) url('assets/footer.jpg') no-repeat center; /* Define a cor de fundo e imagem */
-    background-size: cover; /* Ajusta a imagem para cobrir todo o footer */
-    color: var(--color-black); /* Cor preta para o texto */
-    font-family: var(--font-family-body); /* Fonte do corpo */
-    font-weight: normal; /* Remove qualquer negrito */
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Sombra para o rodapé */
-    margin-top: auto; /* Posiciona no final */
+    text-align: center; /* Centraliza o conteúdo do rodapé */
+    padding: 20px; /* Espaçamento interno */
+    position: relative; /* Para posicionar elementos filhos */
+    background: var(--color-white) url('assets/footer.jpg') no-repeat center; /* Cor de fundo e imagem */
+    background-size: cover; /* Imagem cobre todo o rodapé */
+    color: var(--color-black); /* Cor do texto */
+    font-family: var(--font-family-body); /* Fonte padrão do corpo */
+    font-weight: normal; /* Remove o negrito */
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    margin-top: auto; /* Posiciona o rodapé ao final da página */
 }
 
 footer::before {
-    content: ""; /* Cria um elemento vazio antes do rodapé */
-    position: absolute; /* Posiciona o elemento antes do conteúdo */
-    top: 0; /* Define a posição no topo */
-    left: 0; /* Alinha à esquerda */
+    content: ""; /* Elemento vazio para efeito */
+    position: absolute; /* Posicionamento relativo ao rodapé */
+    top: 0; /* Posição no topo do rodapé */
+    left: 0; /* Alinhado à esquerda */
     width: 100%; /* Largura total */
     height: 100%; /* Altura total */
 }
 
 footer p {
     margin: 0; /* Remove a margem */
-    font-weight: normal; /* Remove qualquer negrito do parágrafo */
+    font-weight: normal; /* Texto não em negrito */
 }
 
 footer nav ul {
-    list-style: none; /* Remove marcadores da lista */
-    padding: 0; /* Remove o preenchimento */
+    list-style: none; /* Remove as marcações da lista */
+    padding: 0; /* Remove o padding */
 }
 
 footer nav ul li {
-    display: inline; /* Exibe os itens em linha */
-    margin: 0 10px; /* Adiciona espaço entre os itens */
+    display: inline; /* Elementos em linha */
+    margin: 0 10px; /* Espaçamento horizontal entre itens */
 }
 
 footer nav ul li a {
     color: var(--color-black); /* Cor preta para os links */
-    font-family: var(--font-family-body); /* Fonte do corpo para os links */
-    text-decoration: underline; /* Sublinha o texto */
-    font-weight: normal; /* Remove qualquer negrito dos links */
+    font-family: var(--font-family-body); /* Fonte do corpo */
+    text-decoration: underline; /* Links sublinhados */
+    font-weight: normal; /* Texto não em negrito */
 }
 
-/* Seção padrão */
+/* Estilo padrão de seções */
 section {
     margin: 20px 0;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 10px; /* Bordas arredondadas */
     background: rgba(255, 255, 255, 0.75); /* Fundo branco com transparência */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    transition: transform 0.3s ease; /* Transição suave no hover */
+    text-align: center; /* Texto centralizado */
 }
 
 section:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px); /* Elevação ao passar o mouse */
 }
 
-/* Seção informativa */
+/* Estilo de seções informativas */
 .info {
     background: #fff;
     padding: 30px;
     text-align: left; /* Texto alinhado à esquerda */
-    line-height: 1.8;
-    box-shadow: none; /* Remove a sombra */
+    line-height: 1.8; /* Maior altura das linhas */
+    box-shadow: none; /* Sem sombra */
 }
 
 .info h3 {
-    font-size: var(--font-size-h3);
-    color: var(--color-purple); /* verde para títulos informativos */
+    font-size: var(--font-size-h3); /* Tamanho definido para h3 */
+    color: var(--color-purple); /* Cor roxa para títulos informativos */
 }
 
 .info p {
-    color: var(--color-black); /* Preto para textos informativos */
+    color: var(--color-black); /* Cor preta para textos informativos */
 }
 
-
-/* Estilo de texto seções*/
-
+/* Estilo para títulos em seções */
 section h3 {
-    font-size: var(--font-size-h3);
-    color: var(--color-green);
-    font-family: var(--font-family-h3);
-    font-weight: bold;
+    font-size: var(--font-size-h3); /* Tamanho definido */
+    color: var(--color-green); /* Cor verde para h3 */
+    font-family: var(--font-family-h3); /* Fonte para h3 */
+    font-weight: bold; /* Texto em negrito */
 }
 
 section p {
-    font-size: var(--font-size-body);
-    color: var(--color-purple);
-    font-family: var(--font-family-body);
+    font-size: var(--font-size-body); /* Tamanho do corpo */
+    color: var(--color-purple); /* Cor roxa para o texto */
+    font-family: var(--font-family-body); /* Fonte para o corpo */
 }
 
-/* Estilos de botões */
+/* Estilos gerais para botões */
 button {
     display: inline-flex;
     justify-content: center;
     align-items: center;
     padding: 12px 24px;
     border: none;
-    border-radius: 5px;
-    font-size: var(--font-size-body);
-    cursor: pointer;
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: var(--font-size-body); /* Tamanho do texto */
+    cursor: pointer; /* Cursor de ponteiro */
     margin: 10px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    color: var(--color-white);
-    font-family: var(--font-family-button);
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave */
+    color: var(--color-white); /* Texto branco */
+    font-family: var(--font-family-button); /* Fonte personalizada */
 }
 
 button:hover {
-    transform: scale(1.05); /* Animação de aumento */
+    transform: scale(1.05); /* Animação de aumento ao passar o mouse */
 }
 
-/* Botões personalizados */
+/* Estilos para botões personalizados */
 .btn-next {
-    background-color: var(--color-purple);
+    background-color: var(--color-purple); /* Fundo roxo */
 }
 
 .btn-know {
-    background-color: var(--color-green);
+    background-color: var(--color-green); /* Fundo verde */
 }
 
 .btn-next:hover, .btn-next:focus {
-    background-color: var(--color-green); /* Verde ao passar o mouse */
+    background-color: var(--color-green); /* Fundo verde no hover/foco */
 }
 
 .btn-know:hover, .btn-know:focus {
-    background-color: var(--color-purple); /* Roxo ao passar o mouse */
+    background-color: var(--color-purple); /* Fundo roxo no hover/foco */
 }
 
-/* Container para organização dos botões */
+/* Container para organizar botões de autenticação */
 .btn-container {
     display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-direction: column;
+    justify-content: center; /* Centraliza os botões */
+    gap: 10px; /* Espaçamento entre os botões */
+    flex-direction: column; /* Alinha os botões verticalmente */
     padding: 20px 0;
 }
