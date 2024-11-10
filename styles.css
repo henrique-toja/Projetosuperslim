@@ -1,3 +1,35 @@
+/* Definições de variáveis globais */
+:root {
+    --color-purple: #820ad1; /* Cor roxa para elementos principais */
+    --color-green: #6aa84f;  /* Cor verde suavizada para contraste */
+    --color-white: #ffffff; /* Cor branca */
+    --color-black: #000000; /* Cor preta */
+    --font-size-body: 18px;  /* Tamanho padrão do corpo do texto */
+    --font-size-button: 18px; /* Tamanho da fonte dos botões */
+    --font-size-h3: 24px;    /* Tamanho da fonte para títulos h3 */
+    --font-family-body: 'Open Sans', 'Noto Sans', 'Helvetica Neue', sans-serif; /* Fonte padrão do corpo */
+    --font-family-h3: 'Playfair Display', 'Georgia', serif;                     /* Fonte padrão para h3 */
+    --font-family-button: 'Roboto', 'Segoe UI', sans-serif;                     /* Fonte padrão para botões */
+}
+
+/* Reset geral para remover margem e padding de todos os elementos e ajustar o box-sizing */
+* {
+    margin: 0; /* Remove margem */
+    padding: 0; /* Remove padding */
+    box-sizing: border-box; /* Define o box-sizing como border-box */
+}
+
+/* Estilos para animação de fade-in e fade-out */
+.fade-out {
+    opacity: 0; /* Define a opacidade para invisível */
+    transition: opacity 0.5s ease-out; /* Transição suave ao esconder */
+}
+
+.fade-in {
+    opacity: 1; /* Define a opacidade para visível */
+    transition: opacity 0.5s ease-in; /* Transição suave ao mostrar */
+}
+
 /* Estilos globais do corpo */
 body {
     display: flex;
@@ -18,6 +50,24 @@ body {
     max-width: 1200px; /* Limita a largura do conteúdo no corpo */
     margin-left: auto; /* Centraliza o conteúdo horizontalmente */
     margin-right: auto; /* Centraliza o conteúdo horizontalmente */
+}
+
+/* Estilo do cabeçalho */
+header {
+    position: relative;
+    height: 300px; /* Altura personalizada do cabeçalho */
+    background: url('assets/header.jpg') no-repeat center center; /* Imagem de fundo do cabeçalho */
+    background-size: cover; /* Imagem cobre o cabeçalho */
+}
+
+header::before {
+    content: ""; /* Elemento pseudo criado para adicionar uma camada de sobreposição */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+    background: rgba(255, 255, 255, 0.2); /* Sobreposição branca com transparência */
 }
 
 /* Estilos do rodapé */
@@ -59,3 +109,95 @@ footer a:hover {
     text-decoration: none; /* Remove o sublinhado no hover */
     color: var(--color-purple); /* Altera a cor do texto no hover */
 }
+
+/* Estilo padrão de seções */
+section {
+    margin: 20px 0; /* Espaçamento vertical */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    background: rgba(255, 255, 255, 0.75); /* Fundo branco com transparência */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    transition: transform 0.3s ease; /* Transição suave no hover */
+    text-align: center; /* Texto centralizado */
+}
+
+section:hover {
+    transform: translateY(-10px); /* Elevação ao passar o mouse */
+}
+
+/* Estilo de seções informativas */
+.info {
+    background: #fff; /* Cor de fundo branca */
+    padding: 30px; /* Espaçamento interno */
+    text-align: left; /* Texto alinhado à esquerda */
+    line-height: 1.8; /* Maior altura das linhas */
+    box-shadow: none; /* Sem sombra */
+}
+
+.info h3 {
+    font-size: var(--font-size-h3); /* Tamanho definido para h3 */
+    color: var(--color-purple); /* Cor roxa para títulos informativos */
+}
+
+.info p {
+    color: var(--color-black); /* Cor preta para textos informativos */
+}
+
+/* Estilo para títulos em seções */
+section h3 {
+    font-size: var(--font-size-h3); /* Tamanho definido */
+    color: var(--color-green); /* Cor verde para h3 */
+    font-family: var(--font-family-h3); /* Fonte para h3 */
+    font-weight: bold; /* Texto em negrito */
+}
+
+section p {
+    font-size: var(--font-size-body); /* Tamanho do corpo */
+    color: var(--color-purple); /* Cor roxa para o texto */
+    font-family: var(--font-family-body); /* Fonte para o corpo */
+}
+
+/* Estilos gerais para botões */
+a {
+    display: inline-flex; /* Exibe os botões em linha com flexbox */
+    justify-content: center; /* Centraliza o conteúdo */
+    align-items: center; /* Alinha o conteúdo verticalmente */
+    padding: 12px 24px; /* Espaçamento interno do botão */
+    border: none; /* Remove borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: var(--font-size-body); /* Tamanho do texto */
+    cursor: pointer; /* Cursor de ponteiro */
+    margin: 10px; /* Espaçamento externo */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave */
+    color: var(--color-white); /* Texto branco */
+    font-family: var(--font-family-button); /* Fonte personalizada */
+}
+
+a:hover {
+    transform: scale(1.05); /* Animação de aumento ao passar o mouse */
+}
+
+/* Estilos para botões personalizados */
+.btn-next {
+    background-color: var(--color-purple); /* Fundo roxo */
+}
+
+.btn-know {
+    background-color: var(--color-green); /* Fundo verde */
+}
+
+.btn-next:hover, .btn-next:focus {
+    background-color: var(--color-green); /* Fundo verde no hover/foco */
+}
+
+.btn-know:hover, .btn-know:focus {
+    background-color: var(--color-purple); /* Fundo roxo no hover/foco */
+}
+
+/* Container para organizar botões de autenticação */
+.btn-container {
+    display: flex; /* Flexbox para organizar os botões */
+    justify-content: center; /* Centraliza os botões */
+    gap: 10px; /* Espaçamento entre os botões */
+    flex-direction: column; /* Alinha os botões verticalmente */
+    padding:
