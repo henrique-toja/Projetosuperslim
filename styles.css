@@ -32,6 +32,9 @@
 
 /* Estilos globais do corpo */
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Altura mínima de 100% da viewport */
     font-family: var(--font-family-body); /* Fonte definida para o corpo */
     background-color: #f1f3f4; /* Cor de fundo clara */
     color: var(--color-green); /* Cor do texto principal */
@@ -41,6 +44,10 @@ body {
     background-image: url('./assets/background.jpg'); /* Imagem de fundo */
     background-size: cover; /* Imagem cobre todo o fundo */
     background-position: center; /* Imagem centralizada */
+}
+
+main {
+    flex: 1; /* Faz com que o conteúdo principal ocupe o espaço restante */
 }
 
 /* Estilo do cabeçalho */
