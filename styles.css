@@ -119,19 +119,10 @@ section p {
 
 /* Botões e Links */
 a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 5px;
-    font-size: var(--font-size-button);
-    font-family: var(--font-family-button);
+    text-decoration: none;
     color: var(--color-white);
     cursor: pointer;
-    margin: 10px;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    text-decoration: none;
 }
 
 a:hover {
@@ -187,10 +178,11 @@ footer a {
     padding: 5px 10px;
 }
 
+/* Definindo a navegação do rodapé para ficar lado a lado */
 footer nav ul {
     list-style: none;
     padding: 0;
-    margin: 0; /* Remover margens adicionais */
+    margin: 0; /* Remover margens extras */
     display: flex; /* Usar flexbox para disposição lado a lado */
     justify-content: center; /* Centralizar os itens */
 }
