@@ -185,7 +185,7 @@ footer h3 {
 }
 
 /* Container específico para os links do footer */
-footer .links-container {
+footer .btn-container {
     display: flex;
     justify-content: center;
     gap: 20px; /* Espaçamento entre os links */
@@ -203,15 +203,4 @@ footer a {
 footer a:hover {
     text-decoration: none;
     color: var(--color-purple);
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
-    footer {
-        padding: 20px;
-    }
-
-    footer .links-container {
-        gap: 15px; /* Reduz um pouco o espaçamento em telas menores */
-    }
 }
