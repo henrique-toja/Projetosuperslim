@@ -94,7 +94,7 @@ footer nav ul {
 /* Estilos dos itens de navegação */
 footer nav ul li {
     display: inline-block; /* Elementos em linha com comportamento de bloco */
-    margin: 0 10px; /* Espaçamento horizontal entre itens */
+    margin: 0 6px; /* Espaçamento horizontal entre itens */
 }
 
 /* Estilos específicos para links dentro do rodapé */
