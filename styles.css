@@ -14,31 +14,30 @@
 
 /* Reset geral para remover margem e padding de todos os elementos e ajustar o box-sizing */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0; /* Remove margem */
+    padding: 0; /* Remove padding */
+    box-sizing: border-box; /* Define o box-sizing como border-box */
 }
 
 /* Estilos para animação de fade-in e fade-out */
 .fade-out {
-    opacity: 0;
+    opacity: 0; /* Define a opacidade para invisível */
     transition: opacity 0.5s ease-out; /* Transição suave ao esconder */
 }
 
 .fade-in {
-    opacity: 1;
+    opacity: 1; /* Define a opacidade para visível */
     transition: opacity 0.5s ease-in; /* Transição suave ao mostrar */
 }
 
 /* Estilos globais do corpo */
 body {
     display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    flex-direction: column; /* Organiza o conteúdo de forma vertical */
+    min-height: 100vh; /* Garante que o corpo ocupe a altura total da tela */
     width: 100%; /* Garante que o body não ultrapasse a largura da tela */
     margin: 0; /* Remove qualquer margem que possa causar o overflow */
     padding: 0; /* Remove o padding que pode causar overflow */
-    flex-direction: column;
     font-family: var(--font-family-body); /* Fonte definida para o corpo */
     background-color: #f1f3f4; /* Cor de fundo clara */
     color: var(--color-green); /* Cor do texto principal */
@@ -59,13 +58,14 @@ header {
 }
 
 header::before {
-    content: "";
+    content: ""; /* Elemento pseudo criado para adicionar uma camada de sobreposição */
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
     background: rgba(255, 255, 255, 0.2); /* Sobreposição branca com transparência */
+}
 
 /* Estilos do rodapé */
 footer {
@@ -77,15 +77,6 @@ footer {
     font-weight: normal; /* Remove o negrito */
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
     margin-top: auto; /* Posiciona o rodapé ao final da página */
-}
-
-footer::before {
-    content: ""; /* Elemento vazio para efeito */
-    position: absolute; /* Posicionamento relativo ao rodapé */
-    top: 0; /* Posição no topo do rodapé */
-    left: 0; /* Alinhado à esquerda */
-    width: 100%; /* Largura total */
-    height: 100%; /* Altura total */
 }
 
 footer p, footer h3 {
@@ -111,31 +102,18 @@ footer a {
     font-family: var(--font-family-body); /* Fonte do corpo */
     text-decoration: underline; /* Links sublinhados */
     font-weight: normal; /* Texto não em negrito */
+}
 
 /* Efeito de hover nos links */
 footer a:hover {
     text-decoration: none; /* Remove o sublinhado no hover */
-    color: var(--color-purple); /* Altera a cor do texto no hover (exemplo) */
-}
-
-/* Estilos específicos para links dentro do rodapé */
-footer a {
-    color: var(--color-black); /* Cor preta para os links */
-    font-family: var(--font-family-body); /* Fonte do corpo */
-    text-decoration: underline; /* Links sublinhados */
-    font-weight: normal; /* Texto não em negrito */
-    padding: 0; /* Remove padding adicional */
-    margin: 0; /* Remove margem adicional */
-}
-
-footer a:hover {
-    text-decoration: none; /* Remove o sublinhado no hover */
+    color: var(--color-purple); /* Altera a cor do texto no hover */
 }
 
 /* Estilo padrão de seções */
 section {
-    margin: 20px 0;
-    padding: 20px;
+    margin: 20px 0; /* Espaçamento vertical */
+    padding: 20px; /* Espaçamento interno */
     border-radius: 10px; /* Bordas arredondadas */
     background: rgba(255, 255, 255, 0.75); /* Fundo branco com transparência */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
@@ -149,8 +127,8 @@ section:hover {
 
 /* Estilo de seções informativas */
 .info {
-    background: #fff;
-    padding: 30px;
+    background: #fff; /* Cor de fundo branca */
+    padding: 30px; /* Espaçamento interno */
     text-align: left; /* Texto alinhado à esquerda */
     line-height: 1.8; /* Maior altura das linhas */
     box-shadow: none; /* Sem sombra */
@@ -181,15 +159,15 @@ section p {
 
 /* Estilos gerais para botões */
 a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    padding: 12px 24px;
-    border: none;
+    display: inline-flex; /* Exibe os botões em linha com flexbox */
+    justify-content: center; /* Centraliza o conteúdo */
+    align-items: center; /* Alinha o conteúdo verticalmente */
+    padding: 12px 24px; /* Espaçamento interno do botão */
+    border: none; /* Remove borda */
     border-radius: 5px; /* Bordas arredondadas */
     font-size: var(--font-size-body); /* Tamanho do texto */
     cursor: pointer; /* Cursor de ponteiro */
-    margin: 10px;
+    margin: 10px; /* Espaçamento externo */
     transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave */
     color: var(--color-white); /* Texto branco */
     font-family: var(--font-family-button); /* Fonte personalizada */
@@ -218,9 +196,9 @@ a:hover {
 
 /* Container para organizar botões de autenticação */
 .btn-container {
-    display: flex;
+    display: flex; /* Flexbox para organizar os botões */
     justify-content: center; /* Centraliza os botões */
     gap: 10px; /* Espaçamento entre os botões */
     flex-direction: column; /* Alinha os botões verticalmente */
-    padding: 20px 0;
+    padding: 20px 0; /* Espaçamento interno */
 }
