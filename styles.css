@@ -70,62 +70,6 @@ header::before {
     background: rgba(255, 255, 255, 0.2); /* Sobreposição branca com transparência */
 }
 
-/* Estilos do rodapé */
-footer {
-    text-align: center; /* Centraliza o conteúdo do rodapé */
-    padding: 20px; /* Espaçamento interno */
-    background: var(--color-white) url('assets/footer.jpg') no-repeat center; /* Cor de fundo e imagem */
-    color: var(--color-black); /* Cor do texto */
-    font-family: var(--font-family-body); /* Fonte padrão do corpo */
-    font-weight: normal; /* Remove o negrito */
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-    margin-top: auto; /* Posiciona o rodapé ao final da página */
-    display: flex; /* Flexbox para alinhar os itens dentro do rodapé */
-    flex-direction: column; /* Organiza os itens na vertical */
-    justify-content: center; /* Centraliza os itens verticalmente */
-    align-items: center; /* Alinha os itens horizontalmente */
-}
-
-/* Estilos do texto no rodapé */
-footer h3 {
-    margin-bottom: 10px; /* Espaço abaixo do título */
-    font-size: var(--font-size-body); /* Tamanho da fonte para o título */
-}
-
-/* Container de links */
-footer .btn-container {
-    display: flex; /* Flexbox para alinhar os botões */
-    flex-direction: row; /* Alinha os links na horizontal */
-    gap: 6px; /* Espaço entre os links */
-    align-items: center; /* Centraliza os links */
-}
-
-/* Estilos dos links */
-footer a {
-    color: var(--color-black); /* Cor preta para os links */
-    font-family: var(--font-family-body); /* Fonte do corpo */
-    text-decoration: underline; /* Links sublinhados */
-    font-weight: normal; /* Texto não em negrito */
-    font-size: var(--font-size-body); /* Tamanho do texto para os links */
-}
-
-/* Efeito de hover nos links */
-footer a:hover {
-    text-decoration: none; /* Remove o sublinhado no hover */
-    color: var(--color-purple); /* Altera a cor do texto no hover */
-}
-
-/* Estilos do rodapé no mobile (se necessário) */
-@media (max-width: 768px) {
-    footer {
-        text-align: center;
-        padding: 20px;
-    }
-    footer .btn-container {
-        flex-direction: row; /* Alinha os links horizontalmente em telas pequenas */
-    }
-}
-
 /* Estilo padrão de seções */
 section {
     margin: 20px 0; /* Espaçamento vertical */
@@ -217,3 +161,61 @@ a:hover {
     gap: 10px; /* Espaçamento entre os botões */
     flex-direction: column; /* Alinha os botões verticalmente */
     padding:
+
+/* Estilos do rodapé */
+footer {
+    text-align: center; /* Centraliza o conteúdo do rodapé */
+    padding: 20px; /* Espaçamento interno */
+    background: var(--color-white) url('assets/footer.jpg') no-repeat center; /* Cor de fundo e imagem */
+    color: var(--color-black); /* Cor do texto */
+    font-family: var(--font-family-body); /* Fonte padrão do corpo */
+    font-weight: normal; /* Remove o negrito */
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    margin-top: auto; /* Posiciona o rodapé ao final da página */
+    display: flex; /* Flexbox para alinhar os itens dentro do rodapé */
+    flex-direction: column; /* Organiza os itens na vertical */
+    justify-content: center; /* Centraliza os itens verticalmente */
+    align-items: center; /* Alinha os itens horizontalmente */
+}
+
+
+
+/* Estilos do texto no rodapé */
+footer h3 {
+    margin-bottom: 10px; /* Espaço abaixo do título */
+    font-size: var(--font-size-body); /* Tamanho da fonte para o título */
+}
+
+/* Container de links */
+footer .btn-container {
+    display: flex; /* Flexbox para alinhar os botões */
+    flex-direction: row; /* Alinha os links na horizontal */
+    gap: 6px; /* Espaço entre os links */
+    align-items: center; /* Centraliza os links */
+}
+
+/* Estilos dos links */
+footer a {
+    color: var(--color-black); /* Cor preta para os links */
+    font-family: var(--font-family-body); /* Fonte do corpo */
+    text-decoration: underline; /* Links sublinhados */
+    font-weight: normal; /* Texto não em negrito */
+    font-size: var(--font-size-body); /* Tamanho do texto para os links */
+}
+
+/* Efeito de hover nos links */
+footer a:hover {
+    text-decoration: none; /* Remove o sublinhado no hover */
+    color: var(--color-purple); /* Altera a cor do texto no hover */
+}
+
+/* Estilos do rodapé no mobile (se necessário) */
+@media (max-width: 768px) {
+    footer {
+        text-align: center;
+        padding: 20px;
+    }
+    footer .btn-container {
+        flex-direction: row; /* Alinha os links horizontalmente em telas pequenas */
+    }
+}
