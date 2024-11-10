@@ -88,11 +88,12 @@ footer p, footer h3 {
 footer nav ul {
     list-style: none; /* Remove as marcações da lista */
     padding: 0; /* Remove o padding */
+    margin: 0; /* Remove a margem */
 }
 
 /* Estilos dos itens de navegação */
 footer nav ul li {
-    display: inline; /* Elementos em linha */
+    display: inline-block; /* Elementos em linha com comportamento de bloco */
     margin: 0 10px; /* Espaçamento horizontal entre itens */
 }
 
