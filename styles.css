@@ -108,11 +108,18 @@ footer nav ul li {
     margin: 0 10px; /* Espaçamento horizontal entre itens */
 }
 
-footer nav ul li a {
+/* Estilos específicos para links dentro do rodapé */
+footer a {
     color: var(--color-black); /* Cor preta para os links */
     font-family: var(--font-family-body); /* Fonte do corpo */
     text-decoration: underline; /* Links sublinhados */
     font-weight: normal; /* Texto não em negrito */
+    padding: 0; /* Remove padding adicional */
+    margin: 0; /* Remove margem adicional */
+}
+
+footer a:hover {
+    text-decoration: none; /* Remove o sublinhado no hover */
 }
 
 /* Estilo padrão de seções */
