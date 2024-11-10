@@ -168,13 +168,11 @@ a:hover {
 /* Rodapé */
 footer {
     text-align: center;
-    padding: 20px;
     background: var(--color-white) url('assets/footer.jpg') no-repeat center;
     background-size: cover; /* Garante que a imagem cubra todo o footer */
     color: var(--color-black);
     font-family: var(--font-family-body);
     font-weight: normal;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
     margin-top: auto;
 }
 
