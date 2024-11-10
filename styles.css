@@ -35,7 +35,7 @@ body {
     display: flex;
     flex-direction: column; /* Organiza o conteúdo de forma vertical */
     min-height: 100vh; /* Garante que o corpo ocupe a altura total da tela */
-    width: 100%; /* Garante que o body não ultrapasse a largura da tela */
+    width: 30%; /* Garante que o body não ultrapasse a largura da tela */
     margin: 0; /* Remove qualquer margem que possa causar o overflow */
     padding: 0; /* Remove o padding que pode causar overflow */
     font-family: var(--font-family-body); /* Fonte definida para o corpo */
