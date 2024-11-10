@@ -90,6 +90,11 @@ footer p {
     font-weight: normal; /* Texto não em negrito */
 }
 
+footer h3 {
+    margin: 0; /* Remove a margem */
+    font-weight: normal; /* Texto não em negrito */
+}
+
 footer nav ul {
     list-style: none; /* Remove as marcações da lista */
     padding: 0; /* Remove o padding */
