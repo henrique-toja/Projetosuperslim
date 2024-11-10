@@ -86,6 +86,7 @@ footer::before {
     left: 0; /* Alinhado à esquerda */
     width: 100%; /* Largura total */
     height: 100%; /* Altura total */
+    z-index: -1; /* Coloca o pseudo-elemento atrás do conteúdo */
 }
 
 footer p {
