@@ -34,7 +34,11 @@
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Altura mínima de 100% da viewport */
+    min-height: 100vh;
+    width: 100%; /* Garante que o body não ultrapasse a largura da tela */
+    margin: 0; /* Remove qualquer margem que possa causar o overflow */
+    padding: 0; /* Remove o padding que pode causar overflow */
+    flex-direction: column;
     font-family: var(--font-family-body); /* Fonte definida para o corpo */
     background-color: #f1f3f4; /* Cor de fundo clara */
     color: var(--color-green); /* Cor do texto principal */
