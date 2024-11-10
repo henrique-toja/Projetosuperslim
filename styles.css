@@ -169,7 +169,7 @@ a:hover {
 footer {
     background-image: url('assets/footer.jpg'); /* Imagem de fundo */
     background-size: cover; /* Cobre toda a área do footer */
-    position: fixed; /* Fixa no final da viewport */
+    position: relative;
     bottom: 0; /* Alinha ao final */
     width: 100%; /* Ocupa toda a largura da viewport */
     z-index: 1000; /* Prioridade no empilhamento */
