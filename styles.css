@@ -5,7 +5,7 @@
     --color-green: #6aa84f;
     --color-white: #ffffff;
     --color-black: #000000;
-    
+
     /* Tipografia */
     --font-size-body: 18px;
     --font-size-button: 18px;
@@ -167,15 +167,15 @@ a:hover {
 
 /* Rodapé */
 footer {
-    background-image: url('assets/footer.jpg'); /* Imagem de fundo */
-    background-size: cover; /* Cobre toda a área do footer */
+    background-image: url('assets/footer.jpg');
+    background-size: cover;
     position: relative;
-    bottom: 0; /* Alinha ao final */
-    width: 100%; /* Ocupa toda a largura da viewport */
-    z-index: 1000; /* Prioridade no empilhamento */
-    padding: 1rem 0; /* Espaçamento vertical */
-    display: flex; /* Layout flexível */
-    justify-content: center; /* Centraliza o conteúdo */
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
     gap: 1rem;
     color: var(--color-black);
     font-family: var(--font-family-body);
@@ -190,16 +190,16 @@ footer h3 {
 
 /* Navegação e lista de links do footer */
 footer nav ul {
-    list-style: none; /* Remove os marcadores padrão da lista */
+    list-style: none;
     display: flex;
     justify-content: center;
-    gap: 20px; /* Espaçamento entre os links */
-    flex-wrap: wrap; /* Permite quebra de linha em telas menores */
-    padding: 0; /* Remove o preenchimento da lista */
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 0;
 }
 
 footer nav ul li {
-    display: inline; /* Garante que os itens fiquem na mesma linha */
+    /* Remover display: inline, pois o flex já faz o layout horizontal */
 }
 
 footer a {
@@ -207,7 +207,7 @@ footer a {
     text-decoration: underline;
     font-weight: normal;
     font-size: var(--font-size-body);
-    padding: 5px 10px; /* Espaçamento interno para melhor área de clique */
+    padding: 5px 10px;
 }
 
 footer a:hover {
