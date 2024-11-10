@@ -190,11 +190,13 @@ footer a {
 footer nav ul {
     list-style: none;
     padding: 0;
+    margin: 0; /* Remover margens adicionais */
+    display: flex; /* Usar flexbox para disposição lado a lado */
+    justify-content: center; /* Centralizar os itens */
 }
 
 footer nav ul li {
-    display: inline;
-    margin: 0 10px;
+    margin: 0 10px; /* Espaço entre os itens */
 }
 
 footer nav ul li a {
