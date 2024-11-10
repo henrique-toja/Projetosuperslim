@@ -182,12 +182,18 @@ footer h3 {
     text-align: center;
 }
 
-/* Container específico para os links do footer */
-footer .btn-container {
+/* Navegação e lista de links do footer */
+footer nav ul {
+    list-style: none; /* Remove os marcadores padrão da lista */
     display: flex;
     justify-content: center;
     gap: 20px; /* Espaçamento entre os links */
     flex-wrap: wrap; /* Permite quebra de linha em telas menores */
+    padding: 0; /* Remove o preenchimento da lista */
+}
+
+footer nav ul li {
+    display: inline; /* Garante que os itens fiquem na mesma linha */
 }
 
 footer a {
