@@ -3,6 +3,7 @@
     --color-purple: #820ad1; /* Roxo */
     --color-green: #6aa84f;  /* Verde suavizado */
     --color-white: #ffffff; /* Cor branca */
+    --color-black: #000000; /* Cor preta */
     --font-size-body: 18px;  /* Tamanho padrão do corpo do texto */
     --font-size-button: 18px; /* Tamanho da fonte dos botões */
     --font-size-h3: 24px;    /* Tamanho da fonte dos h3 */
@@ -75,31 +76,13 @@ section:hover {
 
 .info h3 {
     font-size: var(--font-size-h3);
-    color: var(--color-purple); /* Roxo para títulos */
+    color: var(--color-purple); /* verde para títulos */
 }
 
 .info p {
-    color: var(--color-green); /* Verde para textos */
+    color: var(--color-black); /* Roxo para textos */
 }
 
-/* Estilo de artigos */
-article {
-    padding: 20px;
-    background: var(--color-white);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-article h3 {
-    font-size: var(--font-size-h3);
-    color: var(--color-green);
-    font-family: var(--font-family-h3);
-    font-weight: bold;
-}
-
-article p {
-    font-size: var(--font-size-body);
-    color: var(--color-purple);
-}
 
 /* Estilo de texto seções*/
 
@@ -113,6 +96,7 @@ section h3 {
 section p {
     font-size: var(--font-size-body);
     color: var(--color-purple);
+    font-family: var(--font-family-body);
 }
 
 /* Rodapé */
@@ -122,7 +106,8 @@ footer {
     position: relative;
     background: var(--color-purple) url('assets/footer.jpg') no-repeat center;
     background-size: cover; /* Ajusta a imagem para cobrir todo o footer */
-    color: #000000; /* Cor preta para o texto */
+    color: var(--color-black); /* Cor preta para o texto */
+    font-family: var(--font-family-body);
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
     margin-top: auto; /* Posiciona no final */
 }
@@ -154,7 +139,8 @@ footer nav ul li {
 }
 
 footer nav ul li a {
-    color: var(--color-purple); /* Cor roxa para os links */
+    color: var(--color-black); /* Cor roxa para os links */
+    font-family: var(--font-family-body);
     text-decoration: none;
 }
 
