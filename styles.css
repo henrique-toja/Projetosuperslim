@@ -69,18 +69,14 @@ header::before {
 footer {
     text-align: center; /* Centraliza o conteúdo do rodapé */
     padding: 20px; /* Espaçamento interno */
-    position: relative; /* Para posicionar elementos filhos */
     background: var(--color-white) url('assets/footer.jpg') no-repeat center; /* Cor de fundo e imagem */
-    background-size: cover; /* Imagem cobre todo o rodapé */
     color: var(--color-black); /* Cor do texto */
     font-family: var(--font-family-body); /* Fonte padrão do corpo */
     font-weight: normal; /* Remove o negrito */
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
     margin-top: auto; /* Posiciona o rodapé ao final da página */
-    z-index: 10; /* Garante que o rodapé fique acima de outros elementos */
 }
 
-/* Garantir que o pseudo-elemento não cubra os links */
 footer::before {
     content: ""; /* Elemento vazio para efeito */
     position: absolute; /* Posicionamento relativo ao rodapé */
@@ -88,7 +84,6 @@ footer::before {
     left: 0; /* Alinhado à esquerda */
     width: 100%; /* Largura total */
     height: 100%; /* Altura total */
-    z-index: -1; /* Coloca o pseudo-elemento atrás do conteúdo */
 }
 
 footer p, footer h3 {
@@ -114,12 +109,6 @@ footer a {
     font-family: var(--font-family-body); /* Fonte do corpo */
     text-decoration: underline; /* Links sublinhados */
     font-weight: normal; /* Texto não em negrito */
-    padding: 5px 10px; /* Adiciona algum espaço ao redor do link */
-    margin: 0; /* Remove margem adicional */
-    display: inline-block; /* Garante que o link seja um bloco de linha */
-    position: relative; /* Permite o uso do z-index se necessário */
-    z-index: 1; /* Garante que o link esteja acima de outros elementos */
-}
 
 /* Efeito de hover nos links */
 footer a:hover {
