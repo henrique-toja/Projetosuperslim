@@ -1,221 +1,215 @@
-/* Definições de variáveis globais */
+/* Variáveis Globais */
 :root {
-    --color-purple: #820ad1; /* Cor roxa para elementos principais */
-    --color-green: #6aa84f;  /* Cor verde suavizada para contraste */
-    --color-white: #ffffff; /* Cor branca */
-    --color-black: #000000; /* Cor preta */
-    --font-size-body: 18px;  /* Tamanho padrão do corpo do texto */
-    --font-size-button: 18px; /* Tamanho da fonte dos botões */
-    --font-size-h3: 24px;    /* Tamanho da fonte para títulos h3 */
-    --font-family-body: 'Open Sans', 'Noto Sans', 'Helvetica Neue', sans-serif; /* Fonte padrão do corpo */
-    --font-family-h3: 'Playfair Display', 'Georgia', serif;                     /* Fonte padrão para h3 */
-    --font-family-button: 'Roboto', 'Segoe UI', sans-serif;                     /* Fonte padrão para botões */
+    /* Cores */
+    --color-purple: #820ad1;
+    --color-green: #6aa84f;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    
+    /* Tipografia */
+    --font-size-body: 18px;
+    --font-size-button: 18px;
+    --font-size-h3: 24px;
+    --font-family-body: 'Open Sans', 'Noto Sans', 'Helvetica Neue', sans-serif;
+    --font-family-h3: 'Playfair Display', 'Georgia', serif;
+    --font-family-button: 'Roboto', 'Segoe UI', sans-serif;
 }
 
-/* Reset geral para remover margem e padding de todos os elementos e ajustar o box-sizing */
+/* Reset Global */
 * {
-    margin: 0; /* Remove margem */
-    padding: 0; /* Remove padding */
-    box-sizing: border-box; /* Define o box-sizing como border-box */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Estilos para animação de fade-in e fade-out */
+/* Animações */
 .fade-out {
-    opacity: 0; /* Define a opacidade para invisível */
-    transition: opacity 0.5s ease-out; /* Transição suave ao esconder */
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
 }
 
 .fade-in {
-    opacity: 1; /* Define a opacidade para visível */
-    transition: opacity 0.5s ease-in; /* Transição suave ao mostrar */
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
 }
 
-/* Estilos globais do corpo */
+/* Layout Base */
 body {
     display: flex;
-    flex-direction: column; /* Organiza o conteúdo de forma vertical */
-    min-height: 100vh; /* Garante que o corpo ocupe a altura total da tela */
-    width: 100%; /* Garante que o body não ultrapasse a largura da tela */
-    margin: 0; /* Remove qualquer margem que possa causar o overflow */
-    padding: 0; /* Remove o padding que pode causar overflow */
-    font-family: var(--font-family-body); /* Fonte definida para o corpo */
-    background-color: #f1f3f4; /* Cor de fundo clara */
-    color: var(--color-green); /* Cor do texto principal */
-    font-size: var(--font-size-body); /* Tamanho do texto */
-    line-height: 1.6; /* Altura das linhas para melhor legibilidade */
-    scroll-behavior: smooth; /* Transição suave ao rolar a página */
-    background-image: url('./assets/background.jpg'); /* Imagem de fundo */
-    background-size: cover; /* Imagem cobre todo o fundo */
-    background-position: center; /* Imagem centralizada */
-    max-width: 1200px; /* Limita a largura do conteúdo no corpo */
-    margin-left: auto; /* Centraliza o conteúdo horizontalmente */
-    margin-right: auto; /* Centraliza o conteúdo horizontalmente */
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body);
+    line-height: 1.6;
+    color: var(--color-green);
+    background-color: #f1f3f4;
+    background-image: url('./assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    scroll-behavior: smooth;
 }
 
-/* Estilo do cabeçalho */
+/* Cabeçalho */
 header {
     position: relative;
-    height: 300px; /* Altura personalizada do cabeçalho */
-    background: url('assets/header.jpg') no-repeat center center; /* Imagem de fundo do cabeçalho */
-    background-size: cover; /* Imagem cobre o cabeçalho */
+    height: 300px;
+    background: url('assets/header.jpg') no-repeat center center;
+    background-size: cover;
 }
 
 header::before {
-    content: ""; /* Elemento pseudo criado para adicionar uma camada de sobreposição */
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%; /* Largura total */
-    height: 100%; /* Altura total */
-    background: rgba(255, 255, 255, 0.2); /* Sobreposição branca com transparência */
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
 }
 
-/* Estilo padrão de seções */
+/* Seções */
 section {
-    margin: 20px 0; /* Espaçamento vertical */
-    padding: 20px; /* Espaçamento interno */
-    border-radius: 10px; /* Bordas arredondadas */
-    background: rgba(255, 255, 255, 0.75); /* Fundo branco com transparência */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-    transition: transform 0.3s ease; /* Transição suave no hover */
-    text-align: center; /* Texto centralizado */
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
 }
 
 section:hover {
-    transform: translateY(-10px); /* Elevação ao passar o mouse */
+    transform: translateY(-10px);
 }
 
-/* Estilo de seções informativas */
-.info {
-    background: #fff; /* Cor de fundo branca */
-    padding: 30px; /* Espaçamento interno */
-    text-align: left; /* Texto alinhado à esquerda */
-    line-height: 1.8; /* Maior altura das linhas */
-    box-shadow: none; /* Sem sombra */
-}
-
-.info h3 {
-    font-size: var(--font-size-h3); /* Tamanho definido para h3 */
-    color: var(--color-purple); /* Cor roxa para títulos informativos */
-}
-
-.info p {
-    color: var(--color-black); /* Cor preta para textos informativos */
-}
-
-/* Estilo para títulos em seções */
 section h3 {
-    font-size: var(--font-size-h3); /* Tamanho definido */
-    color: var(--color-green); /* Cor verde para h3 */
-    font-family: var(--font-family-h3); /* Fonte para h3 */
-    font-weight: bold; /* Texto em negrito */
+    font-size: var(--font-size-h3);
+    color: var(--color-green);
+    font-family: var(--font-family-h3);
+    font-weight: bold;
 }
 
 section p {
-    font-size: var(--font-size-body); /* Tamanho do corpo */
-    color: var(--color-purple); /* Cor roxa para o texto */
-    font-family: var(--font-family-body); /* Fonte para o corpo */
+    font-size: var(--font-size-body);
+    color: var(--color-purple);
+    font-family: var(--font-family-body);
 }
 
-/* Estilos gerais para botões */
+/* Seções Informativas */
+.info {
+    background: var(--color-white);
+    padding: 30px;
+    text-align: left;
+    line-height: 1.8;
+    box-shadow: none;
+}
+
+.info h3 {
+    font-size: var(--font-size-h3);
+    color: var(--color-purple);
+}
+
+.info p {
+    color: var(--color-black);
+}
+
+/* Botões e Links */
 a {
-    display: inline-flex; /* Exibe os botões em linha com flexbox */
-    justify-content: center; /* Centraliza o conteúdo */
-    align-items: center; /* Alinha o conteúdo verticalmente */
-    padding: 12px 24px; /* Espaçamento interno do botão */
-    border: none; /* Remove borda */
-    border-radius: 5px; /* Bordas arredondadas */
-    font-size: var(--font-size-body); /* Tamanho do texto */
-    cursor: pointer; /* Cursor de ponteiro */
-    margin: 10px; /* Espaçamento externo */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave */
-    color: var(--color-white); /* Texto branco */
-    font-family: var(--font-family-button); /* Fonte personalizada */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-size: var(--font-size-button);
+    font-family: var(--font-family-button);
+    color: var(--color-white);
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
 }
 
 a:hover {
-    transform: scale(1.05); /* Animação de aumento ao passar o mouse */
+    transform: scale(1.05);
 }
 
-/* Estilos para botões personalizados */
 .btn-next {
-    background-color: var(--color-purple); /* Fundo roxo */
+    background-color: var(--color-purple);
 }
 
 .btn-know {
-    background-color: var(--color-green); /* Fundo verde */
+    background-color: var(--color-green);
 }
 
-.btn-next:hover, .btn-next:focus {
-    background-color: var(--color-green); /* Fundo verde no hover/foco */
+.btn-next:hover,
+.btn-next:focus {
+    background-color: var(--color-green);
 }
 
-.btn-know:hover, .btn-know:focus {
-    background-color: var(--color-purple); /* Fundo roxo no hover/foco */
+.btn-know:hover,
+.btn-know:focus {
+    background-color: var(--color-purple);
 }
 
-/* Container para organizar botões de autenticação */
+/* Container de Botões */
 .btn-container {
-    display: flex; /* Flexbox para organizar os botões */
-    justify-content: center; /* Centraliza os botões */
-    gap: 10px; /* Espaçamento entre os botões */
-    flex-direction: column; /* Alinha os botões verticalmente */
-    padding:
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: column;
+    padding: 20px;
+}
 
-/* Estilos do rodapé */
+/* Rodapé */
 footer {
-    text-align: center; /* Centraliza o conteúdo do rodapé */
-    padding: 20px; /* Espaçamento interno */
-    background: var(--color-white) url('assets/footer.jpg') no-repeat center; /* Cor de fundo e imagem */
-    color: var(--color-black); /* Cor do texto */
-    font-family: var(--font-family-body); /* Fonte padrão do corpo */
-    font-weight: normal; /* Remove o negrito */
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-    margin-top: auto; /* Posiciona o rodapé ao final da página */
-    display: flex; /* Flexbox para alinhar os itens dentro do rodapé */
-    flex-direction: column; /* Organiza os itens na vertical */
-    justify-content: center; /* Centraliza os itens verticalmente */
-    align-items: center; /* Alinha os itens horizontalmente */
+    text-align: center;
+    padding: 20px;
+    background: var(--color-white) url('assets/footer.jpg') no-repeat center;
+    color: var(--color-black);
+    font-family: var(--font-family-body);
+    font-weight: normal;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-
-
-/* Estilos do texto no rodapé */
 footer h3 {
-    margin-bottom: 10px; /* Espaço abaixo do título */
-    font-size: var(--font-size-body); /* Tamanho da fonte para o título */
+    margin-bottom: 10px;
+    font-size: var(--font-size-body);
 }
 
-/* Container de links */
 footer .btn-container {
-    display: flex; /* Flexbox para alinhar os botões */
-    flex-direction: row; /* Alinha os links na horizontal */
-    gap: 6px; /* Espaço entre os links */
-    align-items: center; /* Centraliza os links */
+    flex-direction: row;
+    gap: 6px;
 }
 
-/* Estilos dos links */
 footer a {
-    color: var(--color-black); /* Cor preta para os links */
-    font-family: var(--font-family-body); /* Fonte do corpo */
-    text-decoration: underline; /* Links sublinhados */
-    font-weight: normal; /* Texto não em negrito */
-    font-size: var(--font-size-body); /* Tamanho do texto para os links */
+    color: var(--color-black);
+    text-decoration: underline;
+    font-weight: normal;
+    font-size: var(--font-size-body);
 }
 
-/* Efeito de hover nos links */
 footer a:hover {
-    text-decoration: none; /* Remove o sublinhado no hover */
-    color: var(--color-purple); /* Altera a cor do texto no hover */
+    text-decoration: none;
+    color: var(--color-purple);
 }
 
-/* Estilos do rodapé no mobile (se necessário) */
+/* Media Queries */
 @media (max-width: 768px) {
     footer {
-        text-align: center;
         padding: 20px;
     }
+    
     footer .btn-container {
-        flex-direction: row; /* Alinha os links horizontalmente em telas pequenas */
+        flex-direction: row;
     }
 }
