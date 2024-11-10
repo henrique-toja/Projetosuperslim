@@ -163,7 +163,7 @@ section p {
 }
 
 /* Estilos gerais para botões */
-button {
+a {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -178,7 +178,7 @@ button {
     font-family: var(--font-family-button); /* Fonte personalizada */
 }
 
-button:hover {
+a:hover {
     transform: scale(1.05); /* Animação de aumento ao passar o mouse */
 }
 
