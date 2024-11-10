@@ -77,8 +77,10 @@ footer {
     font-weight: normal; /* Remove o negrito */
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
     margin-top: auto; /* Posiciona o rodapé ao final da página */
+    z-index: 10; /* Garante que o rodapé fique acima de outros elementos */
 }
 
+/* Garantir que o pseudo-elemento não cubra os links */
 footer::before {
     content: ""; /* Elemento vazio para efeito */
     position: absolute; /* Posicionamento relativo ao rodapé */
@@ -89,24 +91,40 @@ footer::before {
     z-index: -1; /* Coloca o pseudo-elemento atrás do conteúdo */
 }
 
-footer p {
+footer p, footer h3 {
     margin: 0; /* Remove a margem */
     font-weight: normal; /* Texto não em negrito */
 }
 
-footer h3 {
-    margin: 0; /* Remove a margem */
-    font-weight: normal; /* Texto não em negrito */
-}
-
+/* Listagem do menu de links */
 footer nav ul {
     list-style: none; /* Remove as marcações da lista */
     padding: 0; /* Remove o padding */
 }
 
+/* Estilos dos itens de navegação */
 footer nav ul li {
     display: inline; /* Elementos em linha */
     margin: 0 10px; /* Espaçamento horizontal entre itens */
+}
+
+/* Estilos específicos para links dentro do rodapé */
+footer a {
+    color: var(--color-black); /* Cor preta para os links */
+    font-family: var(--font-family-body); /* Fonte do corpo */
+    text-decoration: underline; /* Links sublinhados */
+    font-weight: normal; /* Texto não em negrito */
+    padding: 5px 10px; /* Adiciona algum espaço ao redor do link */
+    margin: 0; /* Remove margem adicional */
+    display: inline-block; /* Garante que o link seja um bloco de linha */
+    position: relative; /* Permite o uso do z-index se necessário */
+    z-index: 1; /* Garante que o link esteja acima de outros elementos */
+}
+
+/* Efeito de hover nos links */
+footer a:hover {
+    text-decoration: none; /* Remove o sublinhado no hover */
+    color: var(--color-purple); /* Altera a cor do texto no hover (exemplo) */
 }
 
 /* Estilos específicos para links dentro do rodapé */
