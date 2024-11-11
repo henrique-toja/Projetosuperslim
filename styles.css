@@ -160,43 +160,27 @@ a:hover {
 footer {
     text-align: center;
     padding: 20px;
-    background-image: url('assets/footer.jpg');
-    color: var(--color-black);
-    font-family: var(--font-family-body);
+    background-color: var(--color-purple);
+    color: var(--color-white);
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
 }
 
 footer p {
+    font-size: 1em; /* Mantendo o tamanho da fonte original */
     margin: 0;
 }
 
-footer a {
-    color: var(--color-black);
-    text-decoration: underline;
-    font-weight: normal;
-    font-size: var(--font-size-body);
-    padding: 5px 10px;
-}
-
-/* Definindo a navegação do rodapé para ficar lado a lado */
 footer nav ul {
     list-style: none;
     padding: 0;
-    margin: 0; /* Remover margens extras */
-    display: flex; /* Usar flexbox para disposição lado a lado */
-    justify-content: center; /* Centralizar os itens */
 }
 
 footer nav ul li {
-    margin: 0 5px; /* Espaço entre os itens */
+    display: inline;
+    margin: 0 10px;
 }
 
 footer nav ul li a {
-    color: var(--color-black);
+    color: var(--color-white);
     text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: none;
-    color: var(--color-purple);
 }
