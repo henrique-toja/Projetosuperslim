@@ -117,34 +117,50 @@ section p {
     color: var(--color-black);
 }
 
-/* Botões e Links */
-a {
-    text-decoration: none;
-    color: var(--color-white);
+/* Estilo para botões */
+.btn, button, .btn-next, .btn-know {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-size: var(--font-size-button); /* Tamanho da fonte dos botões */
     cursor: pointer;
+    margin: 10px;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    color: var(--color-white); /* Cor do texto */
+    font-family: var(--font-family-button); /* Fonte padrão para botões */
 }
 
-a:hover {
-    transform: scale(1.05);
-}
-
-.btn-next {
-    background-color: var(--color-purple);
+/* Estilos específicos para cada botão */
+.btn-next, button {
+    background-color: var(--color-purple); /* Cor de fundo inicial roxo */
 }
 
 .btn-know {
-    background-color: var(--color-green);
+    background-color: var(--color-green); /* Cor de fundo inicial verde */
 }
 
-.btn-next:hover,
-.btn-next:focus {
-    background-color: var(--color-green);
+.btn-next:hover, .btn-next:focus,
+button:hover, button:focus {
+    background-color: var(--color-green); /* Cor de fundo ao passar o mouse */
+    transform: scale(1.05);
 }
 
-.btn-know:hover,
-.btn-know:focus {
-    background-color: var(--color-purple);
+.btn-know:hover, .btn-know:focus {
+    background-color: var(--color-purple); /* Cor de fundo ao passar o mouse */
+    transform: scale(1.05);
+}
+
+/* Contêiner de botões */
+.btn-container, .btn-container-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Espaçamento entre os botões */
+}
+
+.btn-container {
+    flex-direction: column; /* Organiza os botões em coluna */
+    padding: 20px 0;
 }
 
 /* Container de Botões */
