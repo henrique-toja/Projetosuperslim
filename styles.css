@@ -166,7 +166,7 @@ button:hover, button:focus {
 
 /* Estilo do rodapé */
 footer {
-    background-image: url('app/assets/footer.jpg'); /* Imagem de fundo */
+    background-image: url('app/assets/header.jpg'); /* Imagem de fundo */
     text-align: center;
     padding: 20px;
     background-color: transparent;
