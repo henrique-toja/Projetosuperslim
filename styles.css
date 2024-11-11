@@ -171,7 +171,7 @@ footer {
     text-align: center;
     padding: 20px;
     background-color: var(--color-purple);
-    color: var(--color-white);
+    color: var(--color-black);
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
 }
 
