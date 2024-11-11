@@ -34,7 +34,7 @@ body {
     min-height: 100vh; /* Altura mínima de 100% da viewport */
     display: flex; /* Flex para suportar layout flexível */
     flex-direction: column; /* Coloca footer no final da página */
-    background-image: url('assets/background.jpg'); /* Imagem de fundo */
+    background-image: url('app/assets/background.jpg'); /* Imagem de fundo */
     background-size: cover; /* Imagem cobre todo o fundo */
     background-position: center; /* Imagem centralizada */
 }
@@ -89,7 +89,7 @@ main {
 
 /* Estilos para o rodapé */
 footer {
-    background-image: url('assets/footer.jpg'); /* Imagem de fundo */
+    background-image: url('app/assets/footer.jpg'); /* Imagem de fundo */
     background-size: cover; /* Cobre toda a área do footer */
     position: fixed; /* Fixa no final da viewport */
     bottom: 0; /* Alinha ao final */
@@ -103,7 +103,7 @@ footer {
 
 /* Estilos para o cabeçalho */
 header {
-    background-image: url('assets/header.jpg'); /* Imagem de fundo */
+    background-image: url('app/assets/header.jpg'); /* Imagem de fundo */
     background-size: cover; /* Cobre toda a área do header */
     position: fixed; /* Fixa no topo */
     top: 0; /* Alinha ao topo */
