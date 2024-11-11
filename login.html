@@ -17,18 +17,13 @@
     <meta name="twitter:image" content="https://www.projetosuperslim.fitness/assets/tag.jpg">
     <link rel="stylesheet" href="styles.css">
     <style>
+/* Configura a altura total da página e remove margens padrão */
+html, body {
+    height: 100%; /* Garante que o body ocupe a altura total da viewport */
+    margin: 0;    /* Remove a margem padrão do navegador */
+    display: flex; /* Alinha os elementos no eixo vertical */
+    flex-direction: column; /* Organiza os elementos verticalmente */
 
-/* Define o container principal da página */
-.container {
-    display: flex;               /* Ativa o flexbox para organizar o layout */
-    flex-direction: column;      /* Coloca os elementos (content e footer) em coluna */
-    min-height: 100vh;           /* Garante que o container ocupe pelo menos a altura da viewport */
-}
-
-/* Área de conteúdo da página */
-.content {
-    flex: 1;                     /* Faz a área de conteúdo ocupar o espaço restante */
-}
 
         /* Container para organização dos botões */
         .btn-container {
