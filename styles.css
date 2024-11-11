@@ -166,11 +166,10 @@ button:hover, button:focus {
 
 /* Estilo do rodapé */
 footer {
-    background-image: url('app/assets/header.jpg'); /* Imagem de fundo */
+    position: relative;
+    background: url('assets/footer.jpg') no-repeat center center;
+    background-size: cover;
     text-align: center;
-    padding: 20px;
-    background-color: transparent;
-    box-shadow: none;
 }
 
 footer p {
