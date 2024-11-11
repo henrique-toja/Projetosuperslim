@@ -17,10 +17,23 @@
     <meta name="twitter:image" content="https://www.projetosuperslim.fitness/assets/tag.jpg">
     <link rel="stylesheet" href="styles.css">
     <style>
-
+/* Configura a altura total da página e remove margens padrão */
 html, body {
-    height: 100%;
+    height: 100%; /* Garante que o body ocupe a altura total da viewport */
+    margin: 0;    /* Remove a margem padrão do navegador */
     flex-direction: column;
+}
+
+/* Define o container principal da página */
+.container {
+    display: flex;               /* Ativa o flexbox para organizar o layout */
+    flex-direction: column;      /* Coloca os elementos (content e footer) em coluna */
+    min-height: 100vh;           /* Garante que o container ocupe pelo menos a altura da viewport */
+}
+
+/* Área de conteúdo da página */
+.content {
+    flex: 1;                     /* Faz a área de conteúdo ocupar o espaço restante */
 }
 
         /* Container para organização dos botões */
@@ -104,6 +117,7 @@ html, body {
     <h3>Entrar ou Cadastrar</h3>
     <p>Use uma das opções abaixo para entrar ou criar sua conta.</p>
 </section>
+<div class="content">
 <div class="btn-container">
     <!-- Botão de login com Google -->
     <a href="/app" class="btn-auth" id="google-login">
@@ -140,7 +154,7 @@ html, body {
         <span>Entrar com Apple</span>
     </a>
 </div>
-</body>
+</div class="content">
 <footer>
     <p>Projeto Super Slim © 2024 - Todos os direitos reservados</p>
     <nav>
@@ -151,4 +165,5 @@ html, body {
         </ul>
     </nav>
 </footer>
+</body>
 </html>
