@@ -189,6 +189,6 @@ footer nav ul li {
 }
 
 footer nav ul li a {
-    color: var(--color-black);
+    color: var(--color-white);
     text-decoration: none;
 }
