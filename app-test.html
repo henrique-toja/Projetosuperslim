@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Super Slim App</title>
+    <link rel="icon" href="assets/icon.ico" type="image/x-icon">
+    <meta name="description" content="Transforme o emagrecimento em uma experiência leve e agradável com o Projeto Super Slim. Junte-se à nossa comunidade e atinja seus objetivos de forma saudável!" />
+    <meta property="og:title" content="Projeto Super Slim App" />
+    <meta property="og:description" content="Transforme o emagrecimento em uma experiência leve e agradável com o Projeto Super Slim. Junte-se à nossa comunidade e atinja seus objetivos de forma saudável!" />
+    <meta property="og:image" content="https://www.projetosuperslim.fitness/assets/tag.jpg" />
+    <meta property="og:url" content="https://www.projetosuperslim.fitness" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Projeto Super Slim">
+    <meta name="twitter:description" content="Transforme o emagrecimento em uma experiência leve e agradável com o Projeto Super Slim. Junte-se à nossa comunidade e atinja seus objetivos de forma saudável!">
+    <meta name="twitter:image" content="https://www.projetosuperslim.fitness/assets/tag.jpg">
+    <style>
+        /* Definições de variáveis globais */
+        :root {
+            --color-purple: #820ad1;
+            --color-green: #6aa84f;
+            --color-white: #ffffff;
+            --color-black: #000000;
+            --font-size-body: 18px;
+            --font-size-button: 18px;
+            --font-size-h3: 24px;
+            --font-family-body: 'Open Sans', 'Noto Sans', 'Helvetica Neue', sans-serif;
+            --font-family-h3: 'Playfair Display', 'Georgia', serif;
+            --font-family-button: 'Roboto', 'Segoe UI', sans-serif;
+            --button-gradient: linear-gradient(145deg, #ffffff, #f0f0f0);
+            --button-shadow: 
+                5px 5px 10px rgba(0, 0, 0, 0.1),
+                -5px -5px 10px rgba(255, 255, 255, 0.8);
+            --button-inner-shadow: 
+                inset 4px 4px 8px rgba(0, 0, 0, 0.1),
+                inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+            --button-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Reset geral */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilos do html e body */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body {
+            font-family: var(--font-family-body);
+            font-size: var(--font-size-body);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: url('app/assets/background.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Estilos de títulos */
+        h3 {
+            font-family: var(--font-family-h3);
+            font-size: var(--font-size-h3);
+            color: var(--color-green);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Estilos dos botões modernizados */
+        .header-button, .footer-button {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 4.5rem;
+            height: 4.5rem;
+            background: var(--button-gradient);
+            border: none;
+            border-radius: 1rem;
+            box-shadow: var(--button-shadow);
+            transition: var(--button-transition);
+            overflow: hidden;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            animation: buttonAppear 0.5s ease-out forwards;
+        }
+
+        .header-button::before, .footer-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            transition: var(--button-transition);
+        }
+
+        .header-button img, .footer-button img {
+            width: 85%;
+            height: 85%;
+            border-radius: 0.8rem;
+            object-fit: cover;
+            transition: var(--button-transition);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-button:hover, .footer-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 
+                8px 8px 16px rgba(0, 0, 0, 0.15),
+                -8px -8px 16px rgba(255, 255, 255, 0.9);
+        }
+
+        .header-button:hover::before, .footer-button:hover::before {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .header-button:hover img, .footer-button:hover img {
+            transform: scale(0.95);
+        }
+
+        .header-button:active, .footer-button:active {
+            transform: translateY(1px) scale(0.98);
+            box-shadow: var(--button-inner-shadow);
+            background: linear-gradient(145deg, #f0f0f0, #ffffff);
+        }
+
+        .header-button:active img, .footer-button:active img {
+            transform: scale(0.9);
+        }
+
+        /* Layout principal */
+        main {
+            flex: 1;
+            padding: 2rem;
+            display: grid;
+            place-items: center;
+            margin-top: 6rem;
+            margin-bottom: 6rem;
+        }
+
+        /* Estilos do nav */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos do header e footer */
+        header, footer {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        header {
+            top: 0;
+            background-image: url('app/assets/header.jpg');
+            background-size: cover;
+        }
+
+        footer {
+            bottom: 0;
+            background-image: url('app/assets/footer.jpg');
+            background-size: cover;
+        }
+
+        /* Estilos da seção */
+        section {
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.75);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            text-align: center;
+            max-width: 600px;
+        }
+
+        section:hover {
+            transform: translateY(-10px);
+        }
+
+        section h3 {
+            font-size: var(--font-size-h3);
+            color: var(--color-green);
+            font-family: var(--font-family-h3);
+            font-weight: bold;
+        }
+
+        section p {
+            font-size: var(--font-size-body);
+            color: var(--color-purple);
+            font-family: var(--font-family-body);
+        }
+
+        /* Animação de aparecimento dos botões */
+        @keyframes buttonAppear {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="dev" class="header-button">
+                <img src="app/assets/perfil.jpg" alt="Perfil">
+            </a>
+            <a href="https://www.gabrielatorraca.com.br" class="header-button">
+                <img src="app/assets/suplementos.jpg" alt="Suplementos">
+            </a>
+            <a href="https://instagram.com/gabriela.torraca" class="header-button">
+                <img src="app/assets/comunidade.jpg" alt="Comunidade">
+            </a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h3>Bem-vinda ao Aplicativo Oficial do Projeto Super Slim</h3>
+            <p>Parabéns por dar o primeiro passo na sua jornada de emagrecimento! O aplicativo do Projeto Super Slim será seu guia e assistente durante todo esse processo transformador. Aqui, você encontrará o apoio necessário para alcançar seus objetivos, com funcionalidades que vão desde conversas personalizadas com a Gabi GPT sobre mentalidade, alimentação e exercícios, até o acompanhamento contínuo do seu progresso. Defina suas metas diárias, semanais e mensais, e cumpra-as com o auxílio de tarefas específicas, pensadas para tornar sua jornada mais leve, eficiente e motivadora. Estamos juntas nessa!</p>
+        </section>
+    </main>
+    <footer>
+        <nav>
+            <a href="https://t.me/projetosuperslimbot" class="footer-button">
+                <img src="app/assets/gabi-gpt.jpg" alt="Gabi GPT">
+            </a>
+            <a href="dev" class="footer-button">
+                <img src="app/assets/tarefas.jpg" alt="Tarefas">
+            </a>
+            <a href="dev" class="footer-button">
+                <img src="app/assets/progresso.jpg" alt="Progresso">
+            </a>
+        </nav>
+    </footer>
+</body>
+</html>
