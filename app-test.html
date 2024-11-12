@@ -15,7 +15,7 @@
     <meta name="twitter:title" content="Projeto Super Slim">
     <meta name="twitter:description" content="Transforme o emagrecimento em uma experiência leve e agradável com o Projeto Super Slim. Junte-se à nossa comunidade e atinja seus objetivos de forma saudável!">
     <meta name="twitter:image" content="https://www.projetosuperslim.fitness/assets/tag.jpg">
-    <style>
+        <style>
         /* Definições de variáveis globais */
         :root {
             --color-purple: #820ad1;
@@ -30,7 +30,7 @@
             --font-family-button: 'Roboto', 'Segoe UI', sans-serif;
             --button-gradient: linear-gradient(145deg, var(--color-green) 60%, var(--color-green) 30%, var(--color-green) 10%);
             --button-shadow: 
-    0px 0px 15px 8px var(--color-green); /* Brilho verde em todas as direções */
+    0px 0px 25px 4px var(--color-green); /* Brilho verde em todas as direções */
             --button-inner-shadow: 
     inset 0px 0px 8px 4px var(--color-purple); /* Sombra interna */
             --button-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -147,35 +147,26 @@
 
         /* Estilos do nav */
         nav {
-    display: flex;
-    justify-content: center; /* Centraliza itens */
-    gap: 1.5rem; /* Espaçamento entre itens */
-    padding: 0.5rem; /* Espaçamento interno */
-    background: rgba(255, 255, 255, 0.1); /* Fundo translúcido */
-    backdrop-filter: blur(10px); /* Efeito de desfoque */
-    border-radius: 1.5rem; /* Bordas arredondadas */
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Sombra */
-    
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
 
         /* Estilos do header e footer */
-header, footer {
-    background-color: transparent; /* Torna o fundo transparente */
-    backdrop-filter: blur(10px); /* Mantém o desfoque para um efeito de fundo */
-    padding: 1rem; /* Espaçamento interno */
-    box-shadow: none; /* Remove a sombra do fundo */
-    position: fixed; /* Fixa o header e footer */
-    width: 100%; /* Largura completa */
-    z-index: 1000; /* Prioridade sobre outros elementos */
-    top: 0; /* Posiciona o header no topo */
-    bottom: 0; /* Posiciona o footer na parte inferior */
-}
-
-/* Tornando os botões visíveis e ajustando o layout */
-header a, footer a {
-    display: inline-block; /* Faz com que os botões fiquem lado a lado */
-    position: relative; /* Garante que os botões fiquem sobrepostos ao fundo invisível */
-    z-index: 1; /* Prioriza os botões sobre o fundo invisível */
-}
+        header, footer {
+            background-color: transparent;
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
 
         header {
             top: 0;
@@ -229,10 +220,7 @@ header a, footer a {
                 transform: translateY(0);
             }
         }
-
-.header-button:active, .footer-button:active {
-    transform: translateY(1px) scale(0.98); /* Efeito de clique */
-    </style>
+</style>
 </head>
 <body>
     <header>
