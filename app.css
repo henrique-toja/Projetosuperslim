@@ -1,163 +1,220 @@
-/* Definições de variáveis globais para cores, tamanhos de fontes e famílias de fontes */
+/* Definições de variáveis globais */
 :root {
-    --color-purple: #820ad1; /* Roxo */
-    --color-green: #6aa84f;  /* Verde suavizado */
-    --color-white: #ffffff; /* Branco */
-    --color-black: #000000; /* Preto */
-    --font-size-body: 18px;  /* Tamanho padrão do corpo do texto */
-    --font-size-button: 18px; /* Tamanho da fonte dos botões */
-    --font-size-h3: 24px;    /* Tamanho da fonte para h3 */
-    --font-family-body: 'Open Sans', 'Noto Sans', 'Helvetica Neue', sans-serif; /* Fonte padrão do corpo */
-    --font-family-h3: 'Playfair Display', 'Georgia', serif; /* Fonte para h3 */
-    --font-family-button: 'Roboto', 'Segoe UI', sans-serif; /* Fonte para botões */
+    /* Cores principais */
+    --color-purple: #820ad1;
+    --color-green: #6aa84f;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    
+    /* Tamanhos de fonte */
+    --font-size-body: 18px;
+    --font-size-button: 18px;
+    --font-size-h3: 24px;
+    
+    /* Famílias de fontes */
+    --font-family-body: 'Open Sans', 'Noto Sans', 'Helvetica Neue', sans-serif;
+    --font-family-h3: 'Playfair Display', 'Georgia', serif;
+    --font-family-button: 'Roboto', 'Segoe UI', sans-serif;
+    
+    /* Gradiente e sombra de botões */
+    --button-gradient: linear-gradient(145deg, #ffffff, #f0f0f0);
+    --button-shadow: 
+        5px 5px 10px rgba(0, 0, 0, 0.1),
+        -5px -5px 10px rgba(255, 255, 255, 0.8);
+    --button-inner-shadow: 
+        inset 4px 4px 8px rgba(0, 0, 0, 0.1),
+        inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+    --button-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Reset geral para remover margens, espaçamentos e ajustar o box-sizing */
+/* Reset geral */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Garantindo que html e body ocupem 100% da altura da viewport */
+/* Estilos do html e body */
 html, body {
-    height: 100%; /* Garante que ocupem 100% da viewport */
+    height: 100%;
     margin: 0;
     display: flex;
     flex-direction: column;
 }
 
-/* Estilos globais do corpo */
 body {
-    font-family: var(--font-family-body); /* Fonte para o corpo */
-    font-size: var(--font-size-body); /* Tamanho do texto do corpo */
-    min-height: 100vh; /* Altura mínima de 100% da viewport */
-    display: flex; /* Flex para suportar layout flexível */
-    flex-direction: column; /* Coloca footer no final da página */
-    background-image: url('app/assets/background.jpg'); /* Imagem de fundo */
-    background-size: cover; /* Imagem cobre todo o fundo */
-    background-position: center; /* Imagem centralizada */
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url('app/assets/background.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
-/* Estilos para o título h3 */
+/* Estilos de títulos */
 h3 {
-    font-family: var(--font-family-h3); /* Fonte para h3 */
-    font-size: var(--font-size-h3); /* Tamanho da fonte de h3 */
-    color: var(--color-green); /* Cor verde */
-    margin-bottom: 0.5rem; /* Espaço abaixo do título */
+    font-family: var(--font-family-h3);
+    font-size: var(--font-size-h3);
+    color: var(--color-green);
+    margin-bottom: 0.5rem;
 }
 
-/* Estilo para botões do header e footer */
+/* Estilos dos botões modernizados para header e footer */
 .header-button, .footer-button {
-    display: flex; /* Centraliza o conteúdo do botão */
-    align-items: center; /* Alinha verticalmente o conteúdo */
-    justify-content: center; /* Alinha horizontalmente o conteúdo */
-    width: 5rem; /* Largura do botão */
-    height: 5rem; /* Altura do botão */
-    background-color: var(--color-white); /* Fundo branco */
-    border: 2px solid rgba(106, 168, 79, 0.2); /* Borda com transparência */
-    border-radius: 0.5rem; /* Bordas arredondadas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-    transition: transform 0.3s ease; /* Transição suave ao hover */
-    text-decoration: none; /* Remove o sublinhado */
-    overflow: hidden; /* Impede a imagem de transbordar */
+    /* Configurações principais do botão */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    background: var(--button-gradient);
+    border: none;
+    border-radius: 1rem;
+    box-shadow: var(--button-shadow);
+    transition: var(--button-transition);
+    overflow: hidden;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    
+    /* Animação de aparecimento */
+    animation: buttonAppear 0.5s ease-out forwards;
 }
 
-/* Contorno dos cartões */
-.card {
-    max-width: 600px; /* Largura máxima dos cartões */
-    padding: 1rem; /* Espaço interno */
-    background-color: var(--color-white); /* Fundo branco */
-    border-radius: 0.5rem; /* Bordas arredondadas */
-    text-align: center; /* Centraliza o texto */
+/* Container da imagem com efeito de brilho leve */
+.header-button::before, .footer-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    transition: var(--button-transition);
 }
 
-/* Estilo para imagens dentro dos botões */
+/* Estilo da imagem dentro do botão */
 .header-button img, .footer-button img {
-    width: 100%; /* Largura da imagem ocupa todo o botão */
-    height: 100%; /* Altura da imagem ocupa todo o botão */
-    border-radius: 0.5rem; /* Bordas arredondadas */
+    width: 85%;
+    height: 85%;
+    border-radius: 0.8rem;
+    object-fit: cover;
+    transition: var(--button-transition);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilos para a área principal */
-main {
-    flex: 1; /* Expande o conteúdo principal para ocupar o espaço entre o header e o footer */
-    padding: 2rem; /* Espaço interno */
-    display: grid; /* Centraliza conteúdo usando grid */
-    place-items: center; /* Centraliza itens vertical e horizontalmente */
-}
-
-/* Estilos para o rodapé */
-footer {
-    background-image: url('app/assets/footer.jpg'); /* Imagem de fundo */
-    background-size: cover; /* Cobre toda a área do footer */
-    position: fixed; /* Fixa no final da viewport */
-    bottom: 0; /* Alinha ao final */
-    width: 100%; /* Ocupa toda a largura da viewport */
-    z-index: 1000; /* Prioridade no empilhamento */
-    padding: 1rem 0; /* Espaçamento vertical */
-    display: flex; /* Layout flexível */
-    justify-content: center; /* Centraliza o conteúdo */
-    gap: 1rem; /* Espaçamento entre elementos */
-}
-
-/* Estilos para o cabeçalho */
-header {
-    background-image: url('app/assets/header.jpg'); /* Imagem de fundo */
-    background-size: cover; /* Cobre toda a área do header */
-    position: fixed; /* Fixa no topo */
-    top: 0; /* Alinha ao topo */
-    width: 100%; /* Ocupa toda a largura da viewport */
-    z-index: 1000; /* Prioridade no empilhamento */
-    padding: 1rem 0; /* Espaçamento vertical */
-    display: flex; /* Layout flexível */
-    justify-content: center; /* Centraliza o conteúdo */
-    gap: 1rem; /* Espaçamento entre elementos */
-}
-
-/* Estilos de navegação (botões) */
-nav {
-    display: flex; /* Layout flexível */
-    justify-content: center; /* Centraliza itens */
-    gap: 1rem; /* Espaço entre os botões */
-}
-
-/* Efeito de hover e active para os botões do header e footer */
+/* Efeitos de hover nos botões */
 .header-button:hover, .footer-button:hover {
-    transform: translateY(-2px); /* Efeito de elevação no hover */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Aumenta a sombra */
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 
+        8px 8px 16px rgba(0, 0, 0, 0.15),
+        -8px -8px 16px rgba(255, 255, 255, 0.9);
 }
 
+.header-button:hover::before, .footer-button:hover::before {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.header-button:hover img, .footer-button:hover img {
+    transform: scale(0.95);
+}
+
+/* Efeitos de clique (active) */
 .header-button:active, .footer-button:active {
-    transform: translateY(1px); /* Ajusta a posição ao clicar */
+    transform: translateY(1px) scale(0.98);
+    box-shadow: var(--button-inner-shadow);
+    background: linear-gradient(145deg, #f0f0f0, #ffffff);
 }
 
-/* Estilo para seções gerais */
+.header-button:active img, .footer-button:active img {
+    transform: scale(0.9);
+}
+
+/* Layout principal */
+main {
+    flex: 1;
+    padding: 2rem;
+    display: grid;
+    place-items: center;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+}
+
+/* Estilos do nav (barra de navegação) */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos do header e footer */
+header, footer {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+header {
+    top: 0;
+    background-image: url('app/assets/header.jpg');
+    background-size: cover;
+}
+
+footer {
+    bottom: 0;
+    background-image: url('app/assets/footer.jpg');
+    background-size: cover;
+}
+
+/* Estilos da seção de conteúdo */
 section {
-    margin: 20px 0; /* Margem vertical entre seções */
-    padding: 20px; /* Espaço interno */
-    border-radius: 10px; /* Bordas arredondadas */
-    background: rgba(255, 255, 255, 0.75); /* Fundo branco com transparência */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-    transition: transform 0.3s ease; /* Transição suave no hover */
-    text-align: center; /* Centraliza o texto */
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+    max-width: 600px;
 }
 
 section:hover {
-    transform: translateY(-10px); /* Efeito de elevação no hover */
+    transform: translateY(-10px);
 }
 
-/* Estilo para títulos h3 em seções */
 section h3 {
-    font-size: var(--font-size-h3); /* Tamanho do título */
-    color: var(--color-green); /* Cor verde */
-    font-family: var(--font-family-h3); /* Fonte para títulos */
-    font-weight: bold; /* Texto em negrito */
+    font-size: var(--font-size-h3);
+    color: var(--color-green);
+    font-family: var(--font-family-h3);
+    font-weight: bold;
 }
 
-/* Estilo para parágrafos em seções */
 section p {
-    font-size: var(--font-size-body); /* Tamanho do texto */
-    color: var(--color-purple); /* Cor roxa */
-    font-family: var(--font-family-body); /* Fonte do corpo */
+    font-size: var(--font-size-body);
+    color: var(--color-purple);
+    font-family: var(--font-family-body);
+}
+
+/* Animação de aparecimento dos botões */
+@keyframes buttonAppear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
