@@ -49,7 +49,7 @@ body {
 header {
     position: relative;
     height: 300px; /* Defina a altura do cabeçalho conforme necessário */
-    background: url('assets/tag.jpg') no-repeat center center;
+    background: url('assets/header.jpg') no-repeat center center;
     background-size: cover;
 }
 
