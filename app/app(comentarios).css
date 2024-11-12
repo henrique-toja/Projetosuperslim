@@ -1,0 +1,189 @@
+/* Definições de variáveis globais */
+:root {
+    /* Cores principais */
+    --color-purple: #820ad1; /* Cor púrpura primária */
+    --color-green: #6aa84f; /* Cor verde para destaques */
+    --color-white: #ffffff; /* Cor branca */
+    --color-black: #000000; /* Cor preta */
+    
+    /* Tamanhos de fonte */
+    --font-size-body: 18px; /* Tamanho da fonte principal */
+    --font-size-button: 18px; /* Tamanho da fonte dos botões */
+    --font-size-h3: 24px; /* Tamanho da fonte dos títulos h3 */
+    
+    /* Famílias de fontes */
+    --font-family-body: 'Open Sans', 'Noto Sans', 'Helvetica Neue', sans-serif; /* Fonte padrão */
+    --font-family-h3: 'Playfair Display', 'Georgia', serif; /* Fonte para títulos h3 */
+    --font-family-button: 'Roboto', 'Segoe UI', sans-serif; /* Fonte dos botões */
+    
+    /* Gradiente e sombra de botões */
+    --button-gradient: linear-gradient(145deg, #ffffff, #f0f0f0); /* Gradiente de fundo para botões */
+    --button-shadow: 
+        5px 5px 10px rgba(0, 0, 0, 0.1), /* Sombra externa escura */
+        -5px -5px 10px rgba(255, 255, 255, 0.8); /* Sombra externa clara */
+    --button-inner-shadow: 
+        inset 4px 4px 8px rgba(0, 0, 0, 0.1), /* Sombra interna escura */
+        inset -4px -4px 8px rgba(255, 255, 255, 0.8); /* Sombra interna clara */
+    --button-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Transição suave para interações com botões */
+}
+
+/* Reset geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Define o box-sizing para incluir bordas e padding */
+}
+
+/* Estilos do html e body */
+html, body {
+    height: 100%; /* Define altura completa */
+    margin: 0; /* Remove margens */
+    display: flex;
+    flex-direction: column; /* Define layout de coluna */
+}
+
+body {
+    font-family: var(--font-family-body); /* Define a fonte principal */
+    font-size: var(--font-size-body); /* Define o tamanho da fonte principal */
+    min-height: 100vh; /* Define altura mínima */
+    display: flex;
+    flex-direction: column; /* Layout de coluna */
+    background-image: url('app/assets/background.jpg'); /* Imagem de fundo */
+    background-size: cover; /* Imagem cobre o fundo */
+    background-position: center; /* Centraliza a imagem */
+}
+
+/* Estilos de títulos */
+h3 {
+    font-family: var(--font-family-h3); /* Fonte específica para títulos h3 */
+    font-size: var(--font-size-h3); /* Tamanho da fonte */
+    color: var(--color-green); /* Cor verde para destaque */
+    margin-bottom: 0.5rem; /* Espaçamento abaixo */
+}
+
+/* Estilos dos botões modernizados para header e footer */
+.header-button, .footer-button {
+    /* Configurações principais do botão */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.5rem; /* Largura do botão */
+    height: 4.5rem; /* Altura do botão */
+    background: var(--button-gradient); /* Fundo gradiente */
+    border: none;
+    border-radius: 1rem; /* Arredondamento das bordas */
+    box-shadow: var(--button-shadow); /* Sombra padrão */
+    transition: var(--button-transition); /* Transição para interações */
+    overflow: hidden; /* Oculta conteúdo excedente */
+    cursor: pointer; /* Cursor de ponteiro */
+    transform-style: preserve-3d; /* Mantém estilo 3D */
+    
+    /* Animação de aparecimento */
+    animation: buttonAppear 0.5s ease-out forwards; /* Animação de surgimento */
+}
+
+/* Container da imagem com efeito de brilho leve */
+.header-button::before, .footer-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1); /* Sobreposição com brilho leve */
+    border-radius: 1rem; /* Bordas arredondadas */
+    transition: var(--button-transition); /* Transição */
+}
+
+/* Estilo da imagem dentro do botão */
+.header-button img, .footer-button img {
+    width: 85%; /* Largura da imagem */
+    height: 85%; /* Altura da imagem */
+    border-radius: 0.8rem; /* Bordas arredondadas */
+    object-fit: cover; /* Adapta imagem ao container */
+    transition: var(--button-transition); /* Transição */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve na imagem */
+}
+
+/* Efeitos de hover nos botões */
+.header-button:hover, .footer-button:hover {
+    transform: translateY(-3px) scale(1.02); /* Eleva e aumenta o botão */
+    box-shadow: 
+        8px 8px 16px rgba(0, 0, 0, 0.15), /* Sombra escura */
+        -8px -8px 16px rgba(255, 255, 255, 0.9); /* Sombra clara */
+}
+
+.header-button:hover::before, .footer-button:hover::before {
+    background: rgba(255, 255, 255, 0.2); /* Intensifica brilho na sobreposição */
+}
+
+.header-button:hover img, .footer-button:hover img {
+    transform: scale(0.95); /* Reduz a imagem no hover */
+}
+
+/* Efeitos de clique (active) */
+.header-button:active, .footer-button:active {
+    transform: translateY(1px) scale(0.98); /* Pressiona o botão */
+    box-shadow: var(--button-inner-shadow); /* Sombra interna */
+    background: linear-gradient(145deg, #f0f0f0, #ffffff); /* Gradiente invertido */
+}
+
+.header-button:active img, .footer-button:active img {
+    transform: scale(0.9); /* Reduz a imagem ao clicar */
+}
+
+/* Layout principal */
+main {
+    flex: 1; /* Expande para preencher a tela */
+    padding: 2rem; /* Espaçamento interno */
+    display: grid;
+    place-items: center; /* Centraliza o conteúdo */
+    margin-top: 6rem; /* Espaçamento superior */
+    margin-bottom: 6rem; /* Espaçamento inferior */
+}
+
+/* Estilos do nav (barra de navegação) */
+nav {
+    display: flex;
+    justify-content: center; /* Centraliza itens */
+    gap: 1.5rem; /* Espaçamento entre itens */
+    padding: 0.5rem; /* Espaçamento interno */
+    background: rgba(255, 255, 255, 0.1); /* Fundo translúcido */
+    backdrop-filter: blur(10px); /* Efeito de desfoque */
+    border-radius: 1.5rem; /* Bordas arredondadas */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+/* Estilos do header e footer */
+header, footer {
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo translúcido */
+    backdrop-filter: blur(10px); /* Desfoque */
+    padding: 1rem; /* Espaçamento interno */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* Sombra */
+    position: fixed; /* Fixa posição */
+    width: 100%; /* Largura completa */
+    z-index: 1000; /* Prioridade sobre outros elementos */
+}
+
+header {
+    top: 0; /* Posiciona o header no topo */
+    background-image: url('app/assets/header.jpg'); /* Imagem de fundo */
+    background-size: cover; /* Cobre o header */
+}
+
+footer {
+    bottom: 0; /* Posiciona o footer na base */
+    background-image: url('app/assets/footer.jpg'); /* Imagem de fundo */
+    background-size: cover; /* Cobre o footer */
+}
+
+/* Estilos da seção de conteúdo */
+section {
+    margin: 20px 0; /* Margem vertical */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    background: rgba(255, 255, 255, 0.75); /* Fundo translúcido */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+    transition: transform 0.3s ease; /* Transição suave */
+    text-align: center; /*
