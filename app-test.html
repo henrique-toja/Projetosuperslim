@@ -175,16 +175,6 @@ nav {
     animation: buttonAppear 0.5s ease-out forwards; /* Animação de aparecimento do botão */
 }
 
-/* Efeito de brilho sutil no botão (antes da imagem) */
-.header-button::before, .footer-button::before {
-    content: ''; /* Adiciona um conteúdo vazio, usado para aplicar o estilo */
-    position: absolute; /* Posiciona o pseudo-elemento de forma absoluta dentro do botão */
-    top: 0; left: 0; right: 0; bottom: 0; /* Faz o pseudo-elemento preencher todo o botão */
-    background: rgba(255, 255, 255, 0.1); /* Aplica um brilho sutil branco sobre o botão */
-    border-radius: 1rem; /* Arredonda os cantos do brilho */
-    transition: var(--button-transition); /* Transição suave no brilho */
-}
-
 /* Estilo das imagens dentro dos botões */
 .header-button img, .footer-button img {
     width: 85%; /* Define a largura da imagem dentro do botão */
