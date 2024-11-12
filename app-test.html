@@ -142,82 +142,86 @@
             }
         }
 
-        /* Estilos do nav */
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            padding: 0.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 1.5rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
+        /* Estilos do nav (barra de navegação) */
+nav {
+    display: flex; /* Usa o modelo de layout Flexbox */
+    justify-content: center; /* Centraliza os itens no eixo principal (horizontal) */
+    gap: 1.5rem; /* Define o espaço entre os itens (botões) */
+    padding: 0.5rem; /* Adiciona um espaço interno em torno dos itens */
+    background: rgba(255, 255, 255, 0.1); /* Fundo translúcido branco com 10% de opacidade */
+    backdrop-filter: blur(10px); /* Aplica um desfoque no fundo da área de navegação */
+    border-radius: 1.5rem; /* Arredonda os cantos do contêiner da navegação */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Aplica uma sombra sutil ao redor da navegação */
+}
 
-        /* Estilos dos botões modernizados */
-        .header-button, .footer-button {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 6rem;
-            height: 6rem;
-            background: var(--button-gradient);
-            border: none;
-            border-radius: 3rem;
-            box-shadow: var(--button-shadow);
-            transition: var(--button-transition);
-            overflow: hidden;
-            cursor: pointer;
-            transform-style: preserve-3d;
-            animation: buttonAppear 0.5s ease-out forwards;
-        }
+/* Estilos dos botões (header e footer) */
+.header-button, .footer-button {
+    position: relative; /* Permite o uso de posicionamento absoluto dentro do botão */
+    display: flex; /* Usa Flexbox para o layout do conteúdo do botão */
+    align-items: center; /* Alinha o conteúdo verticalmente no centro */
+    justify-content: center; /* Alinha o conteúdo horizontalmente no centro */
+    width: 6rem; /* Largura fixa do botão */
+    height: 6rem; /* Altura fixa do botão */
+    background: var(--button-gradient); /* Aplica o gradiente de fundo do botão (variável) */
+    border: none; /* Remove a borda padrão do botão */
+    border-radius: 3rem; /* Arredonda os cantos do botão */
+    box-shadow: var(--button-shadow); /* Aplica sombra externa ao botão (variável) */
+    transition: var(--button-transition); /* Aplica uma transição suave para mudanças de estado */
+    overflow: hidden; /* Oculta qualquer conteúdo que ultrapasse os limites do botão */
+    cursor: pointer; /* Muda o cursor para indicar que é um botão clicável */
+    transform-style: preserve-3d; /* Preserva o efeito 3D em elementos filhos */
+    animation: buttonAppear 0.5s ease-out forwards; /* Animação de aparecimento do botão */
+}
 
-        .header-button::before, .footer-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 1rem;
-            transition: var(--button-transition);
-        }
+/* Efeito de brilho sutil no botão (antes da imagem) */
+.header-button::before, .footer-button::before {
+    content: ''; /* Adiciona um conteúdo vazio, usado para aplicar o estilo */
+    position: absolute; /* Posiciona o pseudo-elemento de forma absoluta dentro do botão */
+    top: 0; left: 0; right: 0; bottom: 0; /* Faz o pseudo-elemento preencher todo o botão */
+    background: rgba(255, 255, 255, 0.1); /* Aplica um brilho sutil branco sobre o botão */
+    border-radius: 1rem; /* Arredonda os cantos do brilho */
+    transition: var(--button-transition); /* Transição suave no brilho */
+}
 
-        .header-button img, .footer-button img {
-            width: 85%;
-            height: 85%;
-            border-radius: 0.8rem;
-            object-fit: cover;
-            transition: var(--button-transition);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+/* Estilo das imagens dentro dos botões */
+.header-button img, .footer-button img {
+    width: 85%; /* Define a largura da imagem dentro do botão */
+    height: 85%; /* Define a altura da imagem dentro do botão */
+    border-radius: 0.8rem; /* Arredonda as bordas da imagem */
+    object-fit: cover; /* Faz a imagem cobrir o espaço disponível sem distorção */
+    transition: var(--button-transition); /* Transição suave para mudanças na imagem */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Aplica uma sombra leve na imagem */
+}
 
-        .header-button:hover, .footer-button:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 
-                8px 8px 16px rgba(0, 0, 0, 0.15),
-                -8px -8px 16px rgba(255, 255, 255, 0.9);
-        }
+/* Efeito de hover nos botões (quando o mouse passa por cima) */
+.header-button:hover, .footer-button:hover {
+    transform: translateY(-3px) scale(1.02); /* Eleva e aumenta o tamanho do botão */
+    box-shadow: 
+        8px 8px 16px rgba(0, 0, 0, 0.15), /* Aumenta a sombra escura ao redor do botão */
+        -8px -8px 16px rgba(255, 255, 255, 0.9); /* Aumenta a sombra clara ao redor do botão */
+}
 
-        .header-button:hover::before, .footer-button:hover::before {
-            background: rgba(255, 255, 255, 0.2);
-        }
+/* Efeito no brilho ao passar o mouse sobre o botão */
+.header-button:hover::before, .footer-button:hover::before {
+    background: rgba(255, 255, 255, 0.2); /* Intensifica o brilho branco sobre o botão */
+}
 
-        .header-button:hover img, .footer-button:hover img {
-            transform: scale(0.95);
-        }
+/* Efeito de transformação na imagem ao passar o mouse sobre o botão */
+.header-button:hover img, .footer-button:hover img {
+    transform: scale(0.95); /* Reduz o tamanho da imagem durante o hover */
+}
 
-        .header-button:active, .footer-button:active {
-            transform: translateY(1px) scale(0.98);
-            box-shadow: var(--button-inner-shadow);
-            background: linear-gradient(145deg, #f0f0f0, #ffffff);
-        }
+/* Efeito de clique nos botões (quando o botão é pressionado) */
+.header-button:active, .footer-button:active {
+    transform: translateY(1px) scale(0.98); /* Reduz a altura e move o botão levemente para baixo */
+    box-shadow: var(--button-inner-shadow); /* Aplica sombra interna ao botão (variável) */
+    background: linear-gradient(145deg, #f0f0f0, #ffffff); /* Aplica um gradiente invertido no fundo */
+}
 
-        .header-button:active img, .footer-button:active img {
-            transform: scale(0.9);
-        }
+/* Efeito na imagem ao pressionar o botão */
+.header-button:active img, .footer-button:active img {
+    transform: scale(0.9); /* Reduz o tamanho da imagem ao clicar */
+}
 
 </style>
 </head>
