@@ -173,7 +173,7 @@ footer {
 }
 
 footer p {
-    color: var(--color-black);
+    color: var(--color-white);
     font-size: 1em; /* Mantendo o tamanho da fonte original */
     margin: 0;
 }
