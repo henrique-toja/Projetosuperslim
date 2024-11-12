@@ -64,10 +64,10 @@
 
         /* Estilos do header e footer */
         header, footer {
-            background-color: transparent;
-            backdrop-filter: blur(10px);
+            background-color: none;
+            backdrop-filter: none;
             padding: 1rem;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            box-shadow: none;
             position: fixed;
             width: 100%;
             z-index: 1000;
@@ -160,11 +160,13 @@ nav {
     display: flex; /* Usa Flexbox para o layout do conteúdo do botão */
     align-items: center; /* Alinha o conteúdo verticalmente no centro */
     justify-content: center; /* Alinha o conteúdo horizontalmente no centro */
-    width: 6rem; /* Largura fixa do botão */
-    height: 6rem; /* Altura fixa do botão */
+    width: 5rem; /* Largura fixa do botão */
+    height: 5rem; /* Altura fixa do botão */
     background: var(--button-gradient); /* Aplica o gradiente de fundo do botão (variável) */
-    border: none; /* Remove a borda */
-    border-radius: 0.75rem; /* Arredonda os cantos do botão */
+    border-radius: 0.6rem; /* Arredonda os cantos do botão */
+    border: 1px solid var(--color-purple); /* Define a borda fina e roxa */
+    padding: 0.3rem; /* Ajusta o espaçamento interno entre a borda e a imagem */
+    box-sizing: border-box; /* Inclui a borda e o padding no cálculo do tamanho total do botão */
     box-shadow: var(--button-shadow); /* Aplica sombra externa ao botão (variável) */
     transition: var(--button-transition); /* Aplica uma transição suave para mudanças de estado */
     overflow: hidden; /* Oculta qualquer conteúdo que ultrapasse os limites do botão */
@@ -187,7 +189,7 @@ nav {
 .header-button img, .footer-button img {
     width: 85%; /* Define a largura da imagem dentro do botão */
     height: 85%; /* Define a altura da imagem dentro do botão */
-    border-radius: 0.8rem; /* Arredonda as bordas da imagem */
+    border-radius: 0.6rem; /* Arredonda as bordas da imagem */
     object-fit: cover; /* Faz a imagem cobrir o espaço disponível sem distorção */
     transition: var(--button-transition); /* Transição suave para mudanças na imagem */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Aplica uma sombra leve na imagem */
