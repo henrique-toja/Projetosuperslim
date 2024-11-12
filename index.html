@@ -15,6 +15,10 @@
     <meta name="twitter:title" content="Projeto Super Slim">
     <meta name="twitter:description" content="Transforme o emagrecimento em uma experiência leve e agradável com o Projeto Super Slim. Junte-se à nossa comunidade e atinja seus objetivos de forma saudável!">
     <meta name="twitter:image" content="https://www.projetosuperslim.fitness/assets/tag.jpg">
+    
+    <!-- Link para o Manifesto -->
+    <link rel="manifest" href="/manifest.json">
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -23,21 +27,15 @@
 <section>
     <h3>Bem-vinda ao Projeto Super Slim</h3>
     <p>O Projeto Super Slim não é só sobre emagrecimento; é sobre transformar sua vida com hábitos saudáveis que permanecerão com você. Nossa missão é ajudar você a alcançar seu peso ideal e seguir em frente, com confiança e independência.</p>
- <p></p>
     <p>Ao concluir sua jornada, você deixará um legado inspirador em nosso ranking, motivando outras mulheres. Construa uma mentalidade forte e resiliente para que essa conquista seja para a vida toda.</p>
 </section>
 <section>
     <h3>Conheça a Gabi GPT: Sua Assistente IA de Emagrecimento</h3>
     <p>No aplicativo, você terá suporte personalizado com a Gabi GPT para acompanhá-la diariamente:</p>
-<p></p>
-        <p><strong>Assistente IA Psicóloga do Emagrecimento:</strong> suporte emocional para fortalecer sua mentalidade.</p>
- <p></p>
-        <p><strong>Assistente IA Nutricionista:</strong> dicas alimentares personalizadas para uma dieta saudável.</p>
- <p></p>
-        <p><strong>Assistente IA Personal Trainer:</strong> rotinas de exercícios adequadas ao seu nível físico.</p>
-<p></p>
+    <p><strong>Assistente IA Psicóloga do Emagrecimento:</strong> suporte emocional para fortalecer sua mentalidade.</p>
+    <p><strong>Assistente IA Nutricionista:</strong> dicas alimentares personalizadas para uma dieta saudável.</p>
+    <p><strong>Assistente IA Personal Trainer:</strong> rotinas de exercícios adequadas ao seu nível físico.</p>
     <p>Defina suas metas, acompanhe seu progresso e mantenha sua motivação em alta com o suporte completo da Gabi GPT.</p>
-<p></p>
     <p>Lembre-se: Cada passo importa! Estamos juntas nessa! 🥰</p>
 </section>
 <div class="btn-container">
@@ -59,5 +57,18 @@
         </ul>
     </nav>
 </footer>
+
+<!-- Registro do Service Worker -->
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(registration => {
+        console.log('Service Worker registrado com sucesso:', registration);
+      })
+      .catch(error => {
+        console.log('Falha no registro do Service Worker:', error);
+      });
+  }
+</script>
 </body>
 </html>
