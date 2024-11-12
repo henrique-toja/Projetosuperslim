@@ -176,10 +176,13 @@ nav {
 
 /* Estilo das imagens dentro dos botões */
 .header-button img, .footer-button img {
-    width: 85%; /* Define a largura da imagem dentro do botão */
-    height: 85%; /* Define a altura da imagem dentro do botão */
+    width: 100%; /* Define a largura da imagem dentro do botão */
+    height: 100%; /* Define a altura da imagem dentro do botão */
+    border-radius: 0.6rem; /* Arredonda as bordas da imagem */
     object-fit: cover; /* Faz a imagem cobrir o espaço disponível sem distorção */
     transition: var(--button-transition); /* Transição suave para mudanças na imagem */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Aplica uma sombra leve na imagem */
+}
 
 /* Efeito de hover nos botões (quando o mouse passa por cima) */
 .header-button:hover, .footer-button:hover {
