@@ -147,26 +147,40 @@
 
         /* Estilos do nav */
         nav {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            padding: 0.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 1.5rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
+    display: flex;
+    justify-content: center; /* Centraliza itens */
+    gap: 1.5rem; /* Espaçamento entre itens */
+    padding: 0.5rem; /* Espaçamento interno */
+    background: rgba(255, 255, 255, 0.1); /* Fundo translúcido */
+    backdrop-filter: blur(10px); /* Efeito de desfoque */
+    border-radius: 1.5rem; /* Bordas arredondadas */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Sombra */
+    
+    /* Adiciona a imagem de fundo */
+    background-image: url('app/assets/footer.jpg'); /* Caminho da sua imagem */
+    background-size: cover; /* A imagem cobre todo o fundo */
+    background-position: center; /* Centraliza a imagem */
+}
 
         /* Estilos do header e footer */
-        header, footer {
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 1rem;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-        }
+header, footer {
+    background-color: transparent; /* Torna o fundo transparente */
+    backdrop-filter: blur(10px); /* Mantém o desfoque para um efeito de fundo */
+    padding: 1rem; /* Espaçamento interno */
+    box-shadow: none; /* Remove a sombra do fundo */
+    position: fixed; /* Fixa o header e footer */
+    width: 100%; /* Largura completa */
+    z-index: 1000; /* Prioridade sobre outros elementos */
+    top: 0; /* Posiciona o header no topo */
+    bottom: 0; /* Posiciona o footer na parte inferior */
+}
+
+/* Tornando os botões visíveis e ajustando o layout */
+header a, footer a {
+    display: inline-block; /* Faz com que os botões fiquem lado a lado */
+    position: relative; /* Garante que os botões fiquem sobrepostos ao fundo invisível */
+    z-index: 1; /* Prioriza os botões sobre o fundo invisível */
+}
 
         header {
             top: 0;
@@ -220,6 +234,9 @@
                 transform: translateY(0);
             }
         }
+
+.header-button:active, .footer-button:active {
+    transform: translateY(1px) scale(0.98); /* Efeito de clique */
     </style>
 </head>
 <body>
