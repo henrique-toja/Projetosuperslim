@@ -187,3 +187,11 @@ section {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
     transition: transform 0.3s ease; /* Transição suave */
     text-align: center; /*
+
+/* Contêiner para botões no header e no footer */
+.header-button-container, .footer-button-container {
+    display: flex; /* Define layout flexível para botões em linha */
+    justify-content: center; /* Centraliza os botões horizontalmente */
+    align-items: center; /* Alinha os botões verticalmente */
+    gap: 1rem; /* Espaçamento entre os botões */
+}
