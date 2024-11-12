@@ -49,13 +49,18 @@
     <p>Estamos juntas nessa jornada. Cada passo vale a pena! 🥰</p>
 </section>
     </main>
-<p> 
-
-
-
-
-
- <p/>
+<!-- Registro do Service Worker -->
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(registration => {
+        console.log('Service Worker registrado com sucesso:', registration);
+      })
+      .catch(error => {
+        console.log('Falha no registro do Service Worker:', error);
+      });
+  }
+</script>
     <footer>
         <nav>
             <a href="https://t.me/projetosuperslimbot" class="footer-button">
