@@ -15,7 +15,6 @@
     <meta name="twitter:title" content="Projeto Super Slim">
     <meta name="twitter:description" content="Aplicativo oficial do Projeto Super Slim">
     <meta name="twitter:image" content="https://www.projetosuperslim.fitness/assets/tag.jpg">
-    <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="app.css">
 </head>
 <body>
@@ -85,18 +84,6 @@
 </section>
 
     </main>
-<!-- Registro do Service Worker -->
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js')
-      .then(registration => {
-        console.log('Service Worker registrado com sucesso:', registration);
-      })
-      .catch(error => {
-        console.log('Falha no registro do Service Worker:', error);
-      });
-  }
-</script>
     <footer>
         <nav>
             <a href="https://t.me/projetosuperslimbot" class="footer-button">
