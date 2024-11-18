@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat - Projeto Super Slim App</title>
-    <link rel="icon" href="assets/icon.ico" type="image/x-icon">
-    <meta name="description" content="Chat do Aplicativo Oficial do Projeto Super Slim" />
-    <meta property="og:title" content="Chat - Projeto Super Slim App" />
-    <meta property="og:description" content="Chat do Aplicativo Oficial do Projeto Super Slim" />
-    <meta property="og:image" content="https://www.projetosuperslim.fitness/assets/tag.jpg" />
-    <meta property="og:url" content="https://www.projetosuperslim.fitness" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Chat - Projeto Super Slim">
-    <meta name="twitter:description" content="Chat do Aplicativo Oficial do Projeto Super Slim">
-    <meta name="twitter:image" content="https://www.projetosuperslim.fitness/assets/tag.jpg">
-    <link rel="stylesheet" href="app.css">
-    <style>
+<style>
         #chat-container {
             display: flex;
             flex-direction: column;
@@ -84,22 +66,6 @@
             background-color: var(--color-green);
         }
     </style>
-</head>
-<body>
-    <header>
-        <nav>
-            <a href="dev" class="header-button">
-                <img src="app/assets/perfil.jpg" alt="Perfil">
-            </a>
-            <a href="https://www.gabrielatorraca.com.br" class="header-button">
-                <img src="app/assets/suplementos.jpg" alt="Suplementos">
-            </a>
-            <a href="https://instagram.com/gabriela.torraca" class="header-button">
-                <img src="app/assets/comunidade.jpg" alt="Comunidade">
-            </a>
-        </nav>
-    </header>
-    <main>
         <section id="chat-container">
             <div id="chat-header">Chat do Super Slim</div>
             <div id="chat-messages"></div>
@@ -108,20 +74,6 @@
                 <button id="send-button">Enviar</button>
             </div>
         </section>
-    </main>
-    <footer>
-        <nav>
-            <a href="https://t.me/projetosuperslimbot" class="footer-button">
-                <img src="app/assets/gabi-gpt.jpg" alt="Gabi GPT">
-            </a>
-            <a href="dev" class="footer-button">
-                <img src="app/assets/tarefas.jpg" alt="Tarefas">
-            </a>
-            <a href="dev" class="footer-button">
-                <img src="app/assets/progresso.jpg" alt="Progresso">
-            </a>
-        </nav>
-    </footer>
     <script>
         const chatMessages = document.getElementById('chat-messages');
         const messageInput = document.getElementById('message-input');
@@ -152,4 +104,3 @@
         });
     </script>
 </body>
-</html>
