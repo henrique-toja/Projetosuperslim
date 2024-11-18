@@ -1,79 +1,14 @@
-<style>
-        #chat-container {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            max-width: 600px;
-            height: 80vh;
-            border: 1px solid var(--color-purple);
-            border-radius: 10px;
-            overflow: hidden;
-            background: rgba(255, 255, 255, 0.85);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        #chat-header {
-            background-color: var(--color-purple);
-            color: var(--color-white);
-            text-align: center;
-            padding: 10px;
-            font-size: var(--font-size-h3);
-        }
-
-        #chat-messages {
-            flex: 1;
-            padding: 10px;
-            overflow-y: auto;
-            background-color: #f9f9f9;
-        }
-
-        .chat-message {
-            margin: 5px 0;
-            padding: 10px;
-            border-radius: 5px;
-            background-color: var(--color-green);
-            color: var(--color-white);
-            max-width: 80%;
-        }
-
-        .chat-message.self {
-            background-color: var(--color-purple);
-            margin-left: auto;
-            text-align: right;
-        }
-
-        #chat-input {
-            display: flex;
-            border-top: 1px solid #ccc;
-        }
-
-        #message-input {
-            flex: 1;
-            padding: 10px;
-            border: none;
-            outline: none;
-        }
-
-        #send-button {
-            padding: 10px;
-            background-color: var(--color-purple);
-            color: var(--color-white);
-            border: none;
-            cursor: pointer;
-        }
-
-        #send-button:hover {
-            background-color: var(--color-green);
-        }
-    </style>
-        <section id="chat-container">
-            <div id="chat-header">Chat do Super Slim</div>
-            <div id="chat-messages"></div>
-            <div id="chat-input">
-                <input type="text" id="message-input" placeholder="Digite uma mensagem...">
-                <button id="send-button">Enviar</button>
-            </div>
-        </section>
+<div id="chat-container">
+    <div id="chat-header">Chat com Gabi GPT</div>
+    <div id="chat-messages">
+        <div class="chat-message">Olá! Como posso te ajudar?</div>
+        <div class="chat-message self">Quero dicas de saúde!</div>
+    </div>
+    <div id="chat-input">
+        <input type="text" id="message-input" placeholder="Digite sua mensagem...">
+        <button id="send-button">Enviar</button>
+    </div>
+</div>
     <script>
         const chatMessages = document.getElementById('chat-messages');
         const messageInput = document.getElementById('message-input');
