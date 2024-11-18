@@ -195,7 +195,8 @@ footer {
     transform: scale(0.9);
 }
 
-/* Estilo do chat
+/* Estilo do chat */
+
         .chat-container {
             width: 100%;
             max-width: 400px;
