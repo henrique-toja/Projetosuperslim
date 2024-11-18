@@ -378,3 +378,10 @@ nav {
 #send-button:hover {
     background-color: var(--color-green); /* Muda o fundo do botão para verde quando o mouse passa por cima */
 }
+
+.chat-icon {
+        width: 40px; /* Defina a largura desejada */
+        height: 40px; /* Defina a altura desejada */
+        border-radius: 50%; /* Torna a imagem circular */
+        object-fit: cover; /* Garante que a imagem se ajuste bem ao container */
+    }
