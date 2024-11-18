@@ -1,4 +1,4 @@
-/* Reset e definições globais */
+/* Definições de variáveis globais */
 :root {
     --color-purple: #820ad1;
     --color-green: #6aa84f;
@@ -7,75 +7,138 @@
     --font-size-body: 18px;
     --font-size-button: 18px;
     --font-size-h3: 24px;
-    --font-family-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --font-family-body: 'Open Sans', 'Noto Sans', 'Helvetica Neue', sans-serif;
     --font-family-h3: 'Playfair Display', 'Georgia', serif;
+    --font-family-button: 'Roboto', 'Segoe UI', sans-serif;
     --button-gradient: linear-gradient(145deg, var(--color-green) 60%, var(--color-green) 30%, var(--color-green) 10%);
     --button-shadow: 0px 0px 25px 4px var(--color-green);
     --button-inner-shadow: inset 0px 0px 8px 4px var(--color-purple);
     --button-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Reset geral */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Estilos do html e body */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Garantir que o conteúdo principal fique entre o header e o footer */
+main {
+    flex: 1;
+    padding: 2rem;
+    display: grid;
+    place-items: center;
+    margin-top: 6rem;  /* Ajuste conforme necessário */
+    margin-bottom: 6rem;  /* Ajuste conforme necessário */
+    max-height: calc(100vh - 12rem); /* Subtrai as alturas do header e footer */
+    overflow-y: auto; /* Permite rolagem vertical se necessário */
+}
+
 body {
     font-family: var(--font-family-body);
     font-size: var(--font-size-body);
-    background-color: #f4f4f4;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     background-image: url('app/assets/background.jpg');
     background-size: cover;
     background-position: center;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
 }
 
-/* Estrutura principal */
-main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 60px 0;
-    height: calc(100vh - 120px); /* Altura entre header e footer */
-}
-
-/* Estilos de cabeçalhos */
+/* Estilos de títulos */
 h3 {
     font-family: var(--font-family-h3);
     font-size: var(--font-size-h3);
     color: var(--color-green);
     margin-bottom: 0.5rem;
-    font-weight: bold;
 }
 
-/* Estilos das seções */
+/* Estilos da seção */
 section {
     margin: 20px 0;
     padding: 20px;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.75);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
     text-align: center;
     max-width: 600px;
-    transition: transform 0.3s ease;
 }
 
 section:hover {
     transform: translateY(-10px);
 }
 
+section h3 {
+    font-size: var(--font-size-h3);
+    color: var(--color-green);
+    font-family: var(--font-family-h3);
+    font-weight: bold;
+}
+
 section p {
     font-size: var(--font-size-body);
     color: var(--color-purple);
+    font-family: var(--font-family-body);
 }
 
-/* Botões gerais (header, footer) */
+/* Animação de aparecimento dos botões */
+@keyframes buttonAppear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos do nav (barra de navegação) */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos do header e footer */
+header, footer {
+    background-color: none;
+    backdrop-filter: none;
+    padding: 1rem;
+    box-shadow: none;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+header {
+    top: 0;
+    background-size: cover;
+}
+
+footer {
+    bottom: 0;
+    background-size: cover;
+}
+
+/* Estilos dos botões (header e footer) */
 .header-button, .footer-button {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -85,18 +148,24 @@ section p {
     border: 1px solid var(--color-green);
     border-radius: 0.6rem;
     box-shadow: var(--button-shadow);
-    cursor: pointer;
     transition: var(--button-transition);
+    overflow: hidden;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    animation: buttonAppear 0.5s ease-out forwards;
 }
 
+/* Estilo das imagens dentro dos botões */
 .header-button img, .footer-button img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
+    width: 99%;
+    height: 99%;
+    border-radius: 0.6rem;
     object-fit: cover;
     transition: var(--button-transition);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Efeito de hover nos botões (quando o mouse passa por cima) */
 .header-button:hover, .footer-button:hover {
     transform: translateY(-3px) scale(1.02);
     box-shadow: 
@@ -104,109 +173,181 @@ section p {
         -8px -8px 16px rgba(255, 255, 255, 0.9);
 }
 
+/* Efeito no brilho ao passar o mouse sobre o botão */
+.header-button:hover::before, .footer-button:hover::before {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Efeito de transformação na imagem ao passar o mouse sobre o botão */
+.header-button:hover img, .footer-button:hover img {
+    transform: scale(0.95);
+}
+
+/* Efeito de clique nos botões (quando o botão é pressionado) */
 .header-button:active, .footer-button:active {
     transform: translateY(1px) scale(0.98);
     box-shadow: var(--button-inner-shadow);
+    background: linear-gradient(145deg, #f0f0f0, #ffffff);
 }
 
-/* Estrutura do chat */
-.chat-container {
-    width: 100%;
-    max-width: 400px;
-    height: 100%;
-    background-color: white;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
+/* Efeito na imagem ao pressionar o botão */
+.header-button:active img, .footer-button:active img {
+    transform: scale(0.9);
 }
 
-.chat-header {
-    background: linear-gradient(135deg, #8A2BE2, #4B0082);
-    color: white;
-    padding: 15px;
-    text-align: center;
-    border-radius: 16px 16px 0 0;
-}
 
-.chat-header img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-}
+Adicione no código acima e remova as repetições e concatenações, priorizando o código abaixo
 
-.chat-messages {
-    flex: 1;
-    overflow-y: auto;
-    padding: 15px;
-    background-color: #f9f9f9;
-    scroll-behavior: smooth;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* Estilos das mensagens */
-.message {
-    max-width: 80%;
-    margin-bottom: 10px;
-    clear: both;
-    animation: fadeIn 0.3s ease-in-out;
-}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f4f4f4;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
 
-.message-bot {
-    float: left;
-    background-color: #E6E6FA;
-    color: black;
-    border-radius: 12px 12px 12px 0;
-    padding: 10px;
-}
+        .header-button img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
 
-.message-user {
-    float: right;
-    background-color: #8A2BE2;
-    color: white;
-    border-radius: 12px 12px 0 12px;
-    padding: 10px;
-}
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 0;
+            height: calc(100vh - 120px);
+            margin-top: 60px;
+        }
 
-/* Entrada de texto no chat */
-.chat-input {
-    padding: 15px;
-    background-color: white;
-    border-top: 1px solid #e0e0e0;
-    border-radius: 0 0 16px 16px;
-    display: flex;
-    align-items: center;
-}
+        .chat-container {
+            width: 100%;
+            max-width: 400px;
+            height: 100%;
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
 
-.chat-input input {
-    flex: 1;
-    padding: 12px;
-    border: 1px solid #e0e0e0;
-    background-color: #f4f4f4;
-    border-radius: 20px;
-    margin-right: 10px;
-    font-size: 14px;
-}
+        .chat-header {
+            background: linear-gradient(135deg, #8A2BE2, #4B0082);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 16px 16px 0 0;
+        }
 
-.chat-input button {
-    background: linear-gradient(135deg, #8A2BE2, #4B0082);
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: bold;
-}
+        .chat-header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
 
-/* Customização da scrollbar */
-.chat-messages::-webkit-scrollbar {
-    width: 6px;
-}
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 15px;
+            background-color: #f9f9f9;
+            scroll-behavior: smooth;
+        }
 
-.chat-messages::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
+        .message {
+            max-width: 80%;
+            margin-bottom: 10px;
+            clear: both;
+        }
 
-.chat-messages::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 3px;
-}
+        .message-bot {
+            float: left;
+            background-color: #E6E6FA;
+            color: black;
+            border-radius: 12px 12px 12px 0;
+            padding: 10px;
+        }
+
+        .message-user {
+            float: right;
+            background-color: #8A2BE2;
+            color: white;
+            border-radius: 12px 12px 0 12px;
+            padding: 10px;
+        }
+
+        .chat-input {
+            padding: 15px;
+            background-color: white;
+            border-top: 1px solid #e0e0e0;
+            position: relative;
+            border-radius: 0 0 16px 16px;
+        }
+
+        .chat-input input {
+            width: calc(100% - 70px);
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+            background-color: #f4f4f4;
+            border-radius: 20px;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .chat-input button {
+            background: linear-gradient(135deg, #8A2BE2, #4B0082);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Estilização da scrollbar */
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 3px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Animação para mensagens */
+        .message {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
