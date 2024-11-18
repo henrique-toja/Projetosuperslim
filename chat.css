@@ -30,12 +30,13 @@ body {
 /* Main Content */
 main {
     flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    background-color: #f9f9f9;
-    overflow: hidden;
+    padding: 2rem;
+    display: grid;
+    place-items: center;
+    margin-top: 6rem;  /* Ajuste conforme necessário */
+    margin-bottom: 6rem;  /* Ajuste conforme necessário */
+    max-height: calc(100vh - 12rem); /* Subtrai as alturas do header e footer */
+    overflow-y: hidden; /* Permite rolagem vertical se necessário */
 }
 
 /* Chat Container */
