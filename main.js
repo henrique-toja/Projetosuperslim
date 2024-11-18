@@ -8,11 +8,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 return response.text();
             })
             .then(data => {
-                document.getElementById('conteudo').innerHTML = data;
+                document.getElementById('content-placeholder').innerHTML = data;
             })
             .catch(error => {
                 console.error('Erro ao carregar o conteúdo:', error);
-                document.getElementById('conteudo').innerHTML = '<p>Não foi possível carregar o conteúdo. Por favor, tente novamente mais tarde.</p>';
+                document.getElementById('content-placeholder').innerHTML = '<p>Não foi possível carregar o conteúdo. Por favor, tente novamente mais tarde.</p>';
             });
     }
 
