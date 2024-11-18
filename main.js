@@ -8,19 +8,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 return response.text();
             })
             .then(data => {
-                document.getElementById('content-placeholder').innerHTML = data;
+                document.getElementById('conteudo').innerHTML = data;
             })
             .catch(error => {
                 console.error('Erro ao carregar o conteúdo:', error);
-                document.getElementById('content-placeholder').innerHTML = '<p>Não foi possível carregar o conteúdo. Por favor, tente novamente mais tarde.</p>';
+                document.getElementById('conteudo').innerHTML = '<p>Não foi possível carregar o conteúdo. Por favor, tente novamente mais tarde.</p>';
             });
     }
 
-    // Carrega o conteúdo inicial da página home.html
-    loadContent('home.html');
+    // Carrega o conteúdo inicial da página main.html
+    loadContent('main.html');
 
     // Seleciona todos os botões com o atributo data-page
-    const buttons = document.querySelectorAll('.btn-know[data-page], .btn-next[data-page]');
+    const buttons = document.querySelectorAll('.footer-button[data-page], .header-button[data-page]');
 
     buttons.forEach(button => {
         button.addEventListener('click', function (event) {
