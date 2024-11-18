@@ -40,38 +40,6 @@ body {
     flex-direction: column;
 }
 
-/* Header e Footer */
-header, footer {
-    position: fixed;
-    left: 0;
-    right: 0;
-    height: var(--header-height);
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-}
-
-header {
-    top: 0;
-}
-
-footer {
-    bottom: 0;
-}
-
-/* Navegação */
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    padding: 0.5rem;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 1.5rem;
-}
-
 /* Main Content */
 main {
     flex: 1;
@@ -190,38 +158,6 @@ main {
     background: #6a0dad;
 }
 
-/* Botões do Header e Footer */
-.header-button, .footer-button {
-    width: 5rem;
-    height: 5rem;
-    background: var(--button-gradient);
-    border: 1px solid var(--color-green);
-    border-radius: 0.6rem;
-    overflow: hidden;
-    cursor: pointer;
-    transition: var(--button-transition);
-    box-shadow: var(--button-shadow);
-}
-
-.header-button img, .footer-button img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 0.6rem;
-    transition: var(--button-transition);
-}
-
-.header-button:hover, .footer-button:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.15),
-                -8px -8px 16px rgba(255, 255, 255, 0.9);
-}
-
-.header-button:active, .footer-button:active {
-    transform: translateY(1px) scale(0.98);
-    box-shadow: var(--button-inner-shadow);
-}
-
 /* Scrollbar */
 .chat-messages::-webkit-scrollbar {
     width: 5px;
@@ -246,6 +182,98 @@ main {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Estilos do nav (barra de navegação) */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos do header e footer */
+header, footer {
+    background-color: none;
+    backdrop-filter: none;
+    padding: 1rem;
+    box-shadow: none;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+header {
+    top: 0;
+    background-size: cover;
+}
+
+footer {
+    bottom: 0;
+    background-size: cover;
+}
+
+/* Estilos dos botões (header e footer) */
+.header-button, .footer-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    background: var(--button-gradient);
+    border: 1px solid var(--color-green);
+    border-radius: 0.6rem;
+    box-shadow: var(--button-shadow);
+    transition: var(--button-transition);
+    overflow: hidden;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    animation: buttonAppear 0.5s ease-out forwards;
+}
+
+/* Estilo das imagens dentro dos botões */
+.header-button img, .footer-button img {
+    width: 99%;
+    height: 99%;
+    border-radius: 0.6rem;
+    object-fit: cover;
+    transition: var(--button-transition);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Efeito de hover nos botões (quando o mouse passa por cima) */
+.header-button:hover, .footer-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 
+        8px 8px 16px rgba(0, 0, 0, 0.15),
+        -8px -8px 16px rgba(255, 255, 255, 0.9);
+}
+
+/* Efeito no brilho ao passar o mouse sobre o botão */
+.header-button:hover::before, .footer-button:hover::before {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Efeito de transformação na imagem ao passar o mouse sobre o botão */
+.header-button:hover img, .footer-button:hover img {
+    transform: scale(0.95);
+}
+
+/* Efeito de clique nos botões (quando o botão é pressionado) */
+.header-button:active, .footer-button:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: var(--button-inner-shadow);
+    background: linear-gradient(145deg, #f0f0f0, #ffffff);
+}
+
+/* Efeito na imagem ao pressionar o botão */
+.header-button:active img, .footer-button:active img {
+    transform: scale(0.9);
 }
 
 /* Responsive Design */
