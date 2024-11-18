@@ -73,6 +73,7 @@ body {
     padding: 2rem;
     margin-top: 6rem;
     margin-bottom: 6rem;
+    border-radius: 10px;
 }
 
 /* Chat Header */
