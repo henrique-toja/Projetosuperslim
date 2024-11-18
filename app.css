@@ -54,37 +54,6 @@ body {
     background-position: center;
 }
 
-/* Estilos do header e footer */
-header, footer {
-    background-color: none;
-    backdrop-filter: none;
-    padding: 1rem;
-    box-shadow: none;
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-}
-
-header {
-    top: 0;
-    background-size: cover;
-}
-
-footer {
-    bottom: 0;
-    background-size: cover;
-}
-
-/* Layout principal */
-main {
-    flex: 1;
-    padding: 2rem;
-    display: grid;
-    place-items: center;
-    margin-top: 6rem;
-    margin-bottom: 6rem;
-}
-
 /* Estilos de títulos */
 h3 {
     font-family: var(--font-family-h3);
@@ -144,6 +113,27 @@ nav {
     backdrop-filter: blur(10px);
     border-radius: 1.5rem;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos do header e footer */
+header, footer {
+    background-color: none;
+    backdrop-filter: none;
+    padding: 1rem;
+    box-shadow: none;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+header {
+    top: 0;
+    background-size: cover;
+}
+
+footer {
+    bottom: 0;
+    background-size: cover;
 }
 
 /* Estilos dos botões (header e footer) */
