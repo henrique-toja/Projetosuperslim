@@ -62,7 +62,7 @@ body {
     max-width: 600px;
     height: calc(100vh - 12rem);
     box-shadow: var(--shadow-lg);
-    display: grid;
+    display: flex;
     flex-direction: column;
     overflow: hidden;
     margin: 20px 0;
