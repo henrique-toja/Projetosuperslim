@@ -1,165 +1,206 @@
+/* Definições de variáveis globais */
+:root {
+    --color-purple: #820ad1;
+    --color-green: #6aa84f;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --font-size-body: 18px;
+    --font-size-button: 18px;
+    --font-size-h3: 24px;
+    --font-family-body: 'Open Sans', 'Noto Sans', 'Helvetica Neue', sans-serif;
+    --font-family-h3: 'Playfair Display', 'Georgia', serif;
+    --font-family-button: 'Roboto', 'Segoe UI', sans-serif;
+    --button-gradient: linear-gradient(145deg, var(--color-green) 60%, var(--color-green) 30%, var(--color-green) 10%);
+    --button-shadow: 0px 0px 25px 4px var(--color-green);
+    --button-inner-shadow: inset 0px 0px 8px 4px var(--color-purple);
+    --button-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* Reset geral */
 * {
-    margin: 0; /* Remove a margem de todos os elementos */
-    padding: 0; /* Remove o padding de todos os elementos */
-    box-sizing: border-box; /* Define o box-sizing para border-box, para que padding e borda sejam incluídos nas dimensões do elemento */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* Estilos do html e body */
 html, body {
-    height: 100%; /* Define a altura do html e body como 100% da altura da tela */
-    margin: 0; /* Remove a margem padrão do body */
-    display: flex; /* Usa o modelo de layout flexbox para o body */
-    flex-direction: column; /* Organiza os elementos de forma vertical */
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Garantir que o conteúdo principal fique entre o header e o footer */
 main {
-    flex: 1; /* Faz com que o main ocupe o espaço restante da tela */
-    padding: 2rem; /* Adiciona 2rem de padding ao redor do conteúdo */
-    display: grid; /* Define o layout como grid para centralizar o conteúdo */
-    place-items: center; /* Centraliza o conteúdo no grid */
-    margin-top: 6rem;  /* Ajusta o espaço superior para acomodar o header */
-    margin-bottom: 6rem;  /* Ajusta o espaço inferior para acomodar o footer */
-    max-height: calc(100vh - 12rem); /* Define a altura máxima para o main, subtraindo as alturas do header e footer */
-    overflow-y: auto; /* Permite rolagem vertical se o conteúdo for maior que a altura do main */
+    flex: 1;
+    padding: 2rem;
+    display: grid;
+    place-items: center;
+    margin-top: 6rem;  /* Ajuste conforme necessário */
+    margin-bottom: 6rem;  /* Ajuste conforme necessário */
+    max-height: calc(100vh - 12rem); /* Subtrai as alturas do header e footer */
+    overflow-y: auto; /* Permite rolagem vertical se necessário */
 }
 
-/* Estilo do body */
 body {
-    font-family: var(--font-family-body); /* Define a fonte do corpo */
-    font-size: var(--font-size-body); /* Define o tamanho da fonte do corpo */
-    min-height: 100vh; /* Garante que o body ocupe pelo menos a altura total da tela */
-    display: flex; /* Usa o modelo de layout flexbox para o body */
-    flex-direction: column; /* Organiza os elementos de forma vertical */
-    background-image: url('app/assets/background.jpg'); /* Define a imagem de fundo */
-    background-size: cover; /* Faz com que a imagem de fundo cubra toda a tela */
-    background-position: center; /* Centraliza a imagem de fundo */
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url('app/assets/background.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 /* Estilos do header e footer */
 header, footer {
-    background-color: none; /* Remove a cor de fundo */
-    backdrop-filter: none; /* Remove o filtro de fundo */
-    padding: 1rem; /* Adiciona 1rem de padding */
-    box-shadow: none; /* Remove qualquer sombra */
-    position: fixed; /* Define como fixo, para que permaneça visível durante a rolagem */
-    width: 100%; /* Faz com que o header/footer ocupe toda a largura */
-    z-index: 1000; /* Garante que o header/footer fique acima de outros elementos */
+    background-color: none;
+    backdrop-filter: none;
+    padding: 1rem;
+    box-shadow: none;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
 }
 
 header {
-    top: 0; /* Posiciona o header no topo */
-    background-size: cover; /* Faz com que a imagem de fundo do header cubra todo o espaço */
+    top: 0;
+    background-size: cover;
 }
 
 footer {
-    bottom: 0; /* Posiciona o footer na parte inferior */
-    background-size: cover; /* Faz com que a imagem de fundo do footer cubra todo o espaço */
+    bottom: 0;
+    background-size: cover;
 }
 
 /* Layout principal */
 main {
-    flex: 1; /* Faz com que o main ocupe o espaço restante da tela */
-    padding: 2rem; /* Adiciona 2rem de padding */
-    display: grid; /* Define o layout como grid para centralizar o conteúdo */
-    place-items: center; /* Centraliza o conteúdo no grid */
-    margin-top: 6rem; /* Ajusta o espaço superior */
-    margin-bottom: 6rem; /* Ajusta o espaço inferior */
+    flex: 1;
+    padding: 2rem;
+    display: grid;
+    place-items: center;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
 }
 
 /* Estilos de títulos */
 h3 {
-    font-family: var(--font-family-h3); /* Define a fonte para títulos h3 */
-    font-size: var(--font-size-h3); /* Define o tamanho da fonte para títulos h3 */
-    color: var(--color-green); /* Define a cor do texto como verde */
-    margin-bottom: 0.5rem; /* Adiciona um pequeno espaço abaixo do título */
+    font-family: var(--font-family-h3);
+    font-size: var(--font-size-h3);
+    color: var(--color-green);
+    margin-bottom: 0.5rem;
 }
 
 /* Estilos da seção */
 section {
-    margin: 20px 0; /* Adiciona margens em cima e embaixo */
-    padding: 20px; /* Adiciona padding ao redor do conteúdo */
-    border-radius: 10px; /* Arredonda os cantos */
-    background: rgba(255, 255, 255, 0.75); /* Cor de fundo com opacidade */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave ao redor da seção */
-    transition: transform 0.3s ease; /* Transição suave para transformação */
-    text-align: center; /* Centraliza o texto dentro da seção */
-    max-width: 600px; /* Limita a largura máxima da seção */
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+    max-width: 600px;
 }
 
 section:hover {
-    transform: translateY(-10px); /* Move a seção para cima quando o mouse passar por cima */
+    transform: translateY(-10px);
 }
 
 section h3 {
-    font-size: var(--font-size-h3); /* Define o tamanho da fonte dos títulos dentro da seção */
-    color: var(--color-green); /* Define a cor do título como verde */
-    font-family: var(--font-family-h3); /* Define a fonte para os títulos */
-    font-weight: bold; /* Deixa o título em negrito */
+    font-size: var(--font-size-h3);
+    color: var(--color-green);
+    font-family: var(--font-family-h3);
+    font-weight: bold;
 }
 
 section p {
-    font-size: var(--font-size-body); /* Define o tamanho da fonte dos parágrafos */
-    color: var(--color-purple); /* Define a cor do texto como roxo */
-    font-family: var(--font-family-body); /* Define a fonte dos parágrafos */
+    font-size: var(--font-size-body);
+    color: var(--color-purple);
+    font-family: var(--font-family-body);
 }
 
 /* Animação de aparecimento dos botões */
 @keyframes buttonAppear {
     from {
-        opacity: 0; /* Começa invisível */
-        transform: translateY(10px); /* Começa deslocado para baixo */
+        opacity: 0;
+        transform: translateY(10px);
     }
     to {
-        opacity: 1; /* Fica visível */
-        transform: translateY(0); /* Volta à posição original */
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
 /* Estilos do nav (barra de navegação) */
 nav {
-    display: flex; /* Usa o modelo flexbox para a navegação */
-    justify-content: center; /* Centraliza os itens */
-    gap: 1.5rem; /* Adiciona espaço entre os itens */
-    padding: 0.5rem; /* Adiciona padding */
-    background: rgba(255, 255, 255, 0.1); /* Cor de fundo semitransparente */
-    backdrop-filter: blur(10px); /* Aplica um filtro de desfoque ao fundo */
-    border-radius: 1.5rem; /* Arredonda os cantos da barra */
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Sombra suave ao redor da barra */
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 /* Estilos dos botões (header e footer) */
 .header-button, .footer-button {
-    position: relative; /* Define o posicionamento relativo para os botões */
-    display: flex; /* Usa o modelo flexbox para o conteúdo dos botões */
-    align-items: center; /* Alinha os itens verticalmente no centro */
-    justify-content: center; /* Alinha os itens horizontalmente no centro */
-    width: 5rem; /* Define a largura dos botões */
-    height: 5rem; /* Define a altura dos botões */
-    background: var(--button-gradient); /* Define o fundo do botão com um gradiente */
-    border: 1px solid var(--color-green); /* Define uma borda com a cor verde */
-    border-radius: 0.6rem; /* Arredonda os cantos */
-    box-shadow: var(--button-shadow); /* Aplica sombra ao botão */
-    transition: var(--button-transition); /* Transição suave para interações com o botão */
-    overflow: hidden; /* Garante que o conteúdo dentro do botão não ultrapasse seus limites */
-    cursor: pointer; /* Muda o cursor para uma mãozinha ao passar sobre o botão */
-    transform-style: preserve-3d; /* Permite transformações em 3D */
-    animation: buttonAppear 0.5s ease-out forwards; /* Aplica a animação de aparecimento */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    background: var(--button-gradient);
+    border: 1px solid var(--color-green);
+    border-radius: 0.6rem;
+    box-shadow: var(--button-shadow);
+    transition: var(--button-transition);
+    overflow: hidden;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    animation: buttonAppear 0.5s ease-out forwards;
 }
 
 /* Estilo das imagens dentro dos botões */
 .header-button img, .footer-button img {
-    width: 99%; /* Faz a imagem ocupar 99% do botão */
-    height: 99%; /* Faz a imagem ocupar 99% da altura do botão */
-    border-radius: 0.6rem; /* Arredonda os cantos da imagem */
-    object-fit: cover; /* Faz a imagem cobrir o botão sem distorcer */
-    transition: var(--button-transition); /* Transição suave para interações com a imagem */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave ao redor da imagem */
+    width: 99%;
+    height: 99%;
+    border-radius: 0.6rem;
+    object-fit: cover;
+    transition: var(--button-transition);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Efeito de hover nos botões (quando o mouse passa por cima) */
 .header-button:hover, .footer-button:hover {
-    transform: translateY(-3px) scale(1.02); /* Move o botão para cima e aumenta um pouco de tamanho */
+    transform: translateY(-3px) scale(1.02);
     box-shadow: 
-        8px 8px 16px rgba(0, 0, 0,
+        8px 8px 16px rgba(0, 0, 0, 0.15),
+        -8px -8px 16px rgba(255, 255, 255, 0.9);
+}
+
+/* Efeito no brilho ao passar o mouse sobre o botão */
+.header-button:hover::before, .footer-button:hover::before {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Efeito de transformação na imagem ao passar o mouse sobre o botão */
+.header-button:hover img, .footer-button:hover img {
+    transform: scale(0.95);
+}
+
+/* Efeito de clique nos botões (quando o botão é pressionado) */
+.header-button:active, .footer-button:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: var(--button-inner-shadow);
+    background: linear-gradient(145deg, #f0f0f0, #ffffff);
+}
+
+/* Efeito na imagem ao pressionar o botão */
+.header-button:active img, .footer-button:active img {
+    transform: scale(0.9);
+}
