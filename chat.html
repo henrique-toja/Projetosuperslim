@@ -1,13 +1,21 @@
-<div id="chat-container">
-        <div id="chat-header">Chat com Gabi GPT</div>
-        <div id="chat-messages">
-            <div class="chat-message">Olá! Como posso te ajudar?</div>
-            <div class="chat-message self">Quero dicas de saúde!</div>
+<div id="chat-container" style="display: flex; flex-direction: column; width: 100%; max-width: 600px; height: calc(100vh - 12rem); border: 1px solid #820ad1; border-radius: 10px; overflow: hidden; background: rgba(255, 255, 255, 0.85); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin: auto;">
+    <div id="chat-header" style="background-color: #820ad1; color: #ffffff; text-align: center; padding: 10px; font-size: 24px; flex-shrink: 0;">
+        Chat com Gabi GPT
+    </div>
+    <div id="chat-messages" style="flex: 1; padding: 10px; overflow-y: auto; background-color: #f9f9f9; display: flex; flex-direction: column; gap: 10px;">
+        <div class="chat-message" style="margin: 5px 0; padding: 10px; border-radius: 5px; background-color: #6aa84f; color: #ffffff; max-width: 80%; word-wrap: break-word;">
+            Olá! Como posso te ajudar?
         </div>
-        <div id="chat-input">
-            <input type="text" id="message-input" placeholder="Digite sua mensagem...">
-            <button id="send-button">Enviar</button>
+        <div class="chat-message self" style="background-color: #820ad1; margin-left: auto; text-align: right; padding: 10px; border-radius: 5px; color: #ffffff;">
+            Quero dicas de saúde!
         </div>
     </div>
+    <div id="chat-input" style="display: flex; border-top: 1px solid #ccc; background-color: #fff; padding: 10px; box-sizing: border-box; flex-shrink: 0;">
+        <input type="text" id="message-input" placeholder="Digite sua mensagem..." style="flex: 1; padding: 10px; border: none; outline: none; font-size: 18px;">
+        <button id="send-button" style="padding: 10px; background-color: #820ad1; color: #ffffff; border: none; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);">
+            Enviar
+        </button>
+    </div>
+</div>
 
-    <script src="chat.js"></script>
+<script src="chat.js"></script>
