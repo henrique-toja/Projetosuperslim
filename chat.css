@@ -54,6 +54,14 @@ body {
     background-position: center;
 }
 
+/* Estilos de títulos */
+h3 {
+    font-family: var(--font-family-h3);
+    font-size: var(--font-size-h3);
+    color: var(--color-green);
+    margin-bottom: 0.5rem;
+}
+
 /* Estilos da seção */
 section {
     margin: 20px 0;
