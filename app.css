@@ -206,7 +206,7 @@ nav {
 }
 
 
-/* Estilo do container principal do chat */
+/* Estilos do container principal do chat */
 #chat-container {
     display: flex;
     flex-direction: column;
@@ -234,7 +234,7 @@ nav {
 #chat-messages {
     flex: 1;
     padding: 10px;
-    overflow-y: auto; /* Apenas o chat terá rolagem */
+    overflow-y: auto;
     background-color: #f9f9f9;
 }
 
