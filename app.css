@@ -200,14 +200,19 @@ footer {
         .chat-container {
             width: 100%;
             max-width: 400px;
-            height: 90vh;
+            max-height: calc(100vh - 12rem); /* Subtrai as alturas do header e footer */
             background-color: white;
             border-radius: 16px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            display: flex;
+            display: grid;
             flex-direction: column;
-            overflow: hidden;
-        }
+            overflow-y: auto;
+            flex: 1;
+            padding: 2rem;
+            place-items: center;
+            margin-top: 6rem;  /* Ajuste conforme necessário */
+            margin-bottom: 6rem;  /* Ajuste conforme necessário */
+}
         .chat-header {
             background: linear-gradient(135deg, #8A2BE2, #4B0082);
             color: white;
