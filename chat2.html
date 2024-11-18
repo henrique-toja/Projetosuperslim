@@ -52,6 +52,50 @@ body {
     flex-direction: column;
 }
 
+/* Navigation Bars */
+header, footer {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+    padding: 0.75rem;
+    position: fixed;
+    width: 100%;
+    z-index: 50;
+}
+
+header { top: 0; }
+footer { bottom: 0; border-top: 1px solid var(--color-border); }
+
+nav {
+    max-width: 640px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.nav-button {
+    position: relative;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.nav-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.nav-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
 /* Main Chat Container */
 main {
     flex: 1;
@@ -223,110 +267,18 @@ main {
         height: 3rem;
     }
 }
-
-/* Estilos do header e footer */
-header, footer {
-    background-color: none;
-    backdrop-filter: none;
-    padding: 1rem;
-    box-shadow: none;
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-}
-
-header {
-    top: 0;
-    background-size: cover;
-}
-
-footer {
-    bottom: 0;
-    background-size: cover;
-}
-
-/* Estilos dos botões (header e footer) */
-.header-button, .footer-button {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 5rem;
-    height: 5rem;
-    background: var(--button-gradient);
-    border: 1px solid var(--color-green);
-    border-radius: 0.6rem;
-    box-shadow: var(--button-shadow);
-    transition: var(--button-transition);
-    overflow: hidden;
-    cursor: pointer;
-    transform-style: preserve-3d;
-    animation: buttonAppear 0.5s ease-out forwards;
-}
-
-/* Estilo das imagens dentro dos botões */
-.header-button img, .footer-button img {
-    width: 99%;
-    height: 99%;
-    border-radius: 0.6rem;
-    object-fit: cover;
-    transition: var(--button-transition);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Efeito de hover nos botões (quando o mouse passa por cima) */
-.header-button:hover, .footer-button:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 
-        8px 8px 16px rgba(0, 0, 0, 0.15),
-        -8px -8px 16px rgba(255, 255, 255, 0.9);
-}
-
-/* Efeito no brilho ao passar o mouse sobre o botão */
-.header-button:hover::before, .footer-button:hover::before {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-/* Efeito de transformação na imagem ao passar o mouse sobre o botão */
-.header-button:hover img, .footer-button:hover img {
-    transform: scale(0.95);
-}
-
-/* Efeito de clique nos botões (quando o botão é pressionado) */
-.header-button:active, .footer-button:active {
-    transform: translateY(1px) scale(0.98);
-    box-shadow: var(--button-inner-shadow);
-    background: linear-gradient(145deg, #f0f0f0, #ffffff);
-}
-
-/* Efeito na imagem ao pressionar o botão */
-.header-button:active img, .footer-button:active img {
-    transform: scale(0.9);
-}
-
-/* Estilos do nav (barra de navegação) */
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    padding: 0.5rem;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 1.5rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-}
 </style>
 </head>
 <body>
     <header>
         <nav>
-            <a href="dev" class="header-button">
+            <a href="dev" class="nav-button">
                 <img src="app/assets/perfil.jpg" alt="Perfil">
             </a>
-            <a href="https://www.gabrielatorraca.com.br" class="header-button">
+            <a href="https://www.gabrielatorraca.com.br" class="nav-button">
                 <img src="app/assets/suplementos.jpg" alt="Suplementos">
             </a>
-            <a href="https://instagram.com/gabriela.torraca" class="header-button">
+            <a href="https://instagram.com/gabriela.torraca" class="nav-button">
                 <img src="app/assets/comunidade.jpg" alt="Comunidade">
             </a>
         </nav>
@@ -351,13 +303,13 @@ nav {
     </main>
     <footer>
         <nav>
-           <a class="footer-button" data-page="chat.html">
+           <a class="nav-button" data-page="chat.html">
                 <img src="app/assets/gabi-gpt.jpg" alt="Gabi GPT">
             </a>
-            <a href="dev" class="footer-button">
+            <a href="dev" class="nav-button">
                 <img src="app/assets/tarefas.jpg" alt="Tarefas">
             </a>
-            <a href="dev" class="footer-button">
+            <a href="dev" class="nav-button">
                 <img src="app/assets/progresso.jpg" alt="Progresso">
             </a>
         </nav>
