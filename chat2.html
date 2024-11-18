@@ -43,13 +43,14 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: var(--color-background);
-    color: var(--color-text);
-    line-height: 1.5;
-    height: 100vh;
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background-image: url('app/assets/background.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 /* Navigation Bars */
