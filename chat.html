@@ -1,21 +1,139 @@
-<div id="chat-container" style="display: flex; flex-direction: column; width: 100%; max-width: 600px; height: calc(100vh - 12rem); border: 1px solid #820ad1; border-radius: 10px; overflow: hidden; background: rgba(255, 255, 255, 0.85); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin: auto;">
-    <div id="chat-header" style="background-color: #820ad1; color: #ffffff; text-align: center; padding: 10px; font-size: 24px; flex-shrink: 0;">
-        Chat com Gabi GPT
-    </div>
-    <div id="chat-messages" style="flex: 1; padding: 10px; overflow-y: auto; background-color: #f9f9f9; display: flex; flex-direction: column; gap: 10px;">
-        <div class="chat-message" style="margin: 5px 0; padding: 10px; border-radius: 5px; background-color: #6aa84f; color: #ffffff; max-width: 80%; word-wrap: break-word;">
-            Olá! Como posso te ajudar?
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .chat-container {
+            width: 100%;
+            max-width: 400px;
+            height: 90vh;
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .chat-header {
+            background: linear-gradient(135deg, #8A2BE2, #4B0082);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .chat-header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .chat-messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 15px;
+            background-color: #f9f9f9;
+        }
+        .message {
+            max-width: 80%;
+            margin-bottom: 10px;
+            clear: both;
+        }
+        .message-bot {
+            float: left;
+            background-color: #E6E6FA;
+            color: black;
+            border-radius: 12px 12px 12px 0;
+            padding: 10px;
+        }
+        .message-user {
+            float: right;
+            background-color: #8A2BE2;
+            color: white;
+            border-radius: 12px 12px 0 12px;
+            padding: 10px;
+        }
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            background-color: white;
+            border-top: 1px solid #e0e0e0;
+        }
+        .chat-input input {
+            flex-grow: 1;
+            padding: 10px;
+            border: none;
+            background-color: #f4f4f4;
+            border-radius: 20px;
+            margin-right: 10px;
+        }
+        .chat-input button {
+            background: linear-gradient(135deg, #8A2BE2, #4B0082);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <img src="https://via.placeholder.com/40" alt="Gabi Avatar">
+            <h2>Gabi Chat</h2>
+            <div>🔔</div>
         </div>
-        <div class="chat-message self" style="background-color: #820ad1; margin-left: auto; text-align: right; padding: 10px; border-radius: 5px; color: #ffffff;">
-            Quero dicas de saúde!
+        <div class="chat-messages" id="chat-messages">
+            <div class="message message-bot">
+                Olá! Como posso ajudar você hoje? 💬
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" placeholder="Digite sua mensagem..." id="message-input">
+            <button id="send-button">Enviar</button>
         </div>
     </div>
-    <div id="chat-input" style="display: flex; border-top: 1px solid #ccc; background-color: #fff; padding: 10px; box-sizing: border-box; flex-shrink: 0;">
-        <input type="text" id="message-input" placeholder="Digite sua mensagem..." style="flex: 1; padding: 10px; border: none; outline: none; font-size: 18px;">
-        <button id="send-button" style="padding: 10px; background-color: #820ad1; color: #ffffff; border: none; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);">
-            Enviar
-        </button>
-    </div>
-</div>
 
-<script src="chat.js"></script>
+    <script>
+        const messageInput = document.getElementById('message-input');
+        const sendButton = document.getElementById('send-button');
+        const chatMessages = document.getElementById('chat-messages');
+
+        function addMessage(message, type) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', `message-${type}`);
+            messageElement.textContent = message;
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        sendButton.addEventListener('click', () => {
+            const message = messageInput.value.trim();
+            if (message) {
+                addMessage(message, 'user');
+                messageInput.value = '';
+
+                // Simulação de resposta do bot
+                setTimeout(() => {
+                    addMessage('Entendi. Como posso te ajudar com isso? 🤔', 'bot');
+                }, 1000);
+            }
+        });
+
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendButton.click();
+            }
+        });
+    </script>
