@@ -1,96 +1,16 @@
-<style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .chat-container {
-            width: 100%;
-            max-width: 400px;
-            height: 90vh;
-            background-color: white;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-        .chat-header {
-            background: linear-gradient(135deg, #8A2BE2, #4B0082);
-            color: white;
-            padding: 15px;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .chat-header img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        .chat-messages {
-            flex-grow: 1;
-            overflow-y: auto;
-            padding: 15px;
-            background-color: #f9f9f9;
-        }
-        .message {
-            max-width: 80%;
-            margin-bottom: 10px;
-            clear: both;
-        }
-        .message-bot {
-            float: left;
-            background-color: #E6E6FA;
-            color: black;
-            border-radius: 12px 12px 12px 0;
-            padding: 10px;
-        }
-        .message-user {
-            float: right;
-            background-color: #8A2BE2;
-            color: white;
-            border-radius: 12px 12px 0 12px;
-            padding: 10px;
-        }
-        .chat-input {
-            display: flex;
-            padding: 10px;
-            background-color: white;
-            border-top: 1px solid #e0e0e0;
-        }
-        .chat-input input {
-            flex-grow: 1;
-            padding: 10px;
-            border: none;
-            background-color: #f4f4f4;
-            border-radius: 20px;
-            margin-right: 10px;
-        }
-        .chat-input button {
-            background: linear-gradient(135deg, #8A2BE2, #4B0082);
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-        }
-    </style>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabi GPT</title>
+    <!-- Link para o arquivo CSS -->
+    <link rel="stylesheet" href="chat.css">
 </head>
 <body>
     <div class="chat-container">
         <div class="chat-header">
-            <img src="https://via.placeholder.com/40" alt="Gabi Avatar">
+            <img src="gabi-gpt.jpg" alt="Gabi GPT">
             <h2>Gabi Chat</h2>
             <div>🔔</div>
         </div>
@@ -105,35 +25,7 @@
         </div>
     </div>
 
-    <script>
-        const messageInput = document.getElementById('message-input');
-        const sendButton = document.getElementById('send-button');
-        const chatMessages = document.getElementById('chat-messages');
-
-        function addMessage(message, type) {
-            const messageElement = document.createElement('div');
-            messageElement.classList.add('message', `message-${type}`);
-            messageElement.textContent = message;
-            chatMessages.appendChild(messageElement);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
-        sendButton.addEventListener('click', () => {
-            const message = messageInput.value.trim();
-            if (message) {
-                addMessage(message, 'user');
-                messageInput.value = '';
-
-                // Simulação de resposta do bot
-                setTimeout(() => {
-                    addMessage('Entendi. Como posso te ajudar com isso? 🤔', 'bot');
-                }, 1000);
-            }
-        });
-
-        messageInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                sendButton.click();
-            }
-        });
-    </script>
+    <!-- Link para o arquivo JavaScript -->
+    <script src="chat.js"></script>
+</body>
+</html>
