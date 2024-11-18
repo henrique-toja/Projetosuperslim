@@ -57,25 +57,24 @@ body {
 /* Chat Container */
 
 .chat-container {
+    width: 100%;
     min-height: 100vh;
-    max-height: calc(100vh - 12rem); /* Subtrai as alturas do header e footer */
     max-width: 600px;
-    background: rgba(255, 255, 255, 0.75);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    height: calc(100vh - 12rem);
+    box-shadow: var(--shadow-lg);
+    display: grid;
     flex-direction: column;
+    overflow: hidden;
+    margin: 20px 0;
+    place-items: center;
+    background: rgba(255, 255, 255, 0.75);
+    transition: transform 0.3s ease;
     flex: 1;
     padding: 2rem;
-    display: grid;
-    place-items: center;
-    margin-top: 6rem;  /* Ajuste conforme necessário */
-    margin-bottom: 6rem;  /* Ajuste conforme necessário */
-    overflow-y: auto; /* Permite rolagem vertical se necessário */
+    margin-top: 6rem;
+    margin-bottom: 6rem;
 }
 
-    margin: 20px 0;
-    border-radius: 10px;
-}
 /* Chat Header */
 .chat-header {
     display: flex;
