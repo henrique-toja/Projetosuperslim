@@ -103,8 +103,23 @@
             cursor: pointer;
         }
     </style>
+    <link rel="stylesheet" href="app.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <a href="dev" class="header-button">
+                <img src="app/assets/perfil.jpg" alt="Perfil">
+            </a>
+            <a href="https://www.gabrielatorraca.com.br" class="header-button">
+                <img src="app/assets/suplementos.jpg" alt="Suplementos">
+            </a>
+            <a href="https://instagram.com/gabriela.torraca" class="header-button">
+                <img src="app/assets/comunidade.jpg" alt="Comunidade">
+            </a>
+        </nav>
+    </header>
+<main>
     <div class="chat-container">
         <div class="chat-header">
             <img src="app/assets/gabi-gpt.jpg" alt="Gabi Avatar">
@@ -121,6 +136,20 @@
             <button id="send-button">Enviar</button>
         </div>
     </div>
+</main>
+    <footer>
+        <nav>
+           <a class="footer-button" data-page="chat.html">
+            <img src="app/assets/gabi-gpt.jpg" alt="Gabi GPT">
+            </a>
+            <a href="dev" class="footer-button">
+                <img src="app/assets/tarefas.jpg" alt="Tarefas">
+            </a>
+            <a href="dev" class="footer-button">
+                <img src="app/assets/progresso.jpg" alt="Progresso">
+            </a>
+        </nav>
+    </footer>
     <script>
         const messageInput = document.getElementById('message-input');
         const sendButton = document.getElementById('send-button');
