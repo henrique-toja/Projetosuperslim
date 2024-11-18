@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 
-    // Carrega o conteúdo inicial da página main.html
+    // Carrega o conteúdo inicial
     loadContent('main.html');
 
     // Seleciona todos os botões com o atributo data-page
@@ -28,8 +28,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Verifica se o botão tem o atributo data-page
             if (page) {
-                event.preventDefault();
-                loadContent(page);
+                event.preventDefault(); // Previne o redirecionamento padrão
+                loadContent(page); // Carrega o conteúdo da página
             }
         });
     });
