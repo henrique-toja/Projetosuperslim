@@ -1,27 +1,30 @@
-const chatMessages = document.getElementById('chat-messages');
 const messageInput = document.getElementById('message-input');
 const sendButton = document.getElementById('send-button');
+const chatMessages = document.getElementById('chat-messages');
+
+function addMessage(message, type) {
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('message', `message-${type}`);
+    messageElement.textContent = message;
+    chatMessages.appendChild(messageElement);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
 
 sendButton.addEventListener('click', () => {
-    const messageText = messageInput.value.trim();
-    if (messageText !== '') {
-        // Adiciona a mensagem na tela como enviada pelo usuário
-        const messageDiv = document.createElement('div');
-        messageDiv.classList.add('chat-message', 'self');
-        messageDiv.textContent = messageText;
-        chatMessages.appendChild(messageDiv);
-
-        // Limpa o campo de entrada
+    const message = messageInput.value.trim();
+    if (message) {
+        addMessage(message, 'user');
         messageInput.value = '';
-        chatMessages.scrollTop = chatMessages.scrollHeight;
 
-        // Simula uma resposta automática
+        // Simulação de resposta do bot
         setTimeout(() => {
-            const botMessage = document.createElement('div');
-            botMessage.classList.add('chat-message');
-            botMessage.textContent = "Obrigado por sua mensagem! 😊";
-            chatMessages.appendChild(botMessage);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
+            addMessage('Entendi. Como posso te ajudar com isso? 🤔', 'bot');
         }, 1000);
+    }
+});
+
+messageInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        sendButton.click();
     }
 });
