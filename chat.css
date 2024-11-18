@@ -54,18 +54,6 @@ body {
     background-position: center;
 }
 
-/* Main Content */
-main {
-    flex: 1;
-    padding: 2rem;
-    display: grid;
-    place-items: center;
-    margin-top: 6rem;  /* Ajuste conforme necessário */
-    margin-bottom: 6rem;  /* Ajuste conforme necessário */
-    max-height: calc(100vh - 12rem); /* Subtrai as alturas do header e footer */
-    overflow-y: hidden; /* Permite rolagem vertical se necessário */
-}
-
 /* Chat Container */
 .chat-container {
     width: 100%;
