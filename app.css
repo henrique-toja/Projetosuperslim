@@ -205,7 +205,6 @@ nav {
     transform: scale(0.9);
 }
 
-
 /* Estilos do container principal do chat */
 #chat-container {
     display: flex;
@@ -219,6 +218,7 @@ nav {
     background: rgba(255, 255, 255, 0.85);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: auto;
+    position: relative; /* Para garantir que o container se posicione corretamente */
 }
 
 /* Cabeçalho do chat */
@@ -228,14 +228,18 @@ nav {
     text-align: center;
     padding: 10px;
     font-size: var(--font-size-h3);
+    flex-shrink: 0; /* Impede que o cabeçalho encolha */
 }
 
-/* Mensagens do chat */
+/* Mensagens do chat (área rolável) */
 #chat-messages {
     flex: 1;
     padding: 10px;
-    overflow-y: auto;
+    overflow-y: auto; /* Adiciona rolagem apenas aqui */
     background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 /* Estilo das mensagens */
@@ -260,6 +264,9 @@ nav {
     display: flex;
     border-top: 1px solid #ccc;
     background-color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    flex-shrink: 0; /* Impede que o campo de entrada encolha */
 }
 
 #message-input {
