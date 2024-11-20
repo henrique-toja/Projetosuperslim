@@ -249,3 +249,28 @@ button:hover, button:focus {
     flex-direction: column;
     padding: 20px;
 }
+
+/* Estilo das imagens com os mesmos efeitos dos botões */
+.image img {
+    width: 99%;
+    height: 99%;
+    border-radius: 0.6rem;
+    object-fit: cover;
+    transition: var(--button-transition);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Efeito de hover nas imagens */
+.image:hover img {
+    transform: scale(0.95);
+    box-shadow: 
+        8px 8px 16px rgba(0, 0, 0, 0.15),
+        -8px -8px 16px rgba(255, 255, 255, 0.9);
+}
+
+/* Efeito de clique nas imagens */
+.image:active img {
+    transform: scale(0.9);
+    box-shadow: var(--button-inner-shadow);
+    background: linear-gradient(145deg, #f0f0f0, #ffffff);
+}
