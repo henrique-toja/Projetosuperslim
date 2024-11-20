@@ -47,7 +47,8 @@
 
 /* Chat Messages */
 .chat-messages {
-    flex: 1; /* Ocupa o restante do espaço no container */
+    flex: 1;
+    max-height: calc(100vh - var(--header-height) - var(--footer-height) - 60px); /* Limita a altura do conteúdo */
     overflow-y: auto; /* Permite rolagem interna */
     padding: 20px;
     display: flex;
