@@ -4,8 +4,8 @@ const urlsToCache = [
   "/app/",
   "/app/app.css",
   "/assets/icon.ico",
-  "/assets/icon.ico",
-  "/assets/icon.ico"
+  "/assets/icon-192x192.png",
+  "/assets/icon-512x512.png"
 ];
 
 // Instalação do Service Worker
