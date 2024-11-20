@@ -250,36 +250,45 @@ button:hover, button:focus {
     padding: 20px;
 }
 
-/* Estilo do contêiner da imagem */
+/* Estilos do nav (barra de navegação) */
 .image {
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center;     /* Centraliza verticalmente */
-    width: 100%;             /* Define a largura do contêiner como 100% do espaço disponível */
-    height: 100%;            /* Define a altura do contêiner como 100% do espaço disponível */
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo das imagens com os mesmos efeitos dos botões */
+
+
+/* Estilos dos botões (header e footer) */
+.imagem IMG {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    background: var(--button-gradient);
+    border: 1px solid var(--color-green);
+    border-radius: 0.6rem;
+    box-shadow: var(--button-shadow);
+    transition: var(--button-transition);
+    overflow: hidden;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    animation: buttonAppear 0.5s ease-out forwards;
+}
+
+/* Estilo das imagens dentro dos botões */
 .image img {
-    width: 40%;      /* Reduzindo a largura para 80% */
-    height: 40%;     /* Reduzindo a altura para 80% */
-    border-radius: 1rem;  /* Aumentando o arredondamento para 1rem */
+    width: 99%;
+    height: 99%;
+    border-radius: 0.6rem;
     object-fit: cover;
     transition: var(--button-transition);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Efeito de hover nas imagens */
-.image:hover img {
-    transform: scale(0.95);
-    box-shadow: 
-        8px 8px 16px rgba(0, 0, 0, 0.15),
-        -8px -8px 16px rgba(255, 255, 255, 0.9);
-}
-
-/* Efeito de clique nas imagens */
-.image:active img {
-    transform: scale(0.9);
-    box-shadow: var(--button-inner-shadow);
-    background: linear-gradient(145deg, #f0f0f0, #ffffff);
-}
