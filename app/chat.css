@@ -13,7 +13,7 @@
 .chat-container {
     width: 100%;
     max-width: 600px;
-    height: 60vh; /* Tamanho fixo do container */
+    height: 40vh; /* Tamanho fixo do container */
     background: rgba(255, 255, 255, 0.75);
     border-radius: 10px;
     display: flex;
