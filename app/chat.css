@@ -1,5 +1,5 @@
 /* Estilo específico para o chat */
-.chat {
+.chat page{
     display: flex;
     justify-content: center;
     align-items: center;
