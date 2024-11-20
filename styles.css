@@ -192,3 +192,11 @@ footer nav ul li a {
     color: var(--color-white);
     text-decoration: underline;
 }
+
+.image img {
+    width: 100%;
+    height: auto;
+    max-width: 400px;  /* Limita o tamanho máximo da imagem */
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
