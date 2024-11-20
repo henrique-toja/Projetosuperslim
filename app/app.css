@@ -261,8 +261,8 @@ button:hover, button:focus {
 
 /* Estilo das imagens com os mesmos efeitos dos botões */
 .image img {
-    width: 80%;      /* Reduzindo a largura para 80% */
-    height: 80%;     /* Reduzindo a altura para 80% */
+    width: 40%;      /* Reduzindo a largura para 80% */
+    height: 40%;     /* Reduzindo a altura para 80% */
     border-radius: 1rem;  /* Aumentando o arredondamento para 1rem */
     object-fit: cover;
     transition: var(--button-transition);
