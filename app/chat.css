@@ -1,10 +1,3 @@
-/* Estilo global do body */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f0f0f0;
-}
-
 /* Estilo específico para o chat */
 .chat-page {
     display: flex;
