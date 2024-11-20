@@ -40,7 +40,7 @@ main {
     margin-top: 6rem;  /* Ajuste conforme necessário */
     margin-bottom: 6rem;  /* Ajuste conforme necessário */
     max-height: calc(100vh - 12rem); /* Subtrai as alturas do header e footer */
-    overflow-y: auto; /* Permite rolagem vertical se necessário */
+    overflow-y: hidden; /* Permite rolagem vertical se necessário */
 }
 
 body {
