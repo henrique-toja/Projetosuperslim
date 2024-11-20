@@ -250,23 +250,18 @@ button:hover, button:focus {
     padding: 20px;
 }
 
-/* Estilo para as seções de assistente */
-.image {
-    background-color: #fff;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
+/* Estilos para as imagens */
 .image {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-bottom: 15px;
 }
 
 .image img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
+    max-width: 600px;  /* Limita o tamanho máximo da imagem */
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
