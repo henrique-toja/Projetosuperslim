@@ -36,7 +36,7 @@
     <main class="chat-page">
         <section class="chat-container">
             <div class="chat-header">
-                <img src="/app/assets/gabi-gpt.jpg" alt="Gabi GPT">
+                <img src="/app/assets/gabi-gpt-exercicios.jpg" alt="Gabi GPT">
                 <h2>Gabi GPT - Personal Trainer</h2>
                 <div>💬</div>
             </div>
