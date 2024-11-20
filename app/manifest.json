@@ -1,21 +1,21 @@
 {
-  "name": "Projeto Super Slim",
   "short_name": "Projeto Super Slim",
-  "description": "Transforme o emagrecimento em uma experiência leve e agradável com o Projeto Super Slim. Junte-se à nossa comunidade e atinja seus objetivos de forma saudável!",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#820ad1",
+  "name": "Projeto Super Slim App",
   "icons": [
     {
       "src": "/assets/icon.ico",
-      "sizes": "192x192",
-      "type": "image/ico"
+      "type": "image/png",
+      "sizes": "192x192"
     },
     {
-      "src": "/assets/icon.ici",
-      "sizes": "512x512",
-      "type": "image/ico"
+      "src": "/assets/icon.ico",
+      "type": "image/png",
+      "sizes": "512x512"
     }
-  ]
+  ],
+  "start_url": "/app/",
+  "background_color": "#ffffff",
+  "theme_color": "#820ad1",
+  "display": "standalone",
+  "orientation": "portrait-primary"
 }
