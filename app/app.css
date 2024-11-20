@@ -250,45 +250,23 @@ button:hover, button:focus {
     padding: 20px;
 }
 
-/* Estilos do nav (barra de navegação) */
+/* Estilo para as seções de assistente */
+.image {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .image {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
-    padding: 0.5rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 1.5rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
 }
 
-
-
-/* Estilos dos botões (header e footer) */
-.imagem IMG {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 5rem;
-    height: 5rem;
-    background: var(--button-gradient);
-    border: 1px solid var(--color-green);
-    border-radius: 0.6rem;
-    box-shadow: var(--button-shadow);
-    transition: var(--button-transition);
-    overflow: hidden;
-    cursor: pointer;
-    transform-style: preserve-3d;
-    animation: buttonAppear 0.5s ease-out forwards;
-}
-
-/* Estilo das imagens dentro dos botões */
 .image img {
-    width: 99%;
-    height: 99%;
-    border-radius: 0.6rem;
-    object-fit: cover;
-    transition: var(--button-transition);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
-
