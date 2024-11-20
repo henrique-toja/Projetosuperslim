@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gabi GPT - Assistente IA - Projeto Super Slim"</title>
+    <title>Gabi GPT - Assistente IA - Exercícios"</title>
     <link rel="icon" href="assets/icon.ico" type="image/x-icon">
     <meta name="description" content="Gabi GPT - Assistente IA - Projeto Super Slim" />
     <meta property="og:title" content="Gabi GPT - Exercícios" />
@@ -37,7 +37,7 @@
         <section class="chat-container">
             <div class="chat-header">
                 <img src="/app/assets/gabi-gpt.jpg" alt="Gabi GPT">
-                <h2>Gabi GPT - Nutrição</h2>
+                <h2>Gabi GPT - Personal Trainer</h2>
                 <div>💬</div>
             </div>
             <div class="chat-messages" id="chat-messages">
