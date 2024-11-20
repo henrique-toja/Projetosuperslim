@@ -1,0 +1,294 @@
+:root {
+    --color-purple: #820ad1;
+    --color-green: #6aa84f;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --font-size-body: 18px;
+    --font-size-button: 18px;
+    --font-size-h3: 24px;
+    --font-family-body: 'Open Sans', 'Noto Sans', 'Helvetica Neue', sans-serif;
+    --font-family-h3: 'Playfair Display', 'Georgia', serif;
+    --font-family-button: 'Roboto', 'Segoe UI', sans-serif;
+    --button-gradient: linear-gradient(145deg, var(--color-green) 60%, var(--color-green) 30%, var(--color-green) 10%);
+    --button-shadow: 0px 0px 25px 4px var(--color-green);
+    --button-inner-shadow: inset 0px 0px 8px 4px var(--color-purple);
+    --button-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --header-height: 6rem;
+    --footer-height: 6rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body);
+    background-image: url('app/assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    margin-top: var(--header-height);
+    margin-bottom: var(--footer-height);
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem;
+}
+
+/* Chat Container */
+.chat-container {
+    width: 100%;
+    max-width: 600px;
+    height: calc(100vh - var(--header-height) - var(--footer-height) - 4rem);
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Chat Header */
+.chat-header {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: linear-gradient(135deg, var(--color-purple), #6a0dad);
+    color: white;
+    gap: 10px;
+}
+
+.chat-header img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.chat-header h2 {
+    flex: 1;
+    font-size: 18px;
+    margin: 0;
+}
+
+/* Chat Messages */
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.message {
+    max-width: 75%;
+    padding: 12px 15px;
+    border-radius: 15px;
+    font-size: 15px;
+    line-height: 1.4;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.message-bot {
+    align-self: flex-start;
+    background-color: #f0f0f0;
+    border-bottom-left-radius: 5px;
+}
+
+.message-user {
+    align-self: flex-end;
+    background-color: var(--color-purple);
+    color: white;
+    border-bottom-right-radius: 5px;
+}
+
+/* Chat Input */
+.chat-input {
+    padding: 15px;
+    background-color: #f8f8f8;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.chat-input input:focus {
+    border-color: var(--color-purple);
+}
+
+.chat-input button {
+    background: var(--color-purple);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.chat-input button:hover {
+    background: #6a0dad;
+}
+
+/* Scrollbar */
+.chat-messages::-webkit-scrollbar {
+    width: 5px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 5px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos do nav (barra de navegação) */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos do header e footer */
+header, footer {
+    background-color: none;
+    backdrop-filter: none;
+    padding: 1rem;
+    box-shadow: none;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+header {
+    top: 0;
+    background-size: cover;
+}
+
+footer {
+    bottom: 0;
+    background-size: cover;
+}
+
+/* Estilos dos botões (header e footer) */
+.header-button, .footer-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    background: var(--button-gradient);
+    border: 1px solid var(--color-green);
+    border-radius: 0.6rem;
+    box-shadow: var(--button-shadow);
+    transition: var(--button-transition);
+    overflow: hidden;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    animation: buttonAppear 0.5s ease-out forwards;
+}
+
+/* Estilo das imagens dentro dos botões */
+.header-button img, .footer-button img {
+    width: 99%;
+    height: 99%;
+    border-radius: 0.6rem;
+    object-fit: cover;
+    transition: var(--button-transition);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Efeito de hover nos botões (quando o mouse passa por cima) */
+.header-button:hover, .footer-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 
+        8px 8px 16px rgba(0, 0, 0, 0.15),
+        -8px -8px 16px rgba(255, 255, 255, 0.9);
+}
+
+/* Efeito no brilho ao passar o mouse sobre o botão */
+.header-button:hover::before, .footer-button:hover::before {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Efeito de transformação na imagem ao passar o mouse sobre o botão */
+.header-button:hover img, .footer-button:hover img {
+    transform: scale(0.95);
+}
+
+/* Efeito de clique nos botões (quando o botão é pressionado) */
+.header-button:active, .footer-button:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: var(--button-inner-shadow);
+    background: linear-gradient(145deg, #f0f0f0, #ffffff);
+}
+
+/* Efeito na imagem ao pressionar o botão */
+.header-button:active img, .footer-button:active img {
+    transform: scale(0.9);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .chat-container {
+        height: calc(100vh - var(--header-height) - var(--footer-height));
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .message {
+        max-width: 85%;
+    }
+
+    .header-button, .footer-button {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
