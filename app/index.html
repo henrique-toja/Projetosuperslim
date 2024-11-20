@@ -53,14 +53,32 @@
         </nav>
     </footer>
 <link rel="manifest" href="/app/manifest.json">
-<script>
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/app/service-worker.js').then(registration => {
-    console.log('Service Worker registrado:', registration);
-  }).catch(err => {
-    console.error('Erro ao registrar Service Worker:', err);
+<<script>
+  // Registrar o Service Worker
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/app/service-worker.js')
+        .then(registration => {
+          console.log('Service Worker registrado:', registration);
+        })
+        .catch(err => {
+          console.error('Erro ao registrar Service Worker:', err);
+        });
+    });
+  }
+
+  // Ativar modo de tela cheia ao carregar o app em standalone
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+      if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen().catch(err => {
+          console.error('Erro ao ativar tela cheia:', err);
+        });
+      } else {
+        console.warn('API de tela cheia não suportada neste navegador.');
+      }
+    }
   });
-}
 </script>
 </body>
 </html>
