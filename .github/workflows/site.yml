@@ -1,0 +1,26 @@
+name: Deploy Site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Ajuste para a branch que você usa para deploy, como 'main' ou 'master'
+  pull_request:
+    branches:
+      - main  # Também pode ser ajustado para 'master' ou outras branches, conforme necessário
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Define o ambiente de execução (Ubuntu mais recente)
+
+    steps:
+      # Passo 1: Checar o código fonte
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Passo 2: Publicar no GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.1.2
+        with:
+          branch: gh-pages  # Branch onde o site será publicado
+          folder: .  # A pasta que contém os arquivos que você deseja publicar. Pode ser '.' ou 'dist' se usar um diretório de build
+          token: ${{ secrets.API_GITHUB_TOKEN }}  # Utiliza o seu token personalizado
