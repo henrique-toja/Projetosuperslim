@@ -5,7 +5,7 @@ const chatMessages = document.getElementById('chat-messages');
 
 // API Configuração
 const API_ENDPOINT = "https://models.inference.ai.azure.com/v1/chat/completions";
-const API_KEY = "sua_chave_api"; // Substitua pela chave real
+const API_KEY = "API_GITHUB_TOKEN"; // Substitua pela chave real
 const MODEL_NAME = "gpt-4o-mini"; // Modelo usado na API
 
 // Função para adicionar mensagens ao chat
