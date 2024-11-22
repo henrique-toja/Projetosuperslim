@@ -17,6 +17,25 @@ function addMessage(message, type) {
     chatMessages.scrollTop = chatMessages.scrollHeight; // Rolagem automática para o final
 }
 
+// Função de envio de mensagem
+async function sendMessage() {
+    const message = messageInput.value.trim();
+    if (message) {
+        // Adiciona a mensagem do usuário ao chat
+        addMessage(message, 'user');
+        messageInput.value = '';
+
+        // Exibe uma mensagem de "digitando" enquanto aguarda a resposta
+        addMessage('Gabi-GPT está digitando...', 'bot');
+        const typingMessage = chatMessages.querySelector('.message-bot:last-child');
+
+        // Chama a função de obter resposta da API
+        const botResponse = await getBotResponse(message);
+        if (typingMessage) typingMessage.remove(); // Remove a mensagem de "digitando"
+        addMessage(botResponse, 'bot');
+    }
+}
+
 // Função para obter resposta da API
 async function getBotResponse(userMessage) {
     try {
@@ -64,23 +83,7 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 // Evento de clique no botão de envio
-sendButton.addEventListener('click', async () => {
-    const message = messageInput.value.trim();
-    if (message) {
-        // Adiciona a mensagem do usuário ao chat
-        addMessage(message, 'user');
-        messageInput.value = '';
-
-        // Exibe uma mensagem de "digitando" enquanto aguarda a resposta
-        addMessage('Gabi-GPT está digitando...', 'bot');
-        const typingMessage = chatMessages.querySelector('.message-bot:last-child');
-
-        // Obtém a resposta do bot e atualiza o chat
-        const botResponse = await getBotResponse(message);
-        if (typingMessage) typingMessage.remove(); // Remove a mensagem de "digitando"
-        addMessage(botResponse, 'bot');
-    }
-});
+sendButton.addEventListener('click', sendMessage);
 
 // Evento de envio ao pressionar Enter
 messageInput.addEventListener('keypress', (e) => {
