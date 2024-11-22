@@ -3,6 +3,25 @@ const messageInput = document.getElementById('message-input');
 const sendButton = document.getElementById('send-button');
 const chatMessages = document.getElementById('chat-messages');
 
+// Exibe mensagem inicial ao carregar a página
+window.addEventListener('DOMContentLoaded', () => {
+    const welcomeMessage = 
+        "Olá! Eu sou a Gabi-GPT, sua Assistente IA oficial do Projeto Super Slim. " +
+        "Estou aqui para ajudar você com dicas personalizadas de exercícios físicos. " +
+        "Como posso ajudar você hoje?";
+    addMessage(welcomeMessage, 'bot');
+});
+
+// Evento de clique no botão de envio
+sendButton.addEventListener('click', sendMessage);
+
+// Evento de envio ao pressionar Enter
+messageInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        sendButton.click();
+    }
+});
+
 // API Configuração
 const API_ENDPOINT = "https://models.inference.ai.azure.com/v1/chat/completions";  // Endpoint correto
 const API_KEY = API_GITHUB_TOKEN; // Obtendo a chave API do GitHub Secrets
@@ -72,22 +91,3 @@ async function getBotResponse(userMessage) {
         return "Desculpe, ocorreu um problema ao tentar processar sua mensagem. Tente novamente mais tarde.";
     }
 }
-
-// Exibe mensagem inicial ao carregar a página
-window.addEventListener('DOMContentLoaded', () => {
-    const welcomeMessage = 
-        "Olá! Eu sou a Gabi-GPT, sua Assistente IA oficial do Projeto Super Slim. " +
-        "Estou aqui para ajudar você com dicas personalizadas de exercícios físicos. " +
-        "Como posso ajudar você hoje?";
-    addMessage(welcomeMessage, 'bot');
-});
-
-// Evento de clique no botão de envio
-sendButton.addEventListener('click', sendMessage);
-
-// Evento de envio ao pressionar Enter
-messageInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        sendButton.click();
-    }
-});
