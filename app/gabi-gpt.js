@@ -27,7 +27,14 @@ async function getBotResponse(userMessage) {
             body: JSON.stringify({
                 model: MODEL_NAME,
                 messages: [
-                    { role: "system", content: "Você é um assistente especializado em exercícios físicos e saúde." },
+                    { 
+                        role: "system", 
+                        content: 
+                        "Você é Gabi-GPT, a Assistente Oficial do Projeto Super Slim. " +
+                        "Seu papel é oferecer dicas personalizadas de exercícios para as participantes, " +
+                        "motivá-las e guiá-las em suas jornadas de emagrecimento. " +
+                        "Seja acolhedora, prestativa e motivadora em suas respostas." 
+                    },
                     { role: "user", content: userMessage }
                 ]
             })
@@ -45,6 +52,15 @@ async function getBotResponse(userMessage) {
     }
 }
 
+// Exibe mensagem inicial ao abrir a página
+window.addEventListener('DOMContentLoaded', () => {
+    const welcomeMessage = 
+        "Olá! Eu sou a Gabi-GPT, sua Assistente IA oficial do Projeto Super Slim. " +
+        "Estou aqui para ajudar você com dicas personalizadas de exercícios físicos. " +
+        "Como posso ajudar você hoje?";
+    addMessage(welcomeMessage, 'bot');
+});
+
 // Evento para enviar mensagem
 sendButton.addEventListener('click', async () => {
     const message = messageInput.value.trim();
@@ -56,8 +72,9 @@ sendButton.addEventListener('click', async () => {
         addMessage('Gabi-GPT está digitando...', 'bot');
 
         // Obtém a resposta do bot e exibe
-        const botResponse = await getBotResponse(message);
         const typingMessage = chatMessages.querySelector('.message-bot:last-child');
+        const botResponse = await getBotResponse(message);
+
         if (typingMessage) typingMessage.remove(); // Remove a mensagem de "digitando"
 
         addMessage(botResponse, 'bot');
