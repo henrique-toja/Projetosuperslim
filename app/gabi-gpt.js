@@ -4,8 +4,8 @@ const sendButton = document.getElementById('send-button');
 const chatMessages = document.getElementById('chat-messages');
 
 // API Configuração
-const API_ENDPOINT = "https://models.inference.ai.azure.com/v1/chat/completions";
-const API_KEY = "API_GITHUB_TOKEN"; // Substitua pela chave real
+const API_ENDPOINT = "https://models.inference.ai.azure.com/v1/chat/completions";  // Endpoint correto
+const API_KEY = process.env.API_GITHUB_TOKEN; // Obtendo a chave API do GitHub Secrets
 const MODEL_NAME = "gpt-4o-mini"; // Modelo usado na API
 
 // Função para adicionar mensagens ao chat
@@ -43,7 +43,7 @@ async function getBotResponse(userMessage) {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${API_KEY}`
+                "Authorization": `Bearer ${API_KEY}` // Autorização com a chave da API
             },
             body: JSON.stringify({
                 model: MODEL_NAME,
@@ -66,7 +66,7 @@ async function getBotResponse(userMessage) {
         }
 
         const data = await response.json();
-        return data.choices[0].message.content;
+        return data.choices[0].message.content; // Retorna a resposta do bot
     } catch (error) {
         console.error("Erro ao obter resposta do bot:", error);
         return "Desculpe, ocorreu um problema ao tentar processar sua mensagem. Tente novamente mais tarde.";
