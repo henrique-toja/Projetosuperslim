@@ -66,7 +66,7 @@ async function sendMessage(messageInput, chatMessages) {
 // Função para obter resposta da API
 async function getBotResponse(userMessage) {
     const API_ENDPOINT = "https://models.inference.ai.azure.com/v1/chat/completions"; 
-    const API_KEY = "SUA_CHAVE_AQUI"; // Substitua por sua chave real
+    const API_KEY = API_GITHUB_TOKEN; // Substitua por sua chave real
     const MODEL_NAME = "gpt-4o-mini";
 
     try {
