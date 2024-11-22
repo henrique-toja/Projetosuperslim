@@ -1,0 +1,13 @@
+{
+  "name": "gabi-gpt",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node gabi-gpt.js"
+  },
+  "dependencies": {
+    "@azure-rest/ai-inference": "latest",
+    "@azure/core-auth": "latest",
+    "dotenv": "latest"
+  }
+}
