@@ -203,7 +203,7 @@ footer nav ul li a {
 
 .install {
     padding: 12px 24px;
-    background-color: #0070c9;
+    background-color: ##820ad1;
     border-radius: 5px;
     color: white;
     font-size: 16px;
@@ -212,5 +212,5 @@ footer nav ul li a {
 }
 
 .install:hover {
-    background-color: #005ea7;
+    background-color: #6aa84f;
 }
